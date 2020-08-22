@@ -19,15 +19,6 @@ If you are interested in building an application with Rippling, please see the [
 
 ## Customers
 
-Rippling customers can use their API keys in order to access on the Rippling platform on their organization's behalf.
+Rippling customers use their API keys in order to access the Rippling platform on their organization's behalf.
 
-If you're a Rippling customer, please see the Customer Guide on building with Rippling.
-
-
-
-## Authentication
-
-
-
-
-
+If you're a Rippling customer, please see the [Customer Guide](https://rippling.stoplight.io/docs/rippling-api/docs/c-Customers.md) on building with Rippling.

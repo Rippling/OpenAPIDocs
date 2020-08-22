@@ -1,3 +1,7 @@
+---
+tags: [customers, Intro]
+---
+
 # Customers
 
 Rippling customers access the Rippling API to retrieve and update information their organization's behalf.
