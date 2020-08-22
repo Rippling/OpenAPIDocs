@@ -4,8 +4,6 @@ tags: [partners, Intro]
 
 # Partner Applications
 
-## The Development Process
-
 To develop an integrated application on Rippling, you will follow the development process listed below.
 
 <!-- theme: success -->
