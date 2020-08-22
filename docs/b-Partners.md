@@ -38,7 +38,7 @@ For an example of a Rippling Application listing, please see [here](https://www.
 | Product Description        | _Required_ An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.|
 | Integration Description    | _Required_ An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.|
 | Logo Package               | _Required_ A monotone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application.|
-| App Category | The App Shop category that you would your application listed in. See the [Rippling App Shop](rippling.com/app-shop) for the current categories.|
+| App Category | _Required_ The App Shop category that you would your application listed in. See the [Rippling App Shop](rippling.com/app-shop) for the current categories.|
 | G2 Crowd URL               | _Optional_ If your application has a G2 Crowd listing, please provide the URL to your listing. The Rippling App Shop relies on G2 Crowd to pull in review.|
 
 **Logo Requirements**
@@ -50,12 +50,18 @@ For an example of a Rippling Application listing, please see [here](https://www.
 
 | Property           | Description                                                                                                                                |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Redirect URLs | *Required* Two redirect URLs: Staging Redirect URL and Production Redirect URL.                                                            |
-| SSO URLs      | *Optional* Two SSO URLs: Staging SSO URL and Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in. |
-| Webhook URL   | *Optional* One Webhook URL: Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                 |
+| Redirect URLs | *Required* Two redirect URLs: a Staging Redirect URL and a Production Redirect URL.                                                            |
+| SSO URLs      | *Optional* Two SSO URLs: a Staging SSO URL and a Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in. |
+| Webhook URL   | *Optional* One Webhook URL: a Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                 |
 |Scopes   |*Required* The permission scopes that your application will require. Customers installing your application will need to authorize the application to access these scopes on their behalf.
 
-Additionally, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application.
+As noted, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application. Each required scope should be explicitly listed in the following form.
+
+- employee
+- employee:workEmail
+- employee:title
+
+For more information on Rippling scopes, please see [here]().
 
 ### Build the Integration
 
