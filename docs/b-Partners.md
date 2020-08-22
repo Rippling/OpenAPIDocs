@@ -10,10 +10,16 @@ To develop an integrated application on Rippling, you will follow the developmen
 
 <!-- theme: success -->
 
-> 1. Submit your Development Package
-> 2. Build the Integration Against Rippling's Test Environment
-> 3. Receive Approval from the Rippling Development Team
-> 4. Launch the Integration in Rippling's Production Environment
+> 1. [Submit your Development Package](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md#submit-your-development-package)
+> 2. [Build the Integration Against Rippling's Test Environment](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md#build-the-integration)
+> 3. [Receive Approval from the Rippling Development Team](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md#receive-approval-from-rippling)
+> 4. [Launch the Integration in Rippling's Production Environment](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md#launch-the-integration)
+
+This process ensures that all Rippling integrated applications are lauched properly and provide the best possible user experience to our customers.
+
+<!-- theme: success -->
+
+> 💡 Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
 
 ### Submit your Development Package
 
@@ -24,9 +30,6 @@ The Rippling development package should consist of the assets listed below.
 - **Application Listing Assets**
 - **Configuration Properties**
 
-<!-- theme: success -->
-
-> 💡 Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
 
 #### Application Listing Assets
 
