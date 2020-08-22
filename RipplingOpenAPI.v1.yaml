@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Rippling's HRIS
+  title: The Rippling Platform
   version: '1.0'
   contact:
     name: Cory Pitt
@@ -8,16 +8,23 @@ info:
   license:
     name: MIT
   description: |-
-    Rippling's HRIS API Reference
+    Access to Rippling's Employee Management Platform requires an access token or API key that is tied to a Rippling client account.
 
-    Access to Rippling's HRIS API requires an access token or API key that is tied to a Rippling client account. If you are integrating an application with Rippling, you are required to use OAuth2.0 to retrieve access tokens for companies that install your application.
+    Please see here for an [overview on the Rippling Platform.](https://rippling.stoplight.io/docs/rippling-api/docs/a-Introduction.md)
 
-    If you are use Rippling's API to access services for your own company, a Rippling Admin for your organization can retrieve your API key from the Company Settings page on Rippling. It is against Rippling's Developer Terms to share your API key with a third-party application.
+    Additionally, you may find these quick guides useful in getting started.
+
+    - [Getting Started as a Application Partner](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md)
+    - [Getting Started as a Rippling Customer](https://rippling.stoplight.io/docs/rippling-api/docs/c-Customers.md)
+    - [Rippling Scopes](https://rippling.stoplight.io/docs/rippling-api/docs/e-Scopes.md)
+    - [The Rippling Postman Collection](https://rippling.stoplight.io/docs/rippling-api/docs/d-Postman.md)
 
     The access token or API key should be used as a bearer token for HTTP requests, for instance:
+
+    ```
     curl -H "Authorization: Bearer xxxxXXXxxxXXxxxXXXxxXXXxXXXXxXXXxxXXxXXX" \
       "https://api.rippling.com/platform/api/companies/current"
-  termsOfService: 'https://ripplingterms.com'
+    ```
 servers:
   - url: 'https://api.rippling.com/platform/api'
     description: Production
