@@ -11,8 +11,6 @@ The Rippling development package should consist of the assets listed below.
 - **Application Listing Assets**
 - **Configuration Properties**
 
-Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
-
 <!-- theme: success -->
 
 > 💡 Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
@@ -23,12 +21,12 @@ For an example of a Rippling Application listing, please see [here](https://www.
 
 | Asset                      | Description                                                                                                                                                                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Application Overview       | A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.                                                                                               |
-| Product Description        | An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.                                                                                                                         |
-| Integration Description    | An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.                                                                                                                           |
-| Logo Package               | A monotone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application. |
-| Rippling App Shop Category | The App Shop category that you would your application listed in. See the Rippling App Shop for the current categories.                                                                                                                                                                         |
-| G2 Crowd URL               | _Optional:_ If your application has a G2 Crowd listing, please provide the URL to your listing. The Rippling App Shop relies on G2 Crowd to pull in review.                                                                                                                                    |
+| Application Overview       | A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.|
+| Product Description        | An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.|
+| Integration Description    | An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.|
+| Logo Package               | A monotone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application.|
+| App Category | The App Shop category that you would your application listed in. See the [Rippling App Shop](rippling.com/app-shop) for the current categories.|
+| G2 Crowd URL               | _Optional:_ If your application has a G2 Crowd listing, please provide the URL to your listing. The Rippling App Shop relies on G2 Crowd to pull in review.|
 
 **Logo Requirements**
 
