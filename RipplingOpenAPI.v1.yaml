@@ -1949,14 +1949,9 @@ paths:
             - 'employee:payroll'
       tags:
         - B. Employees
-  'company_deductions/{deductionId}':
+  company_deductions/{deductionId}:
     parameters:
-      - schema:
-          type: string
-        name: deductionId
-        in: path
-        required: true
-        description: The unique identifier of the deduction that will be modified.
+      - $ref: '#/components/parameters/deductionId'
     patch:
       summary: Company Deduction Update
       operationId: patch-company_deductions-deductionId
@@ -4334,6 +4329,13 @@ components:
       name: employeeId
       in: path
       description: Unique identifier for the employee within Rippling.
+      schema:
+        type: integer
+      required: true
+    deductionId:
+      name: deductionId
+      in: path
+      description: Unique identifier for the deduction ID within Rippling.
       schema:
         type: integer
       required: true
