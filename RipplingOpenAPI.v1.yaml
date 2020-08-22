@@ -577,15 +577,8 @@ paths:
         - authorizationCode:
             - employee
       description: 'Retrieves the list of active employees. The fields retrieved depend on the employee scopes that you have access to for your access token or API key. The only guarenteeed fields include id, personalEmail, and roleState.'
-      parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/ein'
       tags:
         - B. Employees
-    parameters:
-      - required: true
-      - required: true
   /work_locations:
     get:
       summary: Work Locations
@@ -643,8 +636,6 @@ paths:
                           municipalityCode: ''
                           transitDistrictCode: ''
                           locationCode: 17-031-423587
-        '':
-          description: ''
       operationId: get-work_locations
       description: Returns the list of work locations for a given company.
       security:
@@ -1949,159 +1940,6 @@ paths:
             - 'employee:payroll'
       tags:
         - B. Employees
-  company_deductions/{deductionId}:
-    parameters:
-      - $ref: '#/components/parameters/deductionId'
-    patch:
-      summary: Company Deduction Update
-      operationId: patch-company_deductions-deductionId
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CompanyDeduction'
-              examples:
-                Success:
-                  value:
-                    - id: 5d4dce743ca04e63f32c8933
-                      deductionType: MEDICAL
-                      name: 401ka
-                      isMonthly: true
-                      employeeDeduction: null
-                      isEEPercent: false
-                      companyContribution: null
-                      isERPercent: false
-                      matchingScheme401K: NON_ELECTIVE
-                      employerMatch401K: []
-                    - id: 5e3c5dc80e3ac756badb0598
-                      deductionType: _401K
-                      name: 401K
-                      isMonthly: null
-                      employeeDeduction: '20.0000'
-                      isEEPercent: false
-                      companyContribution: '30.0000'
-                      isERPercent: false
-                      matchingScheme401K: NON_ELECTIVE
-                      employerMatch401K: []
-                    - id: 5e3c5dc80e3ac756badb059a
-                      deductionType: _401K_LOAN_PAYMENT
-                      name: 401K Loan Payment
-                      isMonthly: null
-                      employeeDeduction: '0.0000'
-                      isEEPercent: true
-                      companyContribution: '0.0000'
-                      isERPercent: true
-                      matchingScheme401K: NON_ELECTIVE
-                      employerMatch401K: []
-                    - id: 5e3c5dc80e3ac756badb059c
-                      deductionType: ROTH_401K
-                      name: Roth 401k
-                      isMonthly: null
-                      employeeDeduction: '9.0234'
-                      isEEPercent: true
-                      companyContribution: null
-                      isERPercent: true
-                      matchingScheme401K: NON_ELECTIVE
-                      employerMatch401K: []
-        '':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CompanyDeduction'
-              examples:
-                Success:
-                  value:
-                    id: 5d4dce743ca04e63f32c8933
-                    deductionType: _401K
-                    name: 401 Deduction Test
-                    isMonthly: true
-                    employeeDeduction: '20.0000'
-                    isEEPercent: true
-                    companyContribution: '0.0000'
-                    isERPercent: true
-                    matchingScheme401K: SAFE_HARBOR
-                    employerMatch401K:
-                      - erMatchPercent: '100.0000'
-                        eePercentComp: '20.0000'
-                        tierNum: 1
-                      - erMatchPercent: '50.0000'
-                        eePercentComp: '5.0000'
-                        tierNum: 2
-          description: The updated company deduction.
-      description: 'Modifies a company deduction, identified by the unique deduction ID.'
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode:
-            - company
-            - 'company:company_deductions'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompanyDeduction'
-            examples:
-              Sample:
-                value:
-                  matchingScheme401K: SAFE_HARBOR
-                  employerMatch401K:
-                    - eePercentComp: '20.0000'
-                      tierNum: 1
-                      erMatchPercent: '100.0000'
-                    - eePercentComp: '5.0000'
-                      tierNum: 2
-                      erMatchPercent: '50.0000'
-                  isEEPercent: true
-                  name: 401 Deduction Test
-                  isERPercent: true
-                  employeeDeduction: '20.0000'
-                  companyContribution: '00.0000'
-                  deductionType: _401K
-                  id: 5ec5596afa9c4e1728118f7d
-                  isMonthly: true
-        description: A deduction payload that the previous deduction will be updated according to.
-      tags:
-        - A. Companies
-        - D. 401k
-    get:
-      summary: Company Deduction Detail
-      operationId: getcompany_deductions-deductionId
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CompanyDeduction'
-              examples:
-                Sample:
-                  value:
-                    id: 5d4dce743ca04e63f32c8933
-                    deductionType: _401K
-                    name: 401 Deduction Test
-                    isMonthly: true
-                    employeeDeduction: '20.0000'
-                    isEEPercent: true
-                    companyContribution: '0.0000'
-                    isERPercent: true
-                    matchingScheme401K: SAFE_HARBOR
-                    employerMatch401K:
-                      - erMatchPercent: '100.0000'
-                        eePercentComp: '20.0000'
-                        tierNum: 1
-                      - erMatchPercent: '50.0000'
-                        eePercentComp: '5.0000'
-                        tierNum: 2
-      description: Retrieves a company deduction as specified by it's unique identifier.
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode:
-            - company
-            - 'company:company_deductions'
-      tags:
-        - A. Companies
-        - C. Payroll
   /employee_deductions:
     get:
       summary: Employee Deductions
@@ -2207,14 +2045,6 @@ paths:
                       isEEPercent: false
                       companyContribution: '30.0000'
                       isERPercent: false
-        '':
-          description: The list of employee deduction types for the company.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/EmployeeDeduction'
       operationId: get-emplyee_deductions
       description: |-
         Employee Deductions are amounts withheld from an employee's payroll check. This endpoint lists employee deductions for a company. Employee deductions are classified by various Employee Deduction Types (EDTs).
@@ -4293,6 +4123,169 @@ paths:
       description: Returns a SAML Idp metadata XML file for the current app integration.  Note that this endpoint is only accessible using a token associated with an app integration that has SAML enabled; otherwise it returns a 404 error.
       tags:
         - G. SAML
+  /company_deductions:
+    get:
+      summary: Company Deductions
+      tags:
+        - A. Companies
+        - D. 401k
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyDeduction'
+              examples:
+                Success:
+                  value:
+                    - id: 5d4dce743ca04e63f32c8933
+                      deductionType: MEDICAL
+                      name: 401ka
+                      isMonthly: true
+                      employeeDeduction: null
+                      isEEPercent: false
+                      companyContribution: null
+                      isERPercent: false
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb0598
+                      deductionType: _401K
+                      name: 401K
+                      isMonthly: null
+                      employeeDeduction: '20.0000'
+                      isEEPercent: false
+                      companyContribution: '30.0000'
+                      isERPercent: false
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb059a
+                      deductionType: _401K_LOAN_PAYMENT
+                      name: 401K Loan Payment
+                      isMonthly: null
+                      employeeDeduction: '0.0000'
+                      isEEPercent: true
+                      companyContribution: '0.0000'
+                      isERPercent: true
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb059c
+                      deductionType: ROTH_401K
+                      name: Roth 401k
+                      isMonthly: null
+                      employeeDeduction: '9.0234'
+                      isEEPercent: true
+                      companyContribution: null
+                      isERPercent: true
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+      operationId: get-company_deductions
+      description: |-
+        Company deductions correspond to Company Deduction Types (or CDT for short). Company deduction types dictate how company deductions are set up and correspond to what type of 401k is set up for the company.
+
+        Everytime a CDT is created, corresponding Employeee Deductions are also created for each employee, additional employee deductions do not need to be created manually.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - company
+            - 'company:company_deductions'
+    parameters: []
+  '/company_deductions/{deductionId}':
+    parameters:
+      - in: path
+        name: deductionId
+        description: The unique identifier of the deduction.
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Company Deduction Detail
+      tags:
+        - A. Companies
+        - D. 401k
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDeduction'
+      operationId: get-company_deductions-deductionId
+      description: Retrieves a company deduction as specified by it's unique identifier.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - company
+            - 'company:company_deductions'
+    patch:
+      summary: Company Deduction Update
+      operationId: patch-company_deductions-deductionId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDeduction'
+              examples:
+                Success:
+                  value:
+                    - id: 5d4dce743ca04e63f32c8933
+                      deductionType: MEDICAL
+                      name: 401ka
+                      isMonthly: true
+                      employeeDeduction: null
+                      isEEPercent: false
+                      companyContribution: null
+                      isERPercent: false
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb0598
+                      deductionType: _401K
+                      name: 401K
+                      isMonthly: null
+                      employeeDeduction: '20.0000'
+                      isEEPercent: false
+                      companyContribution: '30.0000'
+                      isERPercent: false
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb059a
+                      deductionType: _401K_LOAN_PAYMENT
+                      name: 401K Loan Payment
+                      isMonthly: null
+                      employeeDeduction: '0.0000'
+                      isEEPercent: true
+                      companyContribution: '0.0000'
+                      isERPercent: true
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+                    - id: 5e3c5dc80e3ac756badb059c
+                      deductionType: ROTH_401K
+                      name: Roth 401k
+                      isMonthly: null
+                      employeeDeduction: '9.0234'
+                      isEEPercent: true
+                      companyContribution: null
+                      isERPercent: true
+                      matchingScheme401K: NON_ELECTIVE
+                      employerMatch401K: []
+      description: 'Modifies a company deduction, identified by the unique deduction ID.'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - company
+            - 'company:company_deductions'
+      tags:
+        - A. Companies
+        - D. 401k
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyDeduction'
 components:
   parameters:
     limit:
@@ -4307,18 +4300,6 @@ components:
       description: Offsets the returned values
       schema:
         type: integer
-    start_date:
-      name: start_date
-      in: query
-      description: The start date
-      schema:
-        type: date
-    end_date:
-      name: end_date
-      in: query
-      description: The end date
-      schema:
-        type: date
     ein:
       name: EIN
       in: query
