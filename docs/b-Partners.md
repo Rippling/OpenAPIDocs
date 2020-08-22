@@ -9,33 +9,12 @@ The development package consists of the following assets:
 
 ## Application Listing Assets
 
-### Application Overview
-
-A brief overview of your company's application. Please limit this overview to 180 characters. Please note, this can be changed later on, but will be required to register your application.
-
-### Product Description
-
-An in-depth description of your company's application and its product features. Please note, this can be changed later on, but will be required to register your application.
-
-### Integration Description
-
-An in-depth description of how your application will integrate with Rippling. Please note, this can be changed later on, but will be required to register your application.
-
-### Logo Package
-
-A montone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you provide the following assets as your logo package to ensure the highest quality listing.
-
-- An SVG file of your logo, highly preferred to be in a monotone representation of your logo.
-- A HEX color that will be used as the background of your SVG logo.
-
-
 Asset                   | Description
 ------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Application Overview    | A brief overview of your company's application. Please limit this overview to 180 characters. Please note, this can be changed later on, but will be required to register your application.
-Product Description     | An in-depth description of your company's application and its product features. Please note, this can be changed later on, but will be required to register your application.
-Integration Description | An in-depth description of how your application will integrate with Rippling. Please note, this can be changed later on, but will be required to register your application.
-Logo Package            | A montone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below.
-
+Application Overview    | A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.
+Product Description     | An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.
+Integration Description | An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.
+Logo Package            | A montone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application.
 
 
 **Logo Requirements**
