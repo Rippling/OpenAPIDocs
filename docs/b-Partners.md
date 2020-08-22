@@ -55,13 +55,13 @@ For an example of a Rippling Application listing, please see [here](https://www.
 | Webhook URL   | *Optional* One Webhook URL: a Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                 |
 |Scopes   |*Required* The permission scopes that your application will require. Customers installing your application will need to authorize the application to access these scopes on their behalf.
 
-As noted, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application. Each required scope should be explicitly listed in the following form.
+As noted, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application. Each required scope should be explicitly listed in the following format.
 
 - employee
 - employee:workEmail
 - employee:title
 
-For more information on Rippling scopes, please see [here]().
+For more information on Rippling scopes, please see [here](https://rippling.stoplight.io/docs/rippling-api/docs/e-Scopes.md).
 
 ### Build the Integration
 
@@ -87,4 +87,4 @@ You will then release a production version of your integration that is ready for
 
 ### Launch the Integration
 
-To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the application in the Rippling App Shop. Once the team has approved the integration, the application will be made live in the Rippling App Shop.
+To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the listing to go live in the Rippling App Shop. Once the team has approved the integration, the application will be made publicly visible in [the Rippling App Shop](rippling.com/app-shop).
