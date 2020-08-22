@@ -14,7 +14,7 @@ Please note, it is in violation of Rippling's Terms of Service to use a an API k
 
 Rippling requires that all application partners build integrations within [Rippling's App Shop](rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information. 
 
-If you are interested in building an application with Rippling, please see the [Partners Guide](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md) on building with Rippling.
+If you are interested in building an application with Rippling, please see the [Partner Guide](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md) on building with Rippling.
 
 
 ## Customers
