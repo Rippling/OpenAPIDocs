@@ -33,9 +33,9 @@ For an example of a Rippling Application listing, please see here.
 
 | URL           | Description                                                                                                                                                    |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Redirect URLs | Provide two redirect URLs: Staging Redirect URL and Production Redirect URL.                                                            |
-| SSO URLs      | You have the option to provide two SSO URLs: Staging SSO URL and Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in. |
-| Webhook URL   | You have the option to provide one Webhook URL: Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                 |
+| Redirect URLs | *Required* Two redirect URLs: Staging Redirect URL and Production Redirect URL.                                                            |
+| SSO URLs      | *Optional* Two SSO URLs: Staging SSO URL and Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in. |
+| Webhook URL   | *Optional* One Webhook URL: Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                 |
 
 Additionally, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application.
 
