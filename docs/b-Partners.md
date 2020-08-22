@@ -8,10 +8,10 @@ tags: [partners, Intro]
 
 <!-- theme: success -->
 
-> 1: Submit your Development Package
-> 2: Build the Application Against Rippling's Test Environment
-> 3: Receive Approval from the Rippling Development Team
-> 4: Launch the Application in Rippling's Production Environment
+> 1. Submit your Development Package
+> 2. Build the Application Against Rippling's Test Environment
+> 3. Receive Approval from the Rippling Development Team
+> 4. Launch the Application in Rippling's Production Environment
 
 ### Submit your Development Package
 
