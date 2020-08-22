@@ -31,25 +31,3 @@ company:address  | Permission to read the company's address.
 company:phone    | Permission to read the company's phone information.
 
 
-
-## Customer Integrations
-
-
-
-
-**This initial guide will discuss how to build an application on Rippling with flavorful markdown!**
-
-```
-Neat Stuff
-```
-
-> This is a block quote... also looks good.
->> And this is a nested block quote
-
-
-* Lists
-* Are
-* Easy too
-
-
-
