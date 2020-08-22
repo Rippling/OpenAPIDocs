@@ -38,6 +38,9 @@ employee:ssn                     | Permission to access the company's employees'
 employee:employmentType          | Permission to access the company's employees' employment types.
 employee:dob                     | Permission to access the company's employees' date of births.
 employee:address                 | Permission to access the company's employees' addresses.
+employee:personalEmail  |  Permission to access the company's employees' personal emails.
+employee:phone  | Permission to access the company's employees' phone numbers. 
+employee:filingStatus  | Permission to access the company's employees' filing statuses.  
 employee:workEmail               | Permission to access the company's employees' work emails.
 employee:title                   | Permission to access the company's employees' titles.
 employee:startDate               | Permission to access the company's employees' start dates.
