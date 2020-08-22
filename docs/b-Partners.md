@@ -4,16 +4,18 @@ tags: [partners, Intro]
 
 # Partner Applications
 
-To get started with building an application on Rippling you will need to submit a development package to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com).
+To get started with building an application on Rippling you will need to submit a development package to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com) over email.
 
-The development package consists of the following assets:
+The development package should consist of the assets listed below.
 
-- Application Listing Assets
-- Configuration Properties
+- **Application Listing Assets**
+- **Configuration Properties**
+
+Check out the [Rippling App Shop](rippling.com/app-shop), where our partner applications are listed!
 
 ## Application Listing Assets
 
-For an example of a Rippling Application listing, please see here.
+For an example of a Rippling Application listing, please see [here](https://www.rippling.com/app-shop/app/slack).
 
 | Asset                      | Description                                                                                                                                                                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
