@@ -6,37 +6,23 @@ tags: [partners, Intro]
 
 ## The Development Process
 
+To develop an integrated application on Rippling, you will follow the development process listed below.
+
 <!-- theme: success -->
 
 > 1. Submit your Development Package
-> 2. Build the Application Against Rippling's Test Environment
+> 2. Build the Integration Against Rippling's Test Environment
 > 3. Receive Approval from the Rippling Development Team
-> 4. Launch the Application in Rippling's Production Environment
+> 4. Launch the Integration in Rippling's Production Environment
 
 ### Submit your Development Package
 
-To get started with building an application on Rippling you will need to submit a Rippling development package over email to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com).
+To get started with building an integration on Rippling you will need to submit a Rippling development package over email to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com).
 
 The Rippling development package should consist of the assets listed below.
 
 - **Application Listing Assets**
 - **Configuration Properties**
-
-In return, you will receieve your Rippling App Testing Package. The Rippling App Testing Package consists of the following information.
-
-- Staging Client ID
-- Staging Client Secret
-- Application Name
-- Staging Account Credentials for testing
-
-Once you have built and tested the integration, the Rippling team may ask for a demo (either live or as a video) of your integration before approval. Once your integration has been approved, Rippling will provide you with the Rippling App Production Package.
-
-- Production Client ID
-- Production Client Secret
-- Application Name
-- Test Account Credentials for testing the application in production
-
-To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the application in the Rippling App Shop. Once the team has approved the integration, the application will be made live in the Rippling App Shop.
 
 <!-- theme: success -->
 
@@ -48,7 +34,7 @@ For an example of a Rippling Application listing, please see [here](https://www.
 
 | Asset                      | Description                                                                                                                                                                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Application Overview       | _Required:_ A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.|
+| Application Overview       | _Required_ A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.|
 | Product Description        | _Required_ An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.|
 | Integration Description    | _Required_ An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.|
 | Logo Package               | _Required_ A monotone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application.|
@@ -71,10 +57,28 @@ For an example of a Rippling Application listing, please see [here](https://www.
 
 Additionally, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application.
 
-### Redirect URLs
+### Build the Integration
 
-### Single Sign-on URLs
+Once your development package has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
 
-### Webhook URL
+- Staging Client ID
+- Staging Client Secret
+- Application Name
+- Staging Account Credentials for testing
 
-### Scopes
+Please note, if your integration requires access to Webhooks, you will build the integration against Rippling's Production Environment. If this is required, please mention this in the submission of your Devlopment Package.
+
+### Receive Approval from Rippling
+
+Once you have built and tested the integration, the Rippling team may ask for a demo (either live or as a video) of your integration before approval. Once your integration has been approved, Rippling will provide you with the Rippling App Production Package.
+
+- Production Client ID
+- Production Client Secret
+- Application Name
+- Test Account Credentials for testing the application in production
+
+You will then release a production version of your integration that is ready for launch.
+
+### Launch the Integration
+
+To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the application in the Rippling App Shop. Once the team has approved the integration, the application will be made live in the Rippling App Shop.
