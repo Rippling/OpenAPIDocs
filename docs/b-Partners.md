@@ -8,7 +8,12 @@ tags: [partners, Intro]
 
 <!-- theme: success -->
 
-> Step 1: Submitting your Development Package
+> 1: Submit your Development Package
+> 2: Build the Application Against Rippling's Test Environment
+> 3: Receive Approval from the Rippling Development Team
+> 4: Launch the Application in Rippling's Production Environment
+
+### Submit your Development Package
 
 To get started with building an application on Rippling you will need to submit a Rippling development package over email to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com).
 
@@ -17,31 +22,27 @@ The Rippling development package should consist of the assets listed below.
 - **Application Listing Assets**
 - **Configuration Properties**
 
-<!-- theme: success -->
+In return, you will receieve your Rippling App Testing Package. The Rippling App Testing Package consists of the following information.
 
-> Step 2: Building the Application Against Rippling's Test Environment
+- Staging Client ID
+- Staging Client Secret
+- Application Name
+- Staging Account Credentials for testing
 
-Once the Rippling team has reviewed your Development Package, you will will receive the following assets to begin development.
+Once you have built and tested the integration, the Rippling team may ask for a demo (either live or as a video) of your integration before approval. Once your integration has been approved, Rippling will provide you with the Rippling App Production Package.
 
-<!-- theme: success -->
+- Production Client ID
+- Production Client Secret
+- Application Name
+- Test Account Credentials for testing the application in production
 
-> Step 3: Receive Approval from the Rippling Development Team
-
-Once the Rippling team has reviewed your Development Package, you will will receive the following assets to begin development.
-
-<!-- theme: success -->
-
-> Step 4: Receive Approval from the Rippling Development Team
-
-Once the Rippling team has reviewed your Development Package, you will will receive the following assets to begin development.
-
-- 
+To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the application in the Rippling App Shop. Once the team has approved the integration, the application will be made live in the Rippling App Shop.
 
 <!-- theme: success -->
 
 > 💡 Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
 
-## Application Listing Assets
+#### Application Listing Assets
 
 For an example of a Rippling Application listing, please see [here](https://www.rippling.com/app-shop/app/slack).
 
@@ -59,7 +60,7 @@ For an example of a Rippling Application listing, please see [here](https://www.
 - An SVG file of your logo, highly preferred to be in a monotone representation of your logo. 
 - A HEX color that will be used as the background of your SVG logo.
 
-## Configuration Properties
+#### Configuration Properties
 
 | Property           | Description                                                                                                                                |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -71,8 +72,6 @@ For an example of a Rippling Application listing, please see [here](https://www.
 Additionally, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application.
 
 ### Redirect URLs
-
-
 
 ### Single Sign-on URLs
 
