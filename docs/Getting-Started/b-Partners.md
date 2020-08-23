@@ -20,8 +20,7 @@ This process ensures that all Rippling integrated applications are lauched prope
 > 💡 Check out the [Rippling App Shop](https://rippling.com/app-shop), where all Rippling partner applications are listed!
 
 We've provided a video of the Rippling App Shop and the partner application installation flow. Please note, in this case the application requires the customer subdomain, but this is not a requirement.
-
-
+  
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/734f18e6225c46229cb74d4cacfcad45" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Submit your Development Package
