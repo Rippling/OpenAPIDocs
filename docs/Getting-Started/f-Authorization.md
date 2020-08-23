@@ -178,14 +178,12 @@ title: Response
 [
     {
         "id": "5c8f7f06c592917aeee1ea9f",
-        "name": "Parashuram Joshi",
-        "preferredFirstName": "Parashuram",
-        "firstName": "Parashuram",
+        "name": "John Doe",
+        "preferredFirstName": "John",
+        "firstName": "John",
         "employmentType": "SALARIED_FT",
-        "lastName": "Joshi",
+        "lastName": "Doe",
         "phoneNumber": "819-729-4862",
-        "photo": "https://s3-us-west-2.amazonaws.com/com.rippling.images/4728f747-53e8-4505-8373-a35abc9696ab",
-        "smallPhoto": "https://s3-us-west-2.amazonaws.com/com.rippling.images/8c5b1b8a-d747-4b0d-8206-ee1147a29ee6",
         "dob": "2020-03-01",
         "phone": "819-729-4862",
         "title": "Director of Product",
