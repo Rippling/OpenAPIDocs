@@ -43,8 +43,12 @@ YlpmSXRPaUVVZFpHZzdqcEVYNTZqMnVRMEdIMFRvRzh5Z29MeXhvOTpmWUY 4Q0J2cHFYcEc4WjZjOEZ
 Here is an access token sample response:
 
 ```json
-{"access_token": "1gLQXPYazNBFNqIQgTNgszZjncjzgM", "token_type": "Bearer",
-"expires_in": 129600, "refresh_token": "hUcO0tI6Oq3d6MgpBS6dsav25DXltf",
-"scope": "employee:workEmail employee:name"}
+{
+  "access_token": "OMITTED", 
+  "token_type": "Bearer",
+  "expires_in": 129600, 
+  "refresh_token": "hUcO0tI6Oq3d6MgpBS6dsav25DXltf",
+  "scope": "employee:workEmail employee:name"
+}
 ```
 
