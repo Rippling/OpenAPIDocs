@@ -21,7 +21,7 @@ To generate your Rippling API key, please follow these steps.
 
 ![APIKey](../../assets/images/Api_Access_settings.png)
 
-![NewTest](<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/521b2382e816485d841fe4673bf04cb7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>)
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/521b2382e816485d841fe4673bf04cb7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Viewing your API keys
 
