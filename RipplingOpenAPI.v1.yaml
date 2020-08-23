@@ -32,8 +32,8 @@ servers:
     description: Staging
 tags:
   - name: Companies
-  - name: Employees
-  - name: Payroll
+  - name: B. Employees
+  - name: C. Payroll
   - name: 401k
   - name: F. Groups
   - name: G. SAML
@@ -142,7 +142,7 @@ paths:
         - authorizationCode:
             - company
       tags:
-        - A. Companies
+        - Companies
     parameters: []
   /departments:
     get:
@@ -2069,7 +2069,7 @@ paths:
         - $ref: '#/components/parameters/role'
       tags:
         - B. Employees
-        - D. 401k
+        - 401k
     parameters: []
   /payroll_runs:
     get:
@@ -3856,7 +3856,7 @@ paths:
             - 'deduction:ROTH_401K'
       tags:
         - B. Employees
-        - D. 401k
+        - 401k
     post:
       summary: Employee 401k Deduction Creation
       operationId: post-employees-employeeId-deductions_401k
@@ -3904,7 +3904,7 @@ paths:
         description: A 401k Deduction Object
       tags:
         - B. Employees
-        - D. 401k
+        - 401k
     put:
       summary: Employee 401k Deduction Updates
       operationId: put-employees-employeeId-deductions_401k
@@ -3945,7 +3945,7 @@ paths:
         description: The 401k deduction object with updated fields.
       tags:
         - B. Employees
-        - D. 401k
+        - 401k
   /annual_employee_payroll_info:
     get:
       summary: Annual Payroll Information
@@ -4135,7 +4135,7 @@ paths:
       summary: Company Deductions
       tags:
         - A. Companies
-        - D. 401k
+        - 401k
       responses:
         '200':
           description: OK
@@ -4211,7 +4211,7 @@ paths:
       summary: Company Deduction Detail
       tags:
         - A. Companies
-        - D. 401k
+        - 401k
       responses:
         '200':
           description: OK
@@ -4287,7 +4287,7 @@ paths:
             - 'company:company_deductions'
       tags:
         - A. Companies
-        - D. 401k
+        - 401k
       requestBody:
         content:
           application/json:
