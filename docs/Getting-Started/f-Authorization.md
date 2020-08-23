@@ -74,7 +74,7 @@ type: tab
 title: Request
 -->
 
-```
+```curl
 curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
 --header 'Authorization: Bearer Z0v7jzGs8QkcI1Nkq0WAhr2iMgubdD'
 ```
