@@ -29,5 +29,7 @@ The Rippling App Shop showcases Rippling’s integrated applications. Rippling c
 
 The Rippling App Shop is used by a wide span of roles, ranging from HR & IT directors, to founders, to employees. The Rippling App Shop is available for viewing on the public web and is accessible by just about anyone.
 
+<br />
+
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5d86d735ef8244559790dcca2db7e462" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
