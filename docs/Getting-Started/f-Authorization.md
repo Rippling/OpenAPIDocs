@@ -75,6 +75,8 @@ curl --location --request GET 'https://api.rippling.com/platform/api/companies/c
 --header 'Authorization: Bearer Z0v7jzGs8QkcI1Nkq0WAhr2iMgubdD'
 ```
 
+**Request**
+
 ```
 {
     "id": "595f75ffd2a5f80ae22ce88e",
