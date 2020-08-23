@@ -22,8 +22,8 @@ info:
     The access token or API key should be used as a bearer token for HTTP requests, for instance:
 
     ```
-    curl -H "Authorization: Bearer xxxxXXXxxxXXxxxXXXxxXXXxXXXXxXXXxxXXxXXX" \
-      "https://api.rippling.com/platform/api/companies/current"
+    curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
+    --header 'Authorization: Bearer OMITTED'
     ```
 servers:
   - url: 'https://api.rippling.com/platform/api'
@@ -31,10 +31,10 @@ servers:
   - url: 'https://stage.rippling.com/platform/api'
     description: Staging
 tags:
-  - name: A. Companies
-  - name: B. Employees
-  - name: C. Payroll
-  - name: D. 401k
+  - name: Companies
+  - name: Employees
+  - name: Payroll
+  - name: 401k
   - name: F. Groups
   - name: G. SAML
   - name: E. Current User
