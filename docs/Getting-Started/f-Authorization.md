@@ -60,11 +60,11 @@ Refresh Query Parameters | Description
 grant_type            | refresh_token
 refresh_token         | Refresh token from the initial grant
 
-### Matching
+## Matching
 
 Now that the connection has been made, your server should request the Company and Employee Information and match with your application's internal database.
 
-#### Current Company
+### Current Company
 
 Retrieve the current company's information with the GET companies/current endpoint. Note, the fields returned will depend on the scopes the customer has authorized your service to access.
 
@@ -151,7 +151,7 @@ title: Response
 <!-- type: tab-end -->
 
 
-#### Employees
+### Employees
 
 Retrieve the current company's employees information with the GET /employees endpoint. If an employee already has an account within your application, you should enable the admin to match the existing account or create a new account.
 
