@@ -2,7 +2,7 @@
 
 Rippling integrations rely on OAuth 2.0, in which RIppling is the server and your application is the client.
 
-At a high-level Rippling will send a user with a ?code=<xxx> parameter when they install your application on Rippling. This is the authorization that you rapplication will utilize to exchnage for access and refresh tokens.
+At a high-level Rippling will send a user with a `?code=<xxx>` parameter when they install your application on Rippling. This is the authorization that you rapplication will utilize to exchnage for access and refresh tokens.
 
 
 
