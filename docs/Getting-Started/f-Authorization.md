@@ -53,6 +53,12 @@ Here is an access token sample response:
 
 ### Refresh Tokens
 
+To retrieve a Refresh Token, send a POST request to the same URL `https://stage.rippling.com/api/o/token/` with basic auth and the following query parameters.
+
+Refresh Query Parameters | Description
+----------------------|------------------------------------------------------------------------------
+grant_type            | refresh_token
+refresh_token         | Refresh token from the initial grant.
 
 
 
