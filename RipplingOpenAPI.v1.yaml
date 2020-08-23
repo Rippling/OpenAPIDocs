@@ -31,10 +31,10 @@ servers:
   - url: 'https://stage.rippling.com/platform/api'
     description: Staging
 tags:
-  - name: Companies
+  - name: A | Companies
   - name: B. Employees
   - name: C. Payroll
-  - name: 401k
+  - name: D. 401k
   - name: F. Groups
   - name: G. SAML
   - name: E. Current User
