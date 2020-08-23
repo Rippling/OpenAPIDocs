@@ -36,7 +36,7 @@ redirect_uri          | Your redirect URL. This must match exactly what you had 
 
 Here is an access token sample request:
 
-```
+```js
 curl -X POST -H "Authorization: Basic OMITTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
 ```
 Here is an access token sample response:
