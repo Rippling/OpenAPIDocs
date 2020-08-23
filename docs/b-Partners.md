@@ -17,7 +17,7 @@ This process ensures that all Rippling integrated applications are lauched prope
 
 <!-- theme: success -->
 
-> 💡 Check out the [Rippling App Shop](rippling.com/app-shop), where all Rippling partner applications are listed!
+> 💡 Check out the [Rippling App Shop](https://rippling.com/app-shop), where all Rippling partner applications are listed!
 
 ### Submit your Development Package
 
