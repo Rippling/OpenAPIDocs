@@ -1,3 +1,7 @@
+---
+tags: [authorization, installation, match, token, quick-start]
+---
+
 # Authorization
 
 Rippling integrations rely on OAuth 2.0, in which RIppling is the server and your application is the client.
@@ -16,11 +20,11 @@ Once logged in, you will proceed directly to the URL of your application. `​ht
 
 As you go through the setup flow, you will be redirected to the Redirect URL that you provided in your Development Package. The following query parameters will be present in the redirect.
 
-Redirect Query Parameter | Description
-----------------|--------------------------------------------------------------------------------------------------------------------------
-code            | OAuth code that can be exchanged for an access token.
-buy             | A boolean value based on whether the user indicated they are purchasing a new account, or connecting an existing account.
-redirect_uri    | The URL on Rippling that the user should be sent back to once the OAuth setup is done.
+| Redirect Query Parameter | Description                                                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| code                     | OAuth code that can be exchanged for an access token.                                                                     |
+| buy                      | A boolean value based on whether the user indicated they are purchasing a new account, or connecting an existing account. |
+| redirect_uri             | The URL on Rippling that the user should be sent back to once the OAuth setup is done.                                    |
 
 Using the code value, your server will be able to get an access token from Rippling.
 
@@ -28,17 +32,18 @@ Using the code value, your server will be able to get an access token from Rippl
 
 To retrieve the access token, your server will need to make a POST call to the Auth URL. On staging this URL is `https://stage.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
 
-Auth Query Parameters | Description
-----------------------|------------------------------------------------------------------------------
-grant_type            | authorization_code
-code                  | OAuth code that was sent in the redirect
-redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling
+| Auth Query Parameters | Description                                                                  |
+| --------------------- | ---------------------------------------------------------------------------- |
+| grant_type            | authorization_code                                                           |
+| code                  | OAuth code that was sent in the redirect                                     |
+| redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling |
 
 Here is an access token sample request:
 
 ```js
 curl -X POST -H "Authorization: Basic OMITTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
 ```
+
 Here is an access token sample response:
 
 ```json
@@ -55,10 +60,10 @@ Here is an access token sample response:
 
 To retrieve a Refresh Token, send a POST request to the same URL `https://stage.rippling.com/api/o/token/` with basic auth and the following query parameters.
 
-Refresh Query Parameters | Description
-----------------------|------------------------------------------------------------------------------
-grant_type            | refresh_token
-refresh_token         | Refresh token from the initial grant
+| Refresh Query Parameters | Description                          |
+| ------------------------ | ------------------------------------ |
+| grant_type               | refresh_token                        |
+| refresh_token            | Refresh token from the initial grant |
 
 ## Matching
 
@@ -67,7 +72,6 @@ Now that the connection has been made, your server should request the Company an
 ### Current Company
 
 Retrieve the current company's information with the GET companies/current endpoint. Note, the fields returned will depend on the scopes the customer has authorized your service to access.
-
 
 <!--
 type: tab
@@ -148,8 +152,8 @@ title: Response
     "name": "Bob's Bakery"
 }
 ```
-<!-- type: tab-end -->
 
+<!-- type: tab-end -->
 
 ### Employees
 
@@ -222,5 +226,5 @@ title: Response
     }
 ]
 ```
-<!-- type: tab-end -->
 
+<!-- type: tab-end -->
