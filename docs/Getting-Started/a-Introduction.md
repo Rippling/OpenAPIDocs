@@ -25,7 +25,7 @@ If you are interested in building an application with Rippling, please see the [
 
 ### The Rippling App Shop
 
-The Rippling App Shop showcases Rippling’s integrated applications. Rippling customers download their third-party applications and identify providers within various service segments, such as Collaboration or Office Management. Rippling partners have the opportunity to take advantage of co-marketing opportunities and leverage the App Shop to reach new prospects.
+The Rippling App Shop showcases Rippling partners' integrated applications. From the App Shop, Rippling customers download third-party applications and identify providers within various service segments, such as Collaboration or Office Management. Rippling partners have the opportunity to leverage the co-marketing co-marketing opportunity reach new prospects.
 
 The Rippling App Shop is used by a wide span of roles, ranging from HR & IT directors, to founders, to employees. The Rippling App Shop is available for viewing on the public web and is accessible by just about anyone.
 
