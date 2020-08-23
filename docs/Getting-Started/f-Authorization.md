@@ -29,7 +29,22 @@ Using the code value, your server will be able to get an access token from Rippl
 To retrieve the access token, your server will need to make a POST call to the Auth URL. On staging this URL is `https://stage.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
 
 Auth Query Parameters | Description
-----------------|--------------------------------------------------------------------------------------------------------------------------
+----------------------|------------------------------------------------------------------------------
 grant_type            | authorization_code
-code             | OAuth code that was sent in the redirect.
-redirect_uri    | Your redirect URL. This must match exactly what you had provided to Rippling.
+code                  | OAuth code that was sent in the redirect.
+redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling.
+
+Here is an access token sample request:
+
+```
+curl -X POST -H "Authorization: Basic
+YlpmSXRPaUVVZFpHZzdqcEVYNTZqMnVRMEdIMFRvRzh5Z29MeXhvOTpmWUY 4Q0J2cHFYcEc4WjZjOEZuSlBHbnBGa1U3UW82cnhJbHZvQUNiYmdxdUdnbFpaeE 1WYjRUU3R6SHQzenJzTDE0RDBhVXlzd1dFN0tiZGF6bDdad1o4OHZqR1k1RGhE SmY5dG9kaG5kaUFqUGRnWk5aZW9DMWFSRGFmN1pyOQ==" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
+```
+Here is an access token sample response:
+
+```json json_schema
+{"access_token": "1gLQXPYazNBFNqIQgTNgszZjncjzgM", "token_type": "Bearer",
+"expires_in": 129600, "refresh_token": "hUcO0tI6Oq3d6MgpBS6dsav25DXltf",
+"scope": "employee:workEmail employee:name"}
+```
+
