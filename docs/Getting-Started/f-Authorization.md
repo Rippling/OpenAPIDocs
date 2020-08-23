@@ -36,9 +36,8 @@ redirect_uri          | Your redirect URL. This must match exactly what you had 
 
 Here is an access token sample request:
 
-```json
-curl -X POST -H "Authorization: Basic
-YlpmSXRPaUVVZFpHZzdqcEVYNTZqMnVRMEdIMFRvRzh5Z29MeXhvOTpmWUY4Q0J2cHFYcEc4WjZjOEZuSlBHbnBGa1U3UW82cnhJbHZvQUNiYmdxdUdnbFpaeE 1WYjRUU3R6SHQzenJzTDE0RDBhVXlzd1dFN0tiZGF6bDdad1o4OHZqR1k1RGhE SmY5dG9kaG5kaUFqUGRnWk5aZW9DMWFSRGFmN1pyOQ==" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
+```
+curl -X POST -H "Authorization: Basic OMITTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
 ```
 Here is an access token sample response:
 
@@ -51,4 +50,9 @@ Here is an access token sample response:
   "scope": "employee:workEmail employee:name"
 }
 ```
+
+### Refresh Tokens
+
+
+
 
