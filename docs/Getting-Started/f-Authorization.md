@@ -74,9 +74,9 @@ type: tab
 title: Request
 -->
 
-```curl
+```js
 curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
---header 'Authorization: Bearer Z0v7jzGs8QkcI1Nkq0WAhr2iMgubdD'
+--header 'Authorization: Bearer OMITTED'
 ```
 
 <!--
@@ -164,7 +164,7 @@ type: tab
 title: Request
 -->
 
-```
+```js
 curl --location --request GET 'https://api.rippling.com/platform/api/employees' \
 --header 'Authorization: Bearer OMITTED'
 ```
