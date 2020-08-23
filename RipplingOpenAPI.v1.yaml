@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: The Rippling Platform
+  title: API Reference
   version: '1.0'
   contact:
     name: Cory Pitt
