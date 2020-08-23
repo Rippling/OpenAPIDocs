@@ -4,10 +4,7 @@ Rippling integrations rely on OAuth 2.0, in which RIppling is the server and you
 
 At a high-level Rippling will send a user with a `?code=<xxx>` parameter when they install your application on Rippling. This is the authorization that you rapplication will utilize to exchnage for access and refresh tokens.
 
-
-
 ## The Installation Flow
-
 
 The following flow walks you through the installation flow of an application on Rippling's Staging Environment. The process is the same on the Rippling Production Environment, but you will replace `stage.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
 
