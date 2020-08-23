@@ -21,8 +21,6 @@ To generate your Rippling API key, please follow these steps.
 
 ![APIKey](../../assets/images/Api_Access_settings.png)
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/c4aada9958f94c35b793e181e38a2eef" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 ## Viewing your API keys
 
 To view your Rippling API keys, please follow these steps.
@@ -32,3 +30,5 @@ To view your Rippling API keys, please follow these steps.
 3. [Navigate to **API Access**](https://app.rippling.com/company-settings/api-access)
 
 You will then be able to copy or delete your API keys as desired.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/c4aada9958f94c35b793e181e38a2eef" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
