@@ -148,85 +148,81 @@ title: Response
     "name": "Bob's Bakery"
 }
 ```
-
 <!-- type: tab-end -->
 
 
-
-**Request**
-
-```
-curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
---header 'Authorization: Bearer Z0v7jzGs8QkcI1Nkq0WAhr2iMgubdD'
-```
-
-**Request**
-
-```
-{
-    "id": "595f75ffd2a5f80ae22ce88e",
-    "ein": "123121111",
-    "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "country": "US",
-        "zip": "94110",
-        "streetLine1": "3000 Mission Street"
-    },
-    "tax_info": {
-        "ein": "123121111",
-        "entityType": "C_CORP",
-        "incorporationDate": null,
-        "soleProprieterSSN": null,
-        "futaExempt": false,
-        "signatory": {
-            "id": "5d3777868a9f4e2b5e467fc9",
-            "name": "Support Account",
-            "firstName": "Support",
-            "lastName": "Account",
-            "dob": "2020-03-01",
-            "ssn": "",
-            "phone": null,
-            "title": "VP of engineering",
-            "workEmail": "supportnew@testrippling.com",
-            "signableName": "Support Account"
-        },
-        "nameWithIrs": null,
-        "incorporationState": null,
-        "entityName": "Aamir Prod [Test]",
-        "dba": null,
-        "postalAddress": null
-    },
-    "workLocations": [
-        {
-            "id": "5984bca87ee766438fd6faa5",
-            "nickname": "SF",
-            "address": {
-                "city": "Salem",
-                "zip": "97317",
-                "streetLine1": "4000 Mission Street Southeast",
-                "country": "US",
-                "state": "OR",
-                "steLocationCode": {
-                    "cityCode": "0004491020",
-                    "psdCode": "",
-                    "schoolCode": "",
-                    "countyCode": "047",
-                    "stateCode": "41",
-                    "municipalityCode": "",
-                    "transitDistrictCode": "",
-                    "locationCode": "41-047-0004491020"
-                }
-            }
-        }   
-    ],
-    "subscription": null,
-    "primaryEmail": "aamir+prod@rippling.com",
-    "phone": "9892471335",
-    "name": "Bob's Bakery"
-}
-```
-
 #### Employees
 
+Retrieve the current company's employees information with the GET /employees endpoint. If an employee already has an account within your application, you should enable the admin to match the existing account or create a new account.
+
+For any users that need to create a new account, you should be able to retrieve most of the data that is needed from Rippling's API.
+
+Note, the fields returned will depend on the scopes the customer has authorized your service to access.
+
+<!--
+type: tab
+title: Request
+-->
+
+```
+curl --location --request GET 'https://api.rippling.com/platform/api/employees' \
+--header 'Authorization: Bearer OMITTED'
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json
+[
+    {
+        "id": "5c8f7f06c592917aeee1ea9f",
+        "name": "Parashuram Joshi",
+        "preferredFirstName": "Parashuram",
+        "firstName": "Parashuram",
+        "employmentType": "SALARIED_FT",
+        "lastName": "Joshi",
+        "phoneNumber": "819-729-4862",
+        "photo": "https://s3-us-west-2.amazonaws.com/com.rippling.images/4728f747-53e8-4505-8373-a35abc9696ab",
+        "smallPhoto": "https://s3-us-west-2.amazonaws.com/com.rippling.images/8c5b1b8a-d747-4b0d-8206-ee1147a29ee6",
+        "dob": "2020-03-01",
+        "phone": "819-729-4862",
+        "title": "Director of Product",
+        "department": "Engineering",
+        "workLocation": {
+            "city": "Salem",
+            "zip": "97317",
+            "streetLine1": "4000 Mission Street Southeast",
+            "country": "US",
+            "state": "OR",
+            "steLocationCode": {
+                "cityCode": "0004491020",
+                "psdCode": "",
+                "schoolCode": "",
+                "countyCode": "047",
+                "stateCode": "41",
+                "municipalityCode": "",
+                "transitDistrictCode": "",
+                "locationCode": "41-047-0004491020"
+            }
+        },
+        "address": null,
+        "flsaStatus": "non-exempt",
+        "personalEmail": "x@testrippling.com",
+        "spokeId": null,
+        "ein": "123121111",
+        "endDate": null,
+        "updatedAt": "2020-08-11T21:59:23+0000",
+        "createdAt": "2019-03-18T11:20:38+0000",
+        "startDate": "2019-03-29",
+        "employeeNumber": 11,
+        "roleState": "ACTIVE",
+        "workEmail": "parashuram@aamirkhan.co.in",
+        "offerAcceptedDate": "2019-03-18",
+        "manager": "5d3777868a9f4e2b5e467fc9"
+    }
+]
+```
+<!-- type: tab-end -->
 
