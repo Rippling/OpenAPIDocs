@@ -19,7 +19,7 @@ To generate your Rippling API key, please follow these steps.
 5. Provide the scopes and description of your API key
 6. Click **Save**
 
-![APIKey](../assets/images/Api_Access_settings.png)
+![APIKey](../../assets/images/Api_Access_settings.png)
 
 ## Viewing your API keys
 
