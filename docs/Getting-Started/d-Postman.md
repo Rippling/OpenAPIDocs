@@ -15,7 +15,7 @@ In order to generate a Rippling access token using Postman, you will need to pro
 - Authorize Using Browser: True
 - Auth URL: The Auth URL of your application. This should be of the form: https://app.rippling.com/apps/PLATFORM/{appName}
 - Client ID: The client ID you were provided by Rippling.
-- Client Secret: The clinet secret you were provided by Rippling.
+- Client Secret: The client secret you were provided by Rippling.
 
 Please note, you likely will want to generate access tokens for both the Staging environment as well as the Production environment.
 
