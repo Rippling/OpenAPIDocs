@@ -31,8 +31,8 @@ To retrieve the access token, your server will need to make a POST call to the A
 Auth Query Parameters | Description
 ----------------------|------------------------------------------------------------------------------
 grant_type            | authorization_code
-code                  | OAuth code that was sent in the redirect.
-redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling.
+code                  | OAuth code that was sent in the redirect
+redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling
 
 Here is an access token sample request:
 
@@ -58,7 +58,88 @@ To retrieve a Refresh Token, send a POST request to the same URL `https://stage.
 Refresh Query Parameters | Description
 ----------------------|------------------------------------------------------------------------------
 grant_type            | refresh_token
-refresh_token         | Refresh token from the initial grant.
+refresh_token         | Refresh token from the initial grant
 
+### Matching
+
+Now that the connection has been made, your server should request the Company and Employee Information and match with your application's internal database.
+
+#### Current Company
+
+Retrieve the current company's information with the GET companies/current endpoint. Note, the fields returned will depend on the scopes the customer has authorized your service to access.
+
+**Request**
+
+```
+curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
+--header 'Authorization: Bearer Z0v7jzGs8QkcI1Nkq0WAhr2iMgubdD'
+```
+
+```
+{
+    "id": "595f75ffd2a5f80ae22ce88e",
+    "ein": "123121111",
+    "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "US",
+        "zip": "94110",
+        "streetLine1": "3000 Mission Street"
+    },
+    "tax_info": {
+        "ein": "123121111",
+        "entityType": "C_CORP",
+        "incorporationDate": null,
+        "soleProprieterSSN": null,
+        "futaExempt": false,
+        "signatory": {
+            "id": "5d3777868a9f4e2b5e467fc9",
+            "name": "Support Account",
+            "firstName": "Support",
+            "lastName": "Account",
+            "dob": "2020-03-01",
+            "ssn": "",
+            "phone": null,
+            "title": "VP of engineering",
+            "workEmail": "supportnew@testrippling.com",
+            "signableName": "Support Account"
+        },
+        "nameWithIrs": null,
+        "incorporationState": null,
+        "entityName": "Aamir Prod [Test]",
+        "dba": null,
+        "postalAddress": null
+    },
+    "workLocations": [
+        {
+            "id": "5984bca87ee766438fd6faa5",
+            "nickname": "SF",
+            "address": {
+                "city": "Salem",
+                "zip": "97317",
+                "streetLine1": "4000 Mission Street Southeast",
+                "country": "US",
+                "state": "OR",
+                "steLocationCode": {
+                    "cityCode": "0004491020",
+                    "psdCode": "",
+                    "schoolCode": "",
+                    "countyCode": "047",
+                    "stateCode": "41",
+                    "municipalityCode": "",
+                    "transitDistrictCode": "",
+                    "locationCode": "41-047-0004491020"
+                }
+            }
+        }   
+    ],
+    "subscription": null,
+    "primaryEmail": "aamir+prod@rippling.com",
+    "phone": "9892471335",
+    "name": "Bob's Bakery"
+}
+```
+
+#### Employees
 
 
