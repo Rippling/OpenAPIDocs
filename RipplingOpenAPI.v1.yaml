@@ -36,7 +36,7 @@ info:
 servers:
   - url: 'https://api.rippling.com/platform/api'
     description: Production
-  - url: 'https://stage.rippling.com/platform/api'
+  - url: 'https://stage.rippling.com/api/platform/api'
     description: Staging
 tags:
   - name: A. Companies
