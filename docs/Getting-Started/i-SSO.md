@@ -25,7 +25,7 @@ roleId          | String identifier for the employee in Rippling.
 companyId       | String identifier for the employee's company in Rippling.
 accessLevel     | `ADMIN` or `EMPLOYEE`
 
-Your implementation of the SSO URL should exchange the code for an access token, just like the Redirect URL. This verifies that the SSO request legitimately came from Rippling. Your system can then log the user in to your application. You can hit /me endpoint with the access token to get more information about the currently logged in user, if needed.
+Your implementation of the SSO URL should exchange the code for an access token, just like the Redirect URL. This verifies that the SSO request legitimately came from Rippling. Your system can then log the user in to your application. You can hit the `/me` endpoint with the access token to get more information about the currently logged in user, if needed.
 
 <!--
 type: tab
