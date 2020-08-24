@@ -4002,6 +4002,7 @@ paths:
           in: query
           name: year
           description: The year to retrieve payroll information.
+          required: true
       tags:
         - A. Companies
         - B. Employees
