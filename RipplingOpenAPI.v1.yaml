@@ -4303,6 +4303,28 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CompanyDeduction'
+  /ats_candidates/push_candidate:
+    post:
+      summary: ''
+      operationId: post-ats_candidates-push_candidate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Candidate'
+      description: |-
+        Pushes a candidate from an applicant tracking system directly into the Rippling onboarding flow. Please note, this endpoint is only available to applications integrating with OAuth2.0.
+
+        The response will return the fields that were successfully populated into the candidate model. Any fields wrongly entered will be dropped.
+      security:
+        - authorizationCode: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Candidate'
 components:
   parameters:
     limit:
@@ -5112,6 +5134,7 @@ components:
       type: object
       x-tags:
         - Models
+      description: The 401k Limit Object.
       properties:
         traditional:
           type: object
@@ -5124,6 +5147,7 @@ components:
               description: Employer traditional 401k limit.
             employee_401k_limit:
               type: string
+              description: The traditional employee 401k limit.
         roth:
           type: object
           properties:
@@ -5135,13 +5159,13 @@ components:
               description: Employer Roth 401k limit
             employee_401k_limit:
               type: string
+              description: The Roth 401k limit.
         employee_401k_limit:
           type: string
           description: 'For all 401k accounts (Roth, and Traditional)'
         total_401k_limit:
           type: string
-          description: Total contirbution limit from employee and employer.
-      description: The 401k Limit Object.
+          description: Total contribution limit from the employee and the employer.
     LeaveRequest:
       title: LeaveRequest
       type: object
@@ -5672,6 +5696,77 @@ components:
           previous_termination_date: null
       x-tags:
         - Models
+    Candidate:
+      title: Candidate
+      type: object
+      description: The Rippling candidate model.
+      properties:
+        name:
+          type: string
+          description: The candidate's name.
+        email:
+          type: string
+          description: The candidate's email.
+        phoneNumber:
+          type: string
+          description: The candidate's phone number.
+        jobTitle:
+          type: string
+          description: The candidate's job title.
+        candidateId:
+          type: string
+          description: The unique identifier of the candidate from the ATS.
+        startDate:
+          type: string
+          description: The would-be start date of the candidate.
+          format: date
+        department:
+          type: string
+          description: The department name as a string.
+        salaryUnit:
+          type: string
+          description: 'An ENUM string value, denoting the frequency at which the candidate should be paid once the role begins. Note, the PAY_PERIOD ENUM implies the candidate is paid as per a custom pay period.'
+          enum:
+            - HOUR
+            - DAY
+            - WEEK
+            - MONTH
+            - PAY_PERIOD
+        salaryPerUnit:
+          type: number
+          description: The decimal value that the candidate gets paid every salaryUnit time period.
+        signingBonus:
+          type: number
+          description: 'The bonus cash given to the candidate as a part of a one time payment, with two decimal digit precision.'
+          format: double
+        equityShares:
+          type: integer
+          description: The number of shares that will be given to the candidate.
+        currency:
+          type: string
+          description: A string field of the ofifcial currency doe as listed in ISO 4217.
+        employmentType:
+          type: string
+          description: The ENUM type of employment the user will have within Rippling.
+          enum:
+            - CONTRACTOR
+            - SALARIED_PT
+            - SALARIED_FT
+            - HOURLY_FT
+            - HOURLY_PT
+            - TEMP
+        attachments:
+          type: array
+          items:
+            type: object
+            description: An array of json objects containing file names and public file URLs containing documents pertaining to the candidate.
+            properties:
+              file_name:
+                type: string
+                description: The file name.
+              file_url:
+                type: string
+                description: The public URL and name of a pdf/docx/doc/odt file containing documents pertaining to the candidate.
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
