@@ -6,7 +6,7 @@ tags: [postman, quick-start]
 
 Postman is a tool for streamlining API collaboration and development.
 
-In order to provide an quick path to development, Rippling provides an officially supported Postman collection that can be [accessed here](https://documenter.getpostman.com/view/11475460/T1LQhS1V?version=latest).
+In order to provide a quick path to development, Rippling provides an officially supported Postman collection that can be [accessed here](https://documenter.getpostman.com/view/11475460/T1LQhS1V?version=latest).
 
 Please note, the Rippling Postman collection is intended to provide a launching pad for utilizing the Rippling APIs, but for the most up to date documentation, you should review the [Rippling API documentation](https://rippling.stoplight.io/docs/rippling-api/RipplingOpenAPI.v1.yaml).
 
@@ -14,18 +14,18 @@ For more information on Postman, you can visit [their site](https://www.postman.
 
 ## Partners using Postman
 
-In order to generate a Rippling access token using Postman, you will need to provide the following information.
+Partners will need to generate a Rippling access token in order to access the API via Postman. To do this within Postman, you will need to provide the following information.
 
 | Key                     | Value                                                                                                            |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Token Name              | A name for the token of your choosing.                                                                           |
 | Grant Type              | Authorization Code                                                                                               |
 | Authorize Using Browser | True                                                                                                             |
-| Auth URL                | The Auth URL of your application. This should be of the form: <https://app.rippling.com/apps/PLATFORM/{appName}> |
+| Auth URL                | The Auth URL of your application. This should be of the form: `<https://app.rippling.com/apps/PLATFORM/{appName}>` |
 | Client ID               | The client ID you were provided by Rippling.                                                                     |
 | Client Secret           | The client secret you were provided by Rippling.                                                                 |
 
-Please note, you likely will want to generate access tokens for both the Staging environment as well as the Production environment.
+Please note, you likely will want to generate an access token for both the Staging and Production environments. See the steps below for generating an access token on Postman.
 
 <br />
 

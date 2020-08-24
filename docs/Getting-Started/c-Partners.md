@@ -78,7 +78,7 @@ Once your development package has been reviewed, you will receieve your Rippling
 - Application Name
 - Staging Account Credentials for testing
 
-Please note, if your integration requires access to [Webhooks](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention this in the submission of your development package.
+Please note, if your integration requires access to [Webhooks](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your development package.
 
 ### Receive Approval from Rippling
 
