@@ -2,7 +2,7 @@
 tags: [development package]
 ---
 
-# Submit your Development Package
+# Partner Development Package
 
 Use this page to submit your Rippling development package. Once your information has been reviewed, our team will contact the email you provided with the Staging Account Package.
 
