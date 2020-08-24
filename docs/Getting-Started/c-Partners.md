@@ -13,13 +13,13 @@ To develop an integrated application on Rippling, you will follow the developmen
 > 3. [Receive Approval from the Rippling Development Team](#receive-approval-from-rippling)
 > 4. [Launch the Integration in Rippling's Production Environment](#launch-the-integration)
 
-This process ensures that all Rippling integrated applications are lauched properly and provide the best possible user experience to our customers.
+This process ensures that all Rippling integrated applications are lauched properly and provide the best possible user experience to our shared customers.
 
 <!-- theme: success -->
 
-> 💡 Check out the [Rippling App Shop](https://rippling.com/app-shop), where all Rippling partner applications are listed!
+> 💡 Check out the [Rippling App Shop](https://rippling.com/app-shop), where all of Rippling's partner applications are listed!
 
-We've provided a video of the Rippling App Shop and the partner application installation flow. Please note, in this case the application requires the customer subdomain, but this is not a requirement.
+We've provided a video of the Rippling App Shop and the partner application installation flow. Please note, customer subdomains are not a requirement.
 
 <br />
 
@@ -27,9 +27,9 @@ We've provided a video of the Rippling App Shop and the partner application inst
 
 ### Submit your Development Package
 
-To get started with building an integration on Rippling you will need to submit a Rippling development package over email to [application.partnerships@rippling.com](mailto:application.partnerships@rippling.com).
+To get started with building an integration on Rippling you will need to submit a Rippling development package over email to [apps@rippling.com](mailto:application.partnerships@rippling.com).
 
-The Rippling development package should consist of the assets listed below.
+The Rippling development package should consist of the items listed below.
 
 - **Application Listing Assets**
 - **Configuration Properties**
@@ -50,7 +50,7 @@ For an example of a Rippling Application listing, please see [here](https://www.
 **Logo Requirements**
 
 - An SVG file of your logo, highly preferred to be in a monotone representation of your logo. 
-- A HEX color that will be used as the background of your SVG logo.
+- A HEX color that will be used for the background of your SVG logo file.
 
 #### Configuration Properties
 
@@ -67,7 +67,7 @@ As noted, you will need to provide Rippling with your application scopes. These 
 - employee:workEmail
 - employee:title
 
-For more information on Rippling scopes, please see [here](https://rippling.stoplight.io/docs/rippling-api/docs/e-Scopes.md).
+For more information on Rippling scopes, please see [here](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/e-Scopes.md).
 
 ### Build the Integration
 
@@ -78,7 +78,7 @@ Once your development package has been reviewed, you will receieve your Rippling
 - Application Name
 - Staging Account Credentials for testing
 
-Please note, if your integration requires access to Webhooks, you will build the integration against Rippling's Production Environment. If this is required, please mention this in the submission of your Devlopment Package.
+Please note, if your integration requires access to [Webhooks](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention this in the submission of your development package.
 
 ### Receive Approval from Rippling
 
@@ -93,4 +93,4 @@ You will then release a production version of your integration that is ready for
 
 ### Launch the Integration
 
-To launch the application, the Rippling team will ask for live or recorded demo of your application in order to approve the listing to go live in the Rippling App Shop. Once the team has approved the integration, the application will be made publicly visible in [the Rippling App Shop](rippling.com/app-shop).
+To launch the application, the Rippling team will ask for a live or recorded demo of your application in order to approve the listing to go live in the [Rippling App Shop](https://www.rippling.com/app-shop). Once the team has approved the integration, the application will be made publicly visible and searchable.
