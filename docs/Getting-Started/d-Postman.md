@@ -12,6 +12,8 @@ Please note, the Rippling Postman collection is intended to provide a launching 
 
 For more information on Postman, you can visit [their site](https://www.postman.com/).
 
+## Partners using Postman
+
 In order to generate a Rippling access token using Postman, you will need to provide the following information.
 
 | Key                     | Value                                                                                                            |
