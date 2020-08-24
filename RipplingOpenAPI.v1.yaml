@@ -5719,7 +5719,7 @@ components:
             'deduction:STUDENT_LOAN': Permission to read the student loan deductions information.
             'deduction:CUSTOM_TAXABLE': Permission to read the student loan deductions information.
             'saml:idp_metadata': Permission to read the current company's SAML metadata information.
-            'ats:candidates': Permission to push ATS candidates to Rippling for onboarding.
+            'Ats:candidate': Permission to push ATS candidates to Rippling for onboarding.
             'company:teams': Permission to read the company's list of teams.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/AppName'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
