@@ -51,7 +51,7 @@ paths:
     get:
       summary: Current Company
       operationId: get-companies
-      description: 'Returns the currently accessible company for the given token. Please note, the returned fields depend on the level of access (scopes) that are enabled for your access token or API key.'
+      description: 'Returns the currently accessible company for the given token. Please note, the returned fields depend on the scopes that are enabled for your access token or API key.'
       responses:
         '200':
           description: OK
@@ -149,6 +149,7 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - company
+            - 'company:*'
       tags:
         - A. Companies
     parameters: []
@@ -736,7 +737,7 @@ paths:
                       caption: null
                       required: true
       operationId: get-custom_fields
-      description: Return the custom fields for the given company.
+      description: Returns the custom fields for the given company.
       security:
         - Bearer ApiKey: []
         - authorizationCode:
@@ -2949,7 +2950,7 @@ paths:
                       accountType: CHECKING
                       accountNumber: '19879919'
       operationId: get-bank_accounts
-      description: Retrieves the bank accounts for the company.
+      description: Returns the bank accounts for the company.
       security:
         - Bearer ApiKey: []
         - authorizationCode:
@@ -3990,7 +3991,7 @@ paths:
                           birth_date: '1991-11-21'
                           previous_termination_date: null
       operationId: get-annual_employee_payroll_info
-      description: Retrieves the annual employee payroll info for a company.
+      description: Returns the annual employee payroll information for the current company.
       security:
         - Bearer ApiKey: []
         - authorizationCode:
@@ -4392,18 +4393,22 @@ components:
     Employee:
       title: Employee
       type: object
-      description: An employee model object
+      description: An employee model object.
       x-tags:
         - Models
       properties:
         id:
           type: string
+          description: 'Unique Employee Identifier '
         name:
           type: string
+          description: Full name of the employee
         firstName:
           type: string
+          description: First name of the employee
         lastName:
           type: string
+          description: Last name of the employee
         employmentType:
           type: string
           enum:
@@ -4413,22 +4418,29 @@ components:
             - HOURLY_FT
             - HOURLY_PT
             - TEMP
+          description: An ENUM of employment type
         dob:
           type: string
+          description: Date of birth
         ssn:
           type: string
+          description: Social Security Number
         phone:
           type: string
+          description: Phone Number
         personalEmail:
           type: string
+          description: Personal Email
         filingStatus:
           type: string
           enum:
             - SINGLE
             - MARRIED
             - MARRIED_USER_SINGLE_RATE
+          description: An ENUM of Filing Status
         title:
           type: string
+          description: The employee's work title
         compensation:
           $ref: '#/components/schemas/CompensationPackage'
         gender:
@@ -4437,6 +4449,7 @@ components:
             - MALE
             - FEMALE
             - 'null'
+          description: The employee's gender
         identifiedGender:
           type: string
           enum:
@@ -4444,14 +4457,18 @@ components:
             - FEMALE
             - NONBINARY
             - 'null'
+          description: The employee's identified gender
         department:
           type: string
+          description: The employee's department name
         departmentId:
           type: string
+          description: The unique identifier of the employee's department
         workLocation:
           $ref: '#/components/schemas/Address'
         workLocationId:
           type: string
+          description: The unique identifier of the employee's work location
         address:
           $ref: '#/components/schemas/Address'
         flsaStatus:
@@ -4459,14 +4476,18 @@ components:
           enum:
             - exempt
             - non-exempt
+          description: The employee's FLSA status stating whether they are exempt or non-exempt
         spokeId:
           type: string
         startDate:
           type: string
+          description: The employee's start date
         w2StartDate:
           type: string
+          description: The employee's start date as a W2 employee
         endDate:
           type: string
+          description: The employee's end date
         roleState:
           type: string
           enum:
@@ -4475,17 +4496,20 @@ components:
             - ACCEPTED
             - ACTIVE
             - TERMINATED
+          description: 'The employee''s role status, e.g. ACTIVE'
         workEmail:
           type: string
+          description: The employee's work email
         manager:
           type: string
-          description: The id of the employee's manager. This value can be null.
+          description: The unique identifier of the employee's manager. This value can be null.
         customFields:
           $ref: '#/components/schemas/CustomFields'
         hsaCompatiblePlanStatus:
           $ref: '#/components/schemas/HSACompatiblePlanStatus'
         isPeoEmployee:
           type: boolean
+          description: Boolean for whether the employee is under a PEO
     HSACompatiblePlanStatus:
       title: HSACompatiblePlanStatus
       type: object
@@ -4910,6 +4934,7 @@ components:
           type: string
       x-tags:
         - Models
+      description: An earning type object.
     EmployeeDeduction:
       title: EmployeeDeductionType
       type: object
@@ -5019,7 +5044,7 @@ components:
       type: object
       x-tags:
         - Models
-      description: A pay earning for an employee..
+      description: A pay earning object for an employee.
       properties:
         amount:
           type: string
@@ -5061,7 +5086,7 @@ components:
           type: boolean
         employer_roth_is_percent:
           type: boolean
-      description: 'The 401k Deduction Model. Please note, the contribution limits will be reset starting every new calendar year.'
+      description: The 401k Deduction Model.
       x-examples:
         Sample:
           employer_traditional_is_percent: false
@@ -5090,7 +5115,6 @@ components:
       properties:
         traditional:
           type: object
-          deprecated: true
           properties:
             ee:
               type: string
@@ -5102,7 +5126,6 @@ components:
               type: string
         roth:
           type: object
-          deprecated: true
           properties:
             ee:
               type: string
@@ -5118,6 +5141,7 @@ components:
         total_401k_limit:
           type: string
           description: Total contirbution limit from employee and employer.
+      description: The 401k Limit Object.
     LeaveRequest:
       title: LeaveRequest
       type: object
@@ -5228,7 +5252,7 @@ components:
     EmployeeChange:
       title: EmployeeChange
       type: object
-      description: Defines a scheduled employee change.
+      description: A scheduled employee change object.
       properties:
         effectiveFrom:
           type: string
@@ -5428,22 +5452,24 @@ components:
     EmployeePayrollGarnishments:
       title: EmployeePayrollGarnishments
       type: object
-      description: An object representing employee garnishments.
+      description: 'An object representing employee garnishments. A payroll garnishment occurs when a court issues an order to withhold a certain amount from an employee''s paycheck and send it directly to the organization or person owed money, until the debt is fully paid.'
       x-examples:
         Sample:
           cdtAmt: '100.00'
           name: Lien on Wages
           employeeGarnishment: 5ae0b2ce40cae73202bd64e9
+      x-tags:
+        - Models
       properties:
         cdtAmt:
           type: string
+          description: Contribution Amount.
         name:
           type: string
+          description: Garnishment Name.
         employeeGarnishment:
           type: string
           description: Unique identifier of the garnishmnet type defined by the company.
-      x-tags:
-        - Models
     PayrollReportJob:
       title: PayrollReportJob
       type: object
@@ -5568,7 +5594,7 @@ components:
     Annual401kEmployeeSummary:
       title: Annual401kEmployeeSummary
       type: object
-      description: Company summary 401k information for a given employee
+      description: A summary of a Company's 401k information for a given employee.
       properties:
         year:
           type: string
@@ -5612,8 +5638,8 @@ components:
         - Models
     401kEmployeeDetails:
       title: 401kEmployeeDetails
-      type: object
       description: The employee details object used within the annual 401k report
+      type: object
       properties:
         id:
           type: string
@@ -5720,6 +5746,9 @@ components:
             'saml:idp_metadata': Permission to read the current company's SAML metadata information.
             'Ats:candidate': Permission to push ATS candidates to Rippling for onboarding.
             'company:teams': Permission to read the company's list of teams.
+            'company:*': This scope signifies that many company scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
+            'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
+            'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/AppName'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
 security:
