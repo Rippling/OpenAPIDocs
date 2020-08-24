@@ -75,6 +75,6 @@ _Additionally, you may notice that certain fields are not marked as required the
 | deduction:STUDENT_LOAN           | Permission to access the student loan deductions information.                                                                                              |
 | deduction:CUSTOM_TAXABLE         | Permission to access the student loan deductions information.                                                                                              |
 | saml:idp_metadata                | Permission to access the current company's SAML metadata information.                                                                                      |
-| Ats:candidates                   | Permission to push ATS candidates to Rippling for onboarding. Please note, this scope is only available to Rippling application developers using OAuth2.0. |
+| ats:candidates                   | Permission to push ATS candidates to Rippling for onboarding. Please note, this scope is only available to Rippling application developers using OAuth2.0. |
 | company:teams                    | Permission to access the company's list of teams.                                                                                                          |
 | app:read                         | Permission to read the list of the company's installed applications, as well as information on the user account mapping within those applications.         |

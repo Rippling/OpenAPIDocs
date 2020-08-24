@@ -46,6 +46,7 @@ tags:
   - name: F. Groups
   - name: G. SAML
   - name: E. Current User
+  - name: H. ATS
 paths:
   /companies/current:
     get:
@@ -4305,7 +4306,7 @@ paths:
               $ref: '#/components/schemas/CompanyDeduction'
   /ats_candidates/push_candidate:
     post:
-      summary: ''
+      summary: New Candidates
       operationId: post-ats_candidates-push_candidate
       responses:
         '200':
@@ -4314,17 +4315,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Candidate'
-      description: |-
-        Pushes a candidate from an applicant tracking system directly into the Rippling onboarding flow. Please note, this endpoint is only available to applications integrating with OAuth2.0.
-
-        The response will return the fields that were successfully populated into the candidate model. Any fields wrongly entered will be dropped.
+      description: 'Pushes a candidate from an applicant tracking system directly into the Rippling onboarding flow. Please note, this endpoint is only available to applications integrating with OAuth2.0.'
       security:
-        - authorizationCode: []
+        - authorizationCode:
+            - 'ats:candidates'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Candidate'
+        description: ''
+      tags:
+        - H. ATS
 components:
   parameters:
     limit:
@@ -5839,7 +5841,7 @@ components:
             'deduction:STUDENT_LOAN': Permission to read the student loan deductions information.
             'deduction:CUSTOM_TAXABLE': Permission to read the student loan deductions information.
             'saml:idp_metadata': Permission to read the current company's SAML metadata information.
-            'Ats:candidate': Permission to push ATS candidates to Rippling for onboarding.
+            'ats:candidates': Permission to push ATS candidates to Rippling for onboarding.
             'company:teams': Permission to read the company's list of teams.
             'company:*': This scope signifies that many company scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
