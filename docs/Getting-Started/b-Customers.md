@@ -4,7 +4,7 @@ tags: [customers, Intro]
 
 # Customers
 
-Rippling customers access the Rippling API to retrieve and update information their organization's behalf.
+Rippling customers access the Rippling API to retrieve and update information on their organization's behalf.
 
 If you are a Rippling customer, you will need to create an API key with defined scopes in order to access the Rippling API. Please note, it is against Rippling's Terms of Service to provide your API Key to anyone outside of your organization.
 
