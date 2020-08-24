@@ -4,30 +4,29 @@ tags: [Intro]
 
 # Rippling's API Platform
 
-The Rippling API Platform enables the access and processing of company and employee information through web services.
+The Rippling API Platform enables the access and processing of company and employee information.
 
 The API will continue to evolve as more endpoints and capabilities are added. If there are specific endpoints or features that you would benefit from, please email apps@rippling.com.
 
-Please note, it is in violation of Rippling's Terms of Service to use a an API key in order to access the Rippling development platform, if that API key does not belong to your organization.
-
+Please note, it is in violation of Rippling's Terms of Service to use an API key on behalf of another organization in order to access the Rippling API Platform.
 
 ## Customers
 
-Rippling customers use their API keys in order to access the Rippling platform on their organization's behalf.
+Rippling customers use their API keys in order to access the Rippling API Platform.
 
-If you're a Rippling customer, please see the [Customer Guide](https://rippling.stoplight.io/docs/rippling-api/docs/c-Customers.md) on building with Rippling.
+If you're a Rippling customer, please see the [Customer Guide](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/b-Customers.md) on building with Rippling.
 
 ## Partners
 
 Rippling requires that all application partners build integrations within [Rippling's App Shop](https://rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information. 
 
-If you are interested in building an application with Rippling, please see the [Partner Guide](https://rippling.stoplight.io/docs/rippling-api/docs/b-Partners.md) on building with Rippling.
+If you are interested in building an application with Rippling, please see the [Partner Guide](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md).
 
 ### The Rippling App Shop
 
-The Rippling App Shop showcases Rippling partners' integrated applications. From the App Shop, Rippling customers download third-party applications and identify providers within various service segments, such as Collaboration or Office Management. Rippling partners have the opportunity to leverage the co-marketing co-marketing opportunity reach new prospects.
+The Rippling App Shop showcases Rippling partners' integrated applications. From the App Shop, Rippling customers install third-party integrations and identify providers within various service segments, such as Collaboration or Office Management. Rippling partners have the opportunity to leverage the co-marketing opportunity to reach new customers.
 
-The Rippling App Shop is used by a wide span of roles, ranging from HR & IT directors, to founders, to employees. The Rippling App Shop is available for viewing on the public web and is accessible by just about anyone.
+The Rippling App Shop is used by a wide span of roles, ranging from HR & IT directors, to founders, to employees.
 
 <br />
 
