@@ -27,7 +27,7 @@ We've provided a video of the Rippling App Shop and the partner application inst
 
 ### Submit your Development Package
 
-To get started with building an integration on Rippling you will need to submit a Rippling development package over email to [apps@rippling.com](mailto:apps@rippling.com).
+To get started with building an integration on Rippling you will need to submit a Rippling development package.
 
 The Rippling development package should consist of the items listed below.
 
