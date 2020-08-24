@@ -4,21 +4,17 @@ tags: [authorization, installation, match, token, quick-start]
 
 # Authorization
 
-Rippling integrations rely on OAuth 2.0, in which RIppling is the server and your application is the client.
-
-At a high-level Rippling will send a user with a `?code=<xxx>` parameter when they install your application on Rippling. This is the authorization that you rapplication will utilize to exchnage for access and refresh tokens.
+Rippling integrations rely on OAuth 2.0, in which Rippling is the server and your application is the client. At a high-level Rippling will send the user to your redirect URL with a `?code=<xxx>` parameter when they install your application on Rippling. This provides the authorization that your application will utilize to exchange for access and refresh tokens.
 
 ## The Installation Flow
 
-The following flow walks you through the installation flow of an application on Rippling's Staging Environment. The process is the same on the Rippling Production Environment, but you will replace `stage.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
+The following flow walks you through the installation of an application on Rippling's Staging Environment. The process is the same on the Rippling Production Environment, but you will replace `stage.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
 
-To begin, go to `​https://stage.rippling.com/login` to login with your Rippling-provided staging account credentials.
-
-Once logged in, you will proceed directly to the URL of your application. `​https://stage.rippling.com/apps/PLATFORM/<appName>`​.
+To begin, go to `​https://stage.rippling.com/login` to login with your Rippling-provided staging account credentials. Once logged in, you should proceed directly to the URL of your application. `​https://stage.rippling.com/apps/PLATFORM/<appName>`​, as it will not yet be discoverable.
 
 ### Initial Redirect
 
-As you go through the setup flow, you will be redirected to the Redirect URL that you provided in your Development Package. The following query parameters will be present in the redirect.
+As you go through the setup flow, you will be redirected to the Redirect URL that you provided in your [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md#submit-your-development-package). The following query parameters will be present in the redirect.
 
 | Redirect Query Parameter | Description                                                                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
@@ -30,13 +26,13 @@ Using the code value, your server will be able to get an access token from Rippl
 
 ### Retrieving an Access Token
 
-To retrieve the access token, your server will need to make a POST call to the Auth URL. On staging this URL is `https://stage.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
+To retrieve the access token, your server will need to make a POST to the Auth URL. On staging this URL is `https://stage.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
 
 | Auth Query Parameters | Description                                                                  |
 | --------------------- | ---------------------------------------------------------------------------- |
 | grant_type            | authorization_code                                                           |
 | code                  | OAuth code that was sent in the redirect                                     |
-| redirect_uri          | Your redirect URL. This must match exactly what you had provided to Rippling |
+| redirect_uri          | Your redirect URL. This must match the redirect URL you had provided to Rippling |
 
 Here is an access token sample request:
 
@@ -58,7 +54,7 @@ Here is an access token sample response:
 
 ### Refresh Tokens
 
-To retrieve a Refresh Token, send a POST request to the same URL `https://stage.rippling.com/api/o/token/` with basic auth and the following query parameters.
+To retrieve a Refresh Token, send a POST request to the same URL `https://stage.rippling.com/api/o/token/` with basic auth and the following form parameters.
 
 | Refresh Query Parameters | Description                          |
 | ------------------------ | ------------------------------------ |
@@ -67,7 +63,7 @@ To retrieve a Refresh Token, send a POST request to the same URL `https://stage.
 
 ## Matching
 
-Now that the connection has been made, your server should request the Company and Employee Information and match with your application's internal database.
+Now that the connection has been made, your server should request the Company and Employee Information. This information can then be matched with your application's internal database.
 
 ### Current Company
 
@@ -159,7 +155,7 @@ title: Response
 
 Retrieve the current company's employees information with the GET /employees endpoint. If an employee already has an account within your application, you should enable the admin to match the existing account or create a new account.
 
-For any users that need to create a new account, you should be able to retrieve most of the data that is needed from Rippling's API.
+For any users that need to create a new account, you should be able to retrieve most of the data that is needed from Rippling's API. Your application will then be able to rely on the employees returned from this endpoint to create and suspend accounts.
 
 Note, the fields returned will depend on the scopes the customer has authorized your service to access.
 

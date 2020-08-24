@@ -4,11 +4,11 @@ tags: [webhook, webhooks]
 
 # Webhooks
 
-Rippling Partner Applications have the option to provide a webhook URL for their application to receive event triggered notifications.
+Rippling Partner Applications have the option to provide a Webhook URL for their application to receive event triggered notifications.
 
 > **Currently, Rippling only supports webhooks in the production environment.**
 
-Rippling will make a POST to the Webhook URL that the partner has provided in their Development Package.
+Rippling will make a POST to the Webhook URL that the partner has provided in their [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md#submit-your-development-package).
 
 The POST will include the following form-encoded parameters.
 
