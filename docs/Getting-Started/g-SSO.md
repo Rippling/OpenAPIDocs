@@ -14,7 +14,7 @@ Rippling partners can implement single sign-on through two primary methods: **Ri
 
 ## Rippling Platform SSO
 
-Rippling application partners have the option of providing SSO endpoints to Rippling in their [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md#submit-your-development-package).
+Rippling application partners have the option of providing SSO endpoints to Rippling in their [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md).
 
 If an SSO endpoint is configured for you application, Rippling will have the user's browser POST to the SSO URL with the folowing form-encoded fields.
 

@@ -27,7 +27,7 @@ We've provided a video of the Rippling App Shop and the partner application inst
 
 ### Submit your Development Package
 
-To get started with building an integration on Rippling you will need to submit a Rippling development package.
+To get started with building an integration on Rippling you will need to submit a [Rippling development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md).
 
 The Rippling development package should consist of the items listed below.
 
@@ -71,7 +71,7 @@ For more information on Rippling scopes, please see [here](https://rippling.stop
 
 ### Build the Integration
 
-Once your development package has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
+Once your [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md) has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
 
 - Staging Client ID
 - Staging Client Secret
