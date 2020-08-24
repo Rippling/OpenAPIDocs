@@ -2,7 +2,7 @@
 tags: [feedback]
 ---
 
-# Rippling Developer Feedback Survey
+# Developer Feedback Survey
 
 We're excited that you've chosen to build on Rippling. Please use this survey to voice your needs and help us to continue to improve the platform. We take your feedback seriously and look forward to improving your experience on Rippling. If there are any items not addressed by this survey, please feel free to include them within the miscellaneous section at the bottom.
 
