@@ -39,7 +39,7 @@ servers:
   - url: 'https://stage.rippling.com/api/platform/api'
     description: Staging
 tags:
-  - name: 'A\. Companies'
+  - name: 'A: Companies'
   - name: B. Employees
   - name: C. Payroll
   - name: D. 401k
@@ -152,7 +152,7 @@ paths:
             - company
             - 'company:*'
       tags:
-        - 'A\. Companies'
+        - 'A: Companies'
     parameters: []
   /departments:
     get:
