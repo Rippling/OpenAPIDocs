@@ -12,7 +12,15 @@ Single Sign-On, or SSO, is a property of identity and access management systems 
 
 Rippling partners can implement single sign-on through two primary methods: **Rippling's Platform SSO** and **SAML SSO**. Before diving in, the user experience of both sign-in methods are essentially the same.
 
+## SAML SSO
+
+Security Assertion Markup Language (SAML) is an open standard that allows identity providers (IdPs), such as Rippling, to pass authentication and authorization information to service providers (SPs), such as your application!
+
+To integrate your application with SAML SSO, you can leverage the `GET /saml/idp_metadata` endpoint to automatically pull a company's SAML configuration from Rippling. However, you will need provide the Rippling team with clear documentation for users to retrieve their `ACS URL`, `Entity ID`, and any other necessary SAML configuration information. If you'd like to add SAML SSO to your integrated application, please reach out to apps@rippling.com.
+
 ## Rippling Platform SSO
+
+> Please note, Rippling Platform SSO is a legacy supported version of SSO. The Rippling Platform can now support OpenID connect.
 
 Rippling application partners have the option of providing SSO endpoints to Rippling in their [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md).
 
@@ -47,10 +55,3 @@ title: Response
 }
 ```
 <!-- type: tab-end -->
-
-## SAML SSO
-
-Security Assertion Markup Language (SAML) is an open standard that allows identity providers (IdPs), such as Rippling, to pass authentication and authorization information to service providers (SPs), such as your application!
-
-To integrate your application with SAML SSO, you can leverage the `GET /saml/idp_metadata` endpoint to automatically pull a company's SAML configuration from Rippling. However, you will need provide the Rippling team with clear documentation for users to retrieve their `ACS URL`, `Entity ID`, and any other necessary SAML configuration information. If you'd like to add SAML SSO to your integrated application, please reach out to apps@rippling.com.
-
