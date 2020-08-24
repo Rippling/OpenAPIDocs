@@ -25,6 +25,16 @@ info:
     curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
     --header 'Authorization: Bearer OMITTED'
     ```
+
+    Please note, the current base URLs for Staging and Production can be found towards the bottom of this document.
+
+    ### Using the Interactive Documentation
+
+    Rippling's Documentation Portal allows you to test the API endpoints directly within the documentation. To do so, provide your API key or Access Token as a header parameter with the form Authorization Bearer: TOKEN.
+
+    <br />
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/6bc654abb82a4ec7abbaa94a25441c70" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 servers:
   - url: 'https://api.rippling.com/platform/api'
     description: Production
