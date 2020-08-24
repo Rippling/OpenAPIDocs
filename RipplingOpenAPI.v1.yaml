@@ -26,7 +26,7 @@ info:
     --header 'Authorization: Bearer OMITTED'
     ```
 
-    Please note, the current base URLs for Staging and Production can be found towards the bottom of this document.
+    Please note, the current base URLs for Staging and Production can be found towards the bottom of this overview document.
 
     ### Using the Interactive Documentation
 
