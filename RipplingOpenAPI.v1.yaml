@@ -5846,7 +5846,8 @@ components:
             'company:*': This scope signifies that many company scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
-          authorizationUrl: 'https://app.rippling/apps/PLATFORM/AppName'
+          authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
+          refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
 security:
   - Authorization Code: []
