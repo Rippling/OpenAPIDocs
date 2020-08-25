@@ -47,7 +47,7 @@ Here is an access token sample response:
   "access_token": "REDACTED", 
   "token_type": "Bearer",
   "expires_in": 129600, 
-  "refresh_token": "hUcO0tI6Oq3d6MgpBS6dsav25DXltf",
+  "refresh_token": "REDACTED",
   "scope": "employee:workEmail employee:name"
 }
 ```

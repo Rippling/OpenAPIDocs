@@ -22,7 +22,7 @@ To integrate your application with SAML SSO, you can leverage the `GET /saml/idp
 
 > Please note, Rippling Platform SSO is a legacy supported version of SSO. The Rippling Platform can now support OpenID connect.
 
-Rippling application partners have the option of providing SSO endpoints to Rippling in their [Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
+Rippling application partners have the option of providing SSO endpoints to Rippling in their [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
 If an SSO endpoint is configured for you application, Rippling will have the user's browser POST to the SSO URL with the folowing form-encoded fields.
 
