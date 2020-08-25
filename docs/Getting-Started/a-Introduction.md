@@ -22,6 +22,8 @@ Rippling requires that all application partners build integrations within [Rippl
 
 If you are interested in building an application with Rippling, please see the [Partner Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md).
 
+You will be required to submit a [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) in order to configure your integration and provide your marketing assets.
+
 ### The Rippling App Shop
 
 The Rippling App Shop showcases Rippling partners' integrated applications. From the App Shop, Rippling customers install third-party integrations and identify providers within various service segments, such as Collaboration or Office Management. Rippling partners have the opportunity to leverage the co-marketing opportunity to reach new customers.

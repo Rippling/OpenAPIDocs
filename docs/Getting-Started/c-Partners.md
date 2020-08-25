@@ -27,9 +27,9 @@ We've provided a video of the Rippling App Shop and the partner application inst
 
 ### Submit your Development Package
 
-To get started with building an integration on Rippling you will need to submit a [Rippling development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
+To get started with building an integration on Rippling you will need to submit a [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
-The Rippling development package should consist of the items listed below.
+The Rippling [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) should consist of the items listed below.
 
 - **Application Listing Assets**
 - **Configuration Properties**
@@ -78,7 +78,7 @@ Once your [development package](https://developer.rippling.com/docs/rippling-api
 - Application Name
 - Staging Account Credentials for testing
 
-Please note, if your integration requires access to [Webhooks](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your development package.
+Please note, if your integration requires access to [Webhooks](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
 ### Receive Approval from Rippling
 
