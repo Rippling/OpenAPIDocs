@@ -37,14 +37,14 @@ To retrieve the access token, your server will need to make a POST to the Auth U
 Here is an access token sample request:
 
 ```js
-curl -X POST -H "Authorization: Basic OMITTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
+curl -X POST -H "Authorization: Basic REDACTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
 ```
 
 Here is an access token sample response:
 
 ```json
 {
-  "access_token": "OMITTED", 
+  "access_token": "REDACTED", 
   "token_type": "Bearer",
   "expires_in": 129600, 
   "refresh_token": "hUcO0tI6Oq3d6MgpBS6dsav25DXltf",
@@ -76,7 +76,7 @@ title: Request
 
 ```js
 curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
---header 'Authorization: Bearer OMITTED'
+--header 'Authorization: Bearer REDACTED'
 ```
 
 <!--
@@ -166,7 +166,7 @@ title: Request
 
 ```js
 curl --location --request GET 'https://api.rippling.com/platform/api/employees' \
---header 'Authorization: Bearer OMITTED'
+--header 'Authorization: Bearer REDACTED'
 ```
 
 <!--

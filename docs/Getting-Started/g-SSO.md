@@ -41,7 +41,7 @@ title: Request
 -->
 ```js
 curl --location --request GET 'https://api.rippling.com/platform/api/me' \
---header 'Authorization: Bearer OMITTED'
+--header 'Authorization: Bearer REDACTED'
 ```
 <!--
 type: tab

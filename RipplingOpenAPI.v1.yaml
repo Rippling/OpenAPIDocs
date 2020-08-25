@@ -23,7 +23,7 @@ info:
 
     ```js
     curl --location --request GET 'https://api.rippling.com/platform/api/companies/current' \
-    --header 'Authorization: Bearer OMITTED'
+    --header 'Authorization: Bearer REDACTED'
     ```
 
     ### Using the Interactive Documentation
