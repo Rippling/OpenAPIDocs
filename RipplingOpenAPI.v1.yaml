@@ -4327,34 +4327,6 @@ paths:
         description: ''
       tags:
         - H. ATS
-  /coworkers:
-    get:
-      summary: Coworkers
-      tags: []
-      responses: {}
-      operationId: get-coworkers
-      description: Returns the coworkers for this company.
-    parameters:
-      - required: true
-  '/coworkers/{coworkerId}':
-    get:
-      summary: Coworkers
-      description: Returns coworkers
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-      responses:
-        '200':
-          description: OK
-    post:
-      summary: ''
-      operationId: post-coworkers-coworkerId
-      responses:
-        '200':
-          description: OK
 components:
   parameters:
     limit:
