@@ -8,7 +8,7 @@ Rippling Partner Applications have the option to provide a Webhook URL for their
 
 > **Currently, Rippling only supports webhooks in the production environment.**
 
-Rippling will make a POST to the Webhook URL that the partner has provided in their [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md).
+Rippling will make a POST to the Webhook URL that the partner has provided in their [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
 The POST will include the following form-encoded parameters.
 

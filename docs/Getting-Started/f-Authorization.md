@@ -14,7 +14,7 @@ To begin, go to `​https://stage.rippling.com/login` to login with your Ripplin
 
 ### Initial Redirect
 
-As you go through the setup flow, you will be redirected to the Redirect URL that you provided in your [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md#submit-your-development-package). The following query parameters will be present in the redirect.
+As you go through the setup flow, you will be redirected to the Redirect URL that you provided in your [development package](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md#submit-your-development-package). The following query parameters will be present in the redirect.
 
 | Redirect Query Parameter | Description                                                                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |

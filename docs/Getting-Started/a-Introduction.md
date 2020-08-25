@@ -14,13 +14,13 @@ Please note, it is in violation of Rippling's Terms of Service to use an API key
 
 Rippling customers use their API keys in order to access the Rippling API Platform.
 
-If you're a Rippling customer, please see the [Customer Guide](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/b-Customers.md) on building with Rippling.
+If you're a Rippling customer, please see the [Customer Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/b-Customers.md) on building with Rippling.
 
 ## Partners
 
 Rippling requires that all application partners build integrations within [Rippling's App Shop](https://rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information. 
 
-If you are interested in building an application with Rippling, please see the [Partner Guide](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md).
+If you are interested in building an application with Rippling, please see the [Partner Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md).
 
 ### The Rippling App Shop
 

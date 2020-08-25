@@ -4,20 +4,20 @@ info:
   version: '1.0'
   contact:
     name: Cory Pitt
-    email: apps@rippling.com
+    email: support@rippling.com
   license:
     name: MIT
   description: |-
     Access to Rippling's Employee Management Platform requires an access token or API key that is tied to a Rippling client account.
 
-    Please see here for an [overview on the Rippling Platform.](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/a-Introduction.md)
+    Please see here for an [overview on the Rippling Platform.](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/a-Introduction.md)
 
     Additionally, you may find these quick guides useful in getting started.
 
-    - [Getting Started as an Application Partner](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/c-Partners.md)
+    - [Getting Started as an Application Partner](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md)
     - [Getting Started as a Rippling Customer](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/b-Customers.md)
-    - [Rippling Scopes](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/e-Scopes.md)
-    - [The Rippling Postman Collection](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/d-Postman.md)
+    - [Rippling Scopes](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/e-Scopes.md)
+    - [The Rippling Postman Collection](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/d-Postman.md)
 
     The access token or API key should be used as a bearer token for HTTP requests, for instance:
 

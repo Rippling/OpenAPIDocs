@@ -27,7 +27,7 @@ We've provided a video of the Rippling App Shop and the partner application inst
 
 ### Submit your Development Package
 
-To get started with building an integration on Rippling you will need to submit a [Rippling development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md).
+To get started with building an integration on Rippling you will need to submit a [Rippling development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
 The Rippling development package should consist of the items listed below.
 
@@ -67,18 +67,18 @@ As noted, you will need to provide Rippling with your application scopes. These 
 - employee:workEmail
 - employee:title
 
-For more information on Rippling scopes, please see [here](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/e-Scopes.md).
+For more information on Rippling scopes, please see [here](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/e-Scopes.md).
 
 ### Build the Integration
 
-Once your [development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md) has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
+Once your [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
 
 - Staging Client ID
 - Staging Client Secret
 - Application Name
 - Staging Account Credentials for testing
 
-Please note, if your integration requires access to [Webhooks](https://rippling.stoplight.io/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your development package.
+Please note, if your integration requires access to [Webhooks](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your development package.
 
 ### Receive Approval from Rippling
 

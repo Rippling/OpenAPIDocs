@@ -4,7 +4,7 @@ tags: [scope, scopes]
 
 # Scopes
 
-Rippling Application Partners are required to explicitly provide Rippling with their necessary authorization scopes in the [Rippling development package](https://rippling.stoplight.io/docs/rippling-api/docs/Submit/development-package.md). These scopes are transparently displayed to Rippling customers during the installation process to ensure the transparent authorization of access to their company's information.
+Rippling Application Partners are required to explicitly provide Rippling with their necessary authorization scopes in the [Rippling development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md). These scopes are transparently displayed to Rippling customers during the installation process to ensure the transparent authorization of access to their company's information.
 
 Please note, for scopes enabling access to a company's fields, the ability to update that field will be dependent on the endpoints available. Please see the API documentation for more information on how integrations can manipulate Rippling fields.
 
