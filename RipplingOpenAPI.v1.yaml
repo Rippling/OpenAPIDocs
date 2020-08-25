@@ -2285,7 +2285,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ein'
       tags:
-        - B. Employees
         - C. Payroll
   '/payroll_runs/{payrollRunId}/employees':
     parameters:
@@ -2702,7 +2701,6 @@ paths:
             - employee
             - 'employee:payroll'
       tags:
-        - B. Employees
         - C. Payroll
   '/payroll_runs/{payrollRunId}/employees/{employeePayrollRunId}/earnings':
     parameters:
@@ -2833,7 +2831,6 @@ paths:
             - 'employee:payroll'
       tags:
         - C. Payroll
-        - B. Employees
   /payroll_runs/report:
     post:
       summary: Report Creation
@@ -2929,7 +2926,6 @@ paths:
           required: true
       tags:
         - C. Payroll
-        - B. Employees
   /bank_accounts:
     get:
       summary: Bank Accounts
@@ -3816,7 +3812,6 @@ paths:
             - 'employee:payroll'
       tags:
         - C. Payroll
-        - A. Companies
     parameters: []
   '/employees/{employeeId}/deductions_401k':
     parameters:
@@ -3865,7 +3860,6 @@ paths:
             - 'deduction:STUDENT_LOAN'
             - 'deduction:ROTH_401K'
       tags:
-        - B. Employees
         - D. 401k
     post:
       summary: Employee 401k Deduction Creation
@@ -4006,8 +4000,6 @@ paths:
           description: The year to retrieve payroll information.
           required: true
       tags:
-        - A. Companies
-        - B. Employees
         - C. Payroll
   /leave_requests:
     get:
@@ -4144,9 +4136,6 @@ paths:
   /company_deductions:
     get:
       summary: Company Deductions
-      tags:
-        - A. Companies
-        - D. 401k
       responses:
         '200':
           description: OK
@@ -4209,6 +4198,8 @@ paths:
         - authorizationCode:
             - company
             - 'company:company_deductions'
+      tags:
+        - D. 401k
     parameters: []
   '/company_deductions/{deductionId}':
     parameters:
@@ -4221,7 +4212,6 @@ paths:
     get:
       summary: Company Deduction Detail
       tags:
-        - A. Companies
         - D. 401k
       responses:
         '200':
