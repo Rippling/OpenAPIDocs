@@ -4806,7 +4806,7 @@ components:
       x-tags:
         - Models
       x-examples:
-        Sample Company:
+        Sample:
           id: 5ec5595afa9c4e1728118cb5
           ein: null
           address:
