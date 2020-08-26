@@ -2964,7 +2964,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PayrollActivity(Old)'
+                type: array
+                items:
+                  $ref: '#/components/schemas/PayrollActivity(Old)'
               examples:
                 Success:
                   value:
@@ -3890,21 +3892,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ''
+              $ref: '#/components/schemas/401kDeduction'
           application/xml:
             schema:
               $ref: '#/components/schemas/401kDeduction'
-            examples:
-              Sample:
-                value: |-
-                  {
-                      "caps": {
-                          "employee_401k_limit": "10000",
-                          "total_401k_limit": "3500"
-                      },
-                      "traditional": "6",
-                      "traditional_is_percent": "true"
-                  }
         description: A 401k Deduction Object
       tags:
         - B. Employees
@@ -5578,10 +5569,12 @@ components:
     PayrollActivity(Old):
       title: PayrollActivity(Old)
       type: object
+      x-tags:
+        - Models
       properties:
         id:
           type: string
-        starteDate:
+        startDate:
           type: string
         endDate:
           type: string
@@ -5611,7 +5604,9 @@ components:
               grossPay:
                 type: string
               hours:
-                type: string
+                type:
+                  - string
+                  - 'null'
               role:
                 type: string
               totalPayForPercentageDeductions:
@@ -5622,36 +5617,17 @@ components:
                 type: string
         parentPayrollRun:
           $ref: '#/components/schemas/parentPayrollRun'
-      x-tags:
-        - Models
     parentPayrollRun:
       title: parentPayrollRun
-      type: object
+      type:
+        - object
+        - 'null'
       description: Parent payroll object used in an older endpoint for payroll activity.
-      properties:
-        name:
-          type: string
-        runState:
-          type: string
-        check:
-          type: string
-        Date:
-          type: string
-        payPeriod:
-          type: object
-          properties:
-            startDate:
-              type: string
-            paySchedule:
-              type: string
-            endDate:
-              type: string
-        runType:
-          type: string
-        id:
-          type: string
       x-tags:
         - Models
+      properties:
+        attribute...:
+          type: string
     AnnualPayrollInformation:
       title: AnnualPayrollInformation
       type: object
