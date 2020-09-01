@@ -4340,6 +4340,43 @@ paths:
                     type:
                       - string
                       - 'null'
+              examples:
+                Success:
+                  value:
+                    data:
+                      events:
+                        - id: 5ed7052182a6a429a4af3fb9
+                          request_data: null
+                          linked_events: []
+                          subjects:
+                            - instance: 5c6324b602bf9a760b7a4329
+                              type: GROUP
+                              display_name: Everyone
+                              icon: null
+                            - instance: 5c6324b502bf9a760b7a4318
+                              type: SPOKE_USER
+                              display_name: apps+test@rippling.com
+                              icon: null
+                            - instance: 5ca35d3b6ab9e20acc4e83e3
+                              type: ROLE
+                              display_name: Swag Test
+                              icon: null
+                          event_type: EXTERNAL_GROUP_MEMBER_REMOVE
+                          timestamp: '2020-06-02T19:04:17.375000-07:00'
+                          company: 595f75ffd2a5f80ae22ce88e
+                          spoke: 5c63187a3698be3692ce328f
+                          owner: 5c63232bc5929135ddadbfab
+                          initiator:
+                            type: EXTERNAL
+                            role: null
+                            display_name: External
+                            icon: null
+                          event_reason:
+                            reason: CHANGE_SYNCED_FROM_EXTERNAL_APP
+                            message: Activity emanated from External App
+                          name: Account removed from group
+                      next: 5f4d9d82f6c26e0a83aa6ea8
+                    error: null
       operationId: get-company_activity
       description: |
         Retrieves the activity for a given company.
@@ -5889,6 +5926,8 @@ components:
         - EXTERNAL_ACCOUNT_PASSWORD_RESET
         - EXTERNAL_GROUP_ADD
         - EXTERNAL_GROUP_REMOVE
+        - EXTERNAL_GROUP_MEMBER_REMOVE
+        - EXTERNAL_GROUP_MEMBER_ADD
         - EXTERNAL_SSO_GRANT
         - EXTERNAL_SSO_REVOKE
         - EXTERNAL_SSO_SIGNIN
@@ -5948,11 +5987,15 @@ components:
                   - ROLE
                   - SPOKE
                   - RPASS_ITEM
+                  - SPOKE_USER
+                  - GROUP
               display_name:
                 type: string
                 description: Name used within Rippling.
               icon:
-                type: string
+                type:
+                  - string
+                  - 'null'
                 description: Icon used within Rippling.
         event_type:
           type: string
@@ -5976,6 +6019,7 @@ components:
             - ACCOUNT_PASSWORD_RESET
             - ACCOUNT_PASSWORD_CHANGED
             - TWO_FACTOR_DEVICE_RESET
+            - EXTERNAL_GROUP_MEMBER_REMOVE
         timestamp:
           type: string
           description: Timestamp at which the event was recorded.
@@ -6001,13 +6045,17 @@ components:
                 - SYSTEM
                 - EXTERNAL
             role:
-              type: string
+              type:
+                - string
+                - 'null'
               description: 'A unique identifier for the employee that initiated the action, if the type is ROLE.'
             display_name:
               type: string
               description: The name used within Rippling.
             icon:
-              type: string
+              type:
+                - string
+                - 'null'
               description: The icon used within Rippling.
         event_reason:
           type:
