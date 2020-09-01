@@ -2885,7 +2885,6 @@ paths:
             - 'employee:payroll'
       tags:
         - C. Payroll
-        - B. Employees
     get:
       summary: Payroll Report Job Status
       operationId: get-payroll_runs-report
@@ -3898,7 +3897,6 @@ paths:
               $ref: '#/components/schemas/401kDeduction'
         description: A 401k Deduction Object
       tags:
-        - B. Employees
         - D. 401k
     put:
       summary: Employee 401k Deduction Updates
@@ -3939,7 +3937,6 @@ paths:
                   traditional_is_percent: true
         description: The 401k deduction object with updated fields.
       tags:
-        - B. Employees
         - D. 401k
   /annual_employee_payroll_info:
     get:
@@ -4280,7 +4277,6 @@ paths:
             - company
             - 'company:company_deductions'
       tags:
-        - A. Companies
         - D. 401k
       requestBody:
         content:
