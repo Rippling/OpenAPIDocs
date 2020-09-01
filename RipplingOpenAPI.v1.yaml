@@ -4310,6 +4310,79 @@ paths:
         description: ''
       tags:
         - H. ATS
+  /company_activity:
+    get:
+      summary: Company Activity
+      tags:
+        - A. Companies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type:
+                      - object
+                      - 'null'
+                    properties:
+                      events:
+                        type:
+                          - 'null'
+                          - array
+                        items:
+                          $ref: '#/components/schemas/Event'
+                      next:
+                        type: string
+                  error:
+                    type:
+                      - string
+                      - 'null'
+      operationId: get-company_activity
+      description: |
+        Retrieves the activity for a given company.
+
+        The most reliable method to ingest all activity from Rippling is to use a pagination cursor via the 'next' parameter. This will ensure that events are not skipped or duplicated due to the lack of timestamp precision.
+
+        The most reliable method to ingest all activity from Rippling is to use a pagination cursor via the next parameter. This will ensure that events are not skipped or duplicated due to the lack of timestamp precision.
+
+        The general sequence of steps to leverage the next parameter:
+
+        1. Issue an initial request using startDate with a value set to some date in the last 90 days
+        2. Retrieve the next page of events through the next value from the response data.
+        3. Issue the paginated request
+        4. Retrieve the next page of events through the next value from the response data
+        5. Pause and repeat the previous step
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - company
+            - 'company:activity'
+      parameters:
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: startDate
+          description: Timestamp to list activity after (inclusive). This should be less than 90 days from now. Defaults to 90 days.
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: endDate
+          description: Timestamp to list activity before (inclusive).
+        - schema:
+            type: string
+          in: query
+          name: next
+          description: Specifies the pagination cursor to the next page
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: 'Specifies the number of results to page (maximum: 1000) (default: 1000)'
 components:
   parameters:
     limit:
@@ -5801,6 +5874,156 @@ components:
               file_url:
                 type: string
                 description: The public URL and name of a pdf/docx/doc/odt file containing documents pertaining to the candidate.
+    Event:
+      title: Event
+      type: object
+      description: |
+        The event model for company activity.
+
+        Please note, the event type can be one of the following:
+
+        - EXTERNAL_ACCONT_CREATE
+        - EXTERNAL_ACCOUNT_INVITE
+        - EXTERNAL_ACCOUNT_DELETE
+        - EXTERNAL_ACCOUNT_SUSPEND
+        - EXTERNAL_ACCOUNT_PASSWORD_RESET
+        - EXTERNAL_GROUP_ADD
+        - EXTERNAL_GROUP_REMOVE
+        - EXTERNAL_SSO_GRANT
+        - EXTERNAL_SSO_REVOKE
+        - EXTERNAL_SSO_SIGNIN
+        - RPASS_ITEM_SHARED
+        - RPASS_ITEM_UNSHARED
+        - RPASS_ITEM_USED
+        - USER_LOGIN_SUCCESS
+        - USER_LOGIN_FAILED
+        - ACCOUNT_PASSWORD_RESET
+        - ACCOUNT_PASSWORD_CHANGED
+        - TWO_FACTOR_DEVICE_RESET
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the event.
+        request_data:
+          type:
+            - object
+            - 'null'
+          description: Geographic details from where the event was recorded.
+          properties:
+            ip:
+              type: string
+              description: Event IP addresss.
+            city:
+              type: string
+              description: City the event was triggered from.
+            country:
+              type: string
+              description: Country the event was triggered from.
+            latitude:
+              type: string
+              description: Latitude the event was triggered from.
+            longitude:
+              type: string
+              description: Longitude the event was triggered from.
+        linked_events:
+          type: array
+          description: An array of event identifiers that are linked to the event.
+          items:
+            type: string
+        subjects:
+          type: array
+          description: The list of objects of the event.
+          items:
+            type:
+              - object
+              - 'null'
+            properties:
+              instance:
+                type: string
+                description: Unique key for the event object.
+              type:
+                type: string
+                description: An ENUM value for the type of object.
+                enum:
+                  - ROLE
+                  - SPOKE
+                  - RPASS_ITEM
+              display_name:
+                type: string
+                description: Name used within Rippling.
+              icon:
+                type: string
+                description: Icon used within Rippling.
+        event_type:
+          type: string
+          description: An ENUM value for the type of the event.
+          enum:
+            - EXTERNAL_ACCOUNT_CREATE
+            - EXTERNAL_ACCOUNT_INVITE
+            - EXTERNAL_ACCOUNT_DELETE
+            - EXTERNAL_ACCOUNT_SUSPEND
+            - EXTERNAL_ACCOUNT_PASSWORD_RESET
+            - EXTERNAL_GROUP_ADD
+            - EXTERNAL_GROUP_REMOVE
+            - EXTERNAL_SSO_GRANT
+            - EXTERNAL_SSO_REVOKE
+            - EXTERNAL_SSO_SIGNIN
+            - RPASS_ITEM_SHARED
+            - RPASS_ITEM_UNSHARED
+            - RPASS_ITEM_USED
+            - USER_LOGIN_SUCCESS
+            - USER_LOGIN_FAILED
+            - ACCOUNT_PASSWORD_RESET
+            - ACCOUNT_PASSWORD_CHANGED
+            - TWO_FACTOR_DEVICE_RESET
+        timestamp:
+          type: string
+          description: Timestamp at which the event was recorded.
+        company:
+          type: string
+          description: Unique identifier for the company.
+        spoke:
+          type:
+            - string
+            - 'null'
+          description: Unique identifier for the external application for which the event was recorded. This will be Null for events that don't correspond to an external appliction (e.g. Rippling system and RPass events).
+        initiator:
+          type:
+            - object
+            - 'null'
+          description: The actor of the event.
+          properties:
+            type:
+              type: string
+              description: ENUM value for the type of actor.
+              enum:
+                - ROLE
+                - SYSTEM
+                - EXTERNAL
+            role:
+              type: string
+              description: 'A unique identifier for the employee that initiated the action, if the type is ROLE.'
+            display_name:
+              type: string
+              description: The name used within Rippling.
+            icon:
+              type: string
+              description: The icon used within Rippling.
+        event_reason:
+          type:
+            - object
+            - 'null'
+          description: 'Reason for the event, tied to the type of eveent.'
+          properties:
+            reason:
+              type: string
+              description: Reason for the event.
+            message:
+              type: string
+              description: Message of the event.
+        name:
+          type: string
+          description: 'Display name for the event, tied to the type of event.'
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
