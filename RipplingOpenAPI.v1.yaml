@@ -4324,22 +4324,19 @@ paths:
                 type: object
                 properties:
                   data:
-                    type:
-                      - object
-                      - 'null'
+                    type: object
+                    nullable: true
                     properties:
                       events:
-                        type:
-                          - 'null'
-                          - array
+                        type: array
+                        nullable: true
                         items:
                           $ref: '#/components/schemas/Event'
                       next:
                         type: string
                   error:
-                    type:
-                      - string
-                      - 'null'
+                    type: string
+                    nullable: true
               examples:
                 Success:
                   value:
@@ -4541,21 +4538,18 @@ components:
           description: Date of birth
         ssn:
           description: Social Security Number
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         phone:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: Phone Number
         personalEmail:
           type: string
           description: Personal Email
         filingStatus:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           enum:
             - SINGLE
             - MARRIED
@@ -4601,9 +4595,8 @@ components:
             - non-exempt
           description: The employee's FLSA status stating whether they are exempt or non-exempt
         spokeId:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         startDate:
           type: string
           description: The employee's start date
@@ -4611,9 +4604,8 @@ components:
           type: string
           description: The employee's start date as a W2 employee
         endDate:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The employee's end date
         roleState:
           type: string
@@ -4625,9 +4617,8 @@ components:
             - TERMINATED
           description: 'The employee''s role status, e.g. ACTIVE'
         workEmail:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The employee's work email
         manager:
           type: string
@@ -4641,6 +4632,7 @@ components:
           description: Boolean for whether the employee is under a PEO
     HSACompatiblePlanStatus:
       title: HSACompatiblePlanStatus
+      nullable: true
       type: object
       x-tags:
         - Models
@@ -4653,13 +4645,11 @@ components:
             - NOT_OFFERED
             - PENDING_ENROLLMENT
         effectiveDate:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         expirationDate:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         annualLimit:
           type: string
           enum:
@@ -4681,9 +4671,8 @@ components:
           $ref: '#/components/schemas/Address'
     Address:
       title: Address
-      type:
-        - object
-        - 'null'
+      type: object
+      nullable: true
       description: An address object as stored within Rippling.
       x-tags:
         - Models
@@ -4719,9 +4708,8 @@ components:
         arrearDayUnit:
           type: string
         payrollDayOfWeek:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         firstCheckDate:
           type: string
           format: date
@@ -4799,9 +4787,8 @@ components:
         payPeriod:
           $ref: '#/components/schemas/PayPeriod'
         approvedAt:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         ein:
           type: string
           description: 'Employer identification number, also known as the Federal Emplower Identification Number or the Federal Tax Identification Number.'
@@ -4825,9 +4812,8 @@ components:
         id:
           type: string
         spokeId:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: Your id for the group; this should a unique string identifier.
         version:
           type: string
@@ -4840,6 +4826,7 @@ components:
     Department:
       title: Department
       type: object
+      nullable: true
       x-tags:
         - Models
       description: A company department object.
@@ -4851,9 +4838,8 @@ components:
           type: string
           description: Unique identifier of the department
         parent:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: 'Id of the parent department, if one exists'
           default: 'null'
     CustomFields:
@@ -5086,9 +5072,8 @@ components:
       description: 'An Employee Deduction object instance is created for every employee with a deduction. This will be inherited automatically by the company deduction type, but can be specified at the employee level as well, by directly modifying an employee''s employee deduction object.'
       properties:
         isMonthly:
-          type:
-            - boolean
-            - 'null'
+          type: boolean
+          nullable: true
           description: Corresponds to whether the deduction type is set to be monthly for the company deduction type associated with this role.
         employeeDeduction:
           type: string
@@ -5141,6 +5126,7 @@ components:
     PayPeriod:
       title: PayPeriod
       type: object
+      nullable: true
       x-tags:
         - Models
       properties:
@@ -5149,9 +5135,8 @@ components:
         endDate:
           type: string
         paySchedule:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
     EmployeePayrollRun:
       title: EmployeePayrollRun
       type: object
@@ -5189,6 +5174,7 @@ components:
     Earning:
       title: Earning
       type: object
+      nullable: true
       x-tags:
         - Models
       description: A pay earning object for an employee.
@@ -5196,9 +5182,8 @@ components:
         amount:
           type: string
         hours:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: Only applies to earning types that are paid hourly.
         companyEarningType:
           type: string
@@ -5257,6 +5242,7 @@ components:
     401kCap:
       title: 401kCap
       type: object
+      nullable: true
       x-tags:
         - Models
       description: The 401k Limit Object.
@@ -5265,40 +5251,35 @@ components:
           type: object
           properties:
             ee:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: Employee traditional 401k limit.
             er:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: Employer traditional 401k limit.
             employee_401k_limit:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: The traditional employee 401k limit.
         roth:
           type: object
+          nullable: true
           properties:
             ee:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: Employee Roth 401k Limit
             er:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: Employer Roth 401k limit
             employee_401k_limit:
               type: string
               description: The Roth 401k limit.
         employee_401k_limit:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: 'For all 401k accounts (Roth, and Traditional)'
         total_401k_limit:
           type: string
@@ -5339,17 +5320,14 @@ components:
         endDate:
           type: string
         comments:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         numHours:
-          type:
-            - 'null'
-            - integer
+          type: integer
+          nullable: true
         numMinutes:
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
         leavePolicy:
           type: string
         leaveType:
@@ -5398,9 +5376,8 @@ components:
           type: string
           description: The name of the team.
         parent:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The parent team (if this team is a subteam within a larger team).
     Level:
       title: Level
@@ -5416,9 +5393,8 @@ components:
           type: string
           description: Name of the level.
         parent:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The unique identifier of the parent level.
     EmployeeChange:
       title: EmployeeChange
@@ -5522,9 +5498,8 @@ components:
         - Models
       properties:
         isMonthly:
-          type:
-            - boolean
-            - 'null'
+          type: boolean
+          nullable: true
           description: 'Indicates that the admin has set up deduction amounts per month. It is true only when the admin explicitly selects ''Monthy'' while setting up the Company Deduction Type (CDT). If it is false, then the defaults set up are used per pay period.'
         name:
           type: string
@@ -5557,14 +5532,12 @@ components:
             - STUDENT_LOAN
           description: The deduction type.
         companyContribution:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The amount the company pays on the employee's behalf.
         employeeDeduction:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: The amount the employee pays out of their pocket.
         matchingScheme401k:
           type: string
@@ -5598,9 +5571,8 @@ components:
         - Models
       type: array
       items:
-        type:
-          - object
-          - 'null'
+        type: object
+        nullable: true
         properties:
           erMatchPercent:
             type: string
@@ -5714,9 +5686,8 @@ components:
               grossPay:
                 type: string
               hours:
-                type:
-                  - string
-                  - 'null'
+                type: string
+                nullable: true
               role:
                 type: string
               totalPayForPercentageDeductions:
@@ -5729,9 +5700,8 @@ components:
           $ref: '#/components/schemas/parentPayrollRun'
     parentPayrollRun:
       title: parentPayrollRun
-      type:
-        - object
-        - 'null'
+      type: object
+      nullable: true
       description: Parent payroll object used in an older endpoint for payroll activity.
       x-tags:
         - Models
@@ -5758,6 +5728,7 @@ components:
     Annual401kEmployeeSummary:
       title: Annual401kEmployeeSummary
       type: object
+      nullable: true
       description: A summary of a Company's 401k information for a given employee.
       properties:
         year:
@@ -5804,6 +5775,7 @@ components:
       title: 401kEmployeeDetails
       description: The employee details object used within the annual 401k report
       type: object
+      nullable: true
       x-examples:
         Sample:
           id: 5ae0b2cb40cae73202bd66cc
@@ -5827,9 +5799,8 @@ components:
         hire_date:
           type: string
         rehire_date:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         ssn:
           type: string
         termination_date:
@@ -5837,9 +5808,8 @@ components:
         birth_date:
           type: string
         previous_termination_date:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
     Candidate:
       title: Candidate
       type: object
@@ -5911,6 +5881,8 @@ components:
               file_url:
                 type: string
                 description: The public URL and name of a pdf/docx/doc/odt file containing documents pertaining to the candidate.
+      x-tags:
+        - Models
     Event:
       title: Event
       type: object
@@ -5944,9 +5916,8 @@ components:
           type: string
           description: Unique identifier of the event.
         request_data:
-          type:
-            - object
-            - 'null'
+          type: object
+          nullable: true
           description: Geographic details from where the event was recorded.
           properties:
             ip:
@@ -5973,9 +5944,8 @@ components:
           type: array
           description: The list of objects of the event.
           items:
-            type:
-              - object
-              - 'null'
+            type: object
+            nullable: true
             properties:
               instance:
                 type: string
@@ -5993,9 +5963,8 @@ components:
                 type: string
                 description: Name used within Rippling.
               icon:
-                type:
-                  - string
-                  - 'null'
+                type: string
+                nullable: true
                 description: Icon used within Rippling.
         event_type:
           type: string
@@ -6027,14 +5996,12 @@ components:
           type: string
           description: Unique identifier for the company.
         spoke:
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
           description: Unique identifier for the external application for which the event was recorded. This will be Null for events that don't correspond to an external appliction (e.g. Rippling system and RPass events).
         initiator:
-          type:
-            - object
-            - 'null'
+          type: object
+          nullable: true
           description: The actor of the event.
           properties:
             type:
@@ -6045,22 +6012,19 @@ components:
                 - SYSTEM
                 - EXTERNAL
             role:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: 'A unique identifier for the employee that initiated the action, if the type is ROLE.'
             display_name:
               type: string
               description: The name used within Rippling.
             icon:
-              type:
-                - string
-                - 'null'
+              type: string
+              nullable: true
               description: The icon used within Rippling.
         event_reason:
-          type:
-            - object
-            - 'null'
+          type: object
+          nullable: true
           description: 'Reason for the event, tied to the type of eveent.'
           properties:
             reason:
@@ -6072,6 +6036,8 @@ components:
         name:
           type: string
           description: 'Display name for the event, tied to the type of event.'
+      x-tags:
+        - Models
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
