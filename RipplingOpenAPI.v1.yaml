@@ -1842,7 +1842,7 @@ paths:
         - C. Payroll
   /earning_types:
     get:
-      summary: Company Earning Types
+      summary: Earning Types
       responses:
         '200':
           description: OK
@@ -1956,7 +1956,7 @@ paths:
             - employee
             - 'employee:payroll'
       tags:
-        - B. Employees
+        - C. Payroll
   /employee_deductions:
     get:
       summary: Employee Deductions
