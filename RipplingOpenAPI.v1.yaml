@@ -4287,7 +4287,7 @@ paths:
               $ref: '#/components/schemas/CompanyDeduction'
   /ats_candidates/push_candidate:
     post:
-      summary: POST New Candidates
+      summary: POST New Candidate
       operationId: post-ats_candidates-push_candidate
       responses:
         '200':
