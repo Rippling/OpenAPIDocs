@@ -50,7 +50,7 @@ tags:
 paths:
   /companies/current:
     get:
-      summary: Get Current Company
+      summary: GET Current Company
       operationId: get-companies
       description: 'Returns the currently accessible company for the given token. Please note, the returned fields depend on the scopes that are enabled for your access token or API key.'
       responses:
@@ -156,7 +156,7 @@ paths:
     parameters: []
   /departments:
     get:
-      summary: Get Departments
+      summary: GET Departments
       responses:
         '200':
           description: OK
@@ -217,7 +217,7 @@ paths:
         - A. Companies
   /employees:
     get:
-      summary: Get Employees
+      summary: GET Employees
       responses:
         '200':
           description: OK
@@ -598,7 +598,7 @@ paths:
         - B. Employees
   /work_locations:
     get:
-      summary: Get Work Locations
+      summary: GET Work Locations
       responses:
         '200':
           description: OK
@@ -668,7 +668,7 @@ paths:
     parameters: []
   /custom_fields:
     get:
-      summary: Get Custom Fields
+      summary: GET Custom Fields
       responses:
         '200':
           description: OK
@@ -751,7 +751,7 @@ paths:
         - A. Companies
   /teams:
     get:
-      summary: Teams
+      summary: GET Teams
       responses:
         '200':
           description: OK
@@ -790,7 +790,7 @@ paths:
         - A. Companies
   /levels:
     get:
-      summary: Get Levels
+      summary: GET Levels
       responses:
         '200':
           description: OK
@@ -828,7 +828,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/employeeId'
     get:
-      summary: Get Employee
+      summary: GET Employee
       responses:
         '200':
           description: OK
@@ -932,7 +932,7 @@ paths:
       tags:
         - B. Employees
     patch:
-      summary: Patch Employee
+      summary: PATCH Employee
       operationId: patch-employees-employeeId
       responses:
         '200':
@@ -973,7 +973,7 @@ paths:
         - B. Employees
   /employees/include_terminated:
     get:
-      summary: Get Employees (Including Terminated)
+      summary: GET Employees (Including Terminated)
       responses:
         '200':
           description: OK
@@ -1542,7 +1542,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/employeeId'
     post:
-      summary: Post Employee Scheduled Changes
+      summary: POST Employee Scheduled Changes
       operationId: post-employees-employeeId-scheduled_changes
       responses:
         '201':
@@ -1563,7 +1563,7 @@ paths:
         - B. Employees
   /me:
     get:
-      summary: Get Current User
+      summary: GET Current User
       responses:
         '200':
           description: OK
@@ -1586,7 +1586,7 @@ paths:
         - E. Current User
   /groups:
     get:
-      summary: Get Groups
+      summary: GET Groups
       responses:
         '200':
           description: OK
@@ -1623,7 +1623,7 @@ paths:
         - F. Groups
     parameters: []
     post:
-      summary: Post Groups
+      summary: POST Groups
       operationId: post-groups
       responses:
         '201':
@@ -1677,7 +1677,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/groupId'
     put:
-      summary: Put Group
+      summary: PUT Group
       operationId: put-groups-groupId
       responses:
         '200':
@@ -1719,7 +1719,7 @@ paths:
       tags:
         - F. Groups
     patch:
-      summary: Patch Group
+      summary: PATCH Group
       operationId: patch-groups-groupId
       responses:
         '200':
@@ -1760,7 +1760,7 @@ paths:
       tags:
         - F. Groups
     delete:
-      summary: Delete Group
+      summary: DELETE Group
       operationId: delete-groups-groupId
       responses:
         '200':
@@ -1776,7 +1776,7 @@ paths:
         - F. Groups
   /pay_schedules:
     get:
-      summary: Get Company Pay Schedules
+      summary: GET Company Pay Schedules
       responses:
         '200':
           description: OK
@@ -1843,7 +1843,7 @@ paths:
         - C. Payroll
   /earning_types:
     get:
-      summary: Get Earning Types
+      summary: GET Earning Types
       responses:
         '200':
           description: OK
@@ -1960,7 +1960,7 @@ paths:
         - C. Payroll
   /employee_deductions:
     get:
-      summary: Get Employee Deductions
+      summary: GET Employee Deductions
       responses:
         '200':
           description: OK
@@ -2084,7 +2084,7 @@ paths:
     parameters: []
   /payroll_runs:
     get:
-      summary: Get Company Payroll Runs
+      summary: GET Company Payroll Runs
       responses:
         '200':
           description: OK
@@ -2249,7 +2249,7 @@ paths:
         in: path
         required: true
     patch:
-      summary: Patch Payroll Run
+      summary: PATCH Payroll Run
       operationId: patch-payroll_runs-runId
       responses:
         '200':
@@ -2296,7 +2296,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get Employees in a Payroll Run
+      summary: GET Employees in a Payroll Run
       responses:
         '200':
           description: OK
@@ -2719,7 +2719,7 @@ paths:
         required: true
         description: The employee payroll run identifier can be found using the get payroll run endpoint with the payroll run id passed in as a parameter.
     post:
-      summary: Post Payroll Earnings
+      summary: POST Payroll Earnings
       operationId: post-payroll_runs-payrollRunId-employees-employeePayrollRunId-earnings
       responses:
         '200':
@@ -2835,7 +2835,7 @@ paths:
         - C. Payroll
   /payroll_runs/report:
     post:
-      summary: Post Payroll Run Report
+      summary: POST Payroll Run Report
       operationId: post-payroll_runs-report
       responses:
         '200':
@@ -2888,7 +2888,7 @@ paths:
       tags:
         - C. Payroll
     get:
-      summary: Get Payroll Report Job Status
+      summary: GET Payroll Report Job Status
       operationId: get-payroll_runs-report
       responses:
         '200':
@@ -2929,7 +2929,7 @@ paths:
         - C. Payroll
   /bank_accounts:
     get:
-      summary: Get Bank Accounts
+      summary: GET Bank Accounts
       responses:
         '200':
           description: OK
@@ -2958,7 +2958,7 @@ paths:
         - A. Companies
   /companies/payroll_activity:
     get:
-      summary: Get Payroll Activity
+      summary: GET Payroll Activity
       responses:
         '200':
           description: OK
@@ -3824,7 +3824,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get Employee 401k Deduction
+      summary: GET Employee 401k Deduction
       responses:
         '200':
           description: OK
@@ -3865,7 +3865,7 @@ paths:
       tags:
         - D. 401k
     post:
-      summary: Post Employee 401k Deduction
+      summary: POST Employee 401k Deduction
       operationId: post-employees-employeeId-deductions_401k
       responses:
         '200':
@@ -3901,7 +3901,7 @@ paths:
       tags:
         - D. 401k
     put:
-      summary: Put Employee 401k Deduction
+      summary: PUT Employee 401k Deduction
       operationId: put-employees-employeeId-deductions_401k
       responses:
         '200':
@@ -3942,7 +3942,7 @@ paths:
         - D. 401k
   /annual_employee_payroll_info:
     get:
-      summary: Get Annual Payroll Information
+      summary: GET Annual Payroll Information
       responses:
         '200':
           description: OK
@@ -3993,7 +3993,7 @@ paths:
         - C. Payroll
   /leave_requests:
     get:
-      summary: Get Leave Requests
+      summary: GET Leave Requests
       responses:
         '200':
           description: OK
@@ -4089,7 +4089,7 @@ paths:
         - A. Companies
   /saml/idp_metadata:
     get:
-      summary: Get SAML Metadata
+      summary: GET SAML Metadata
       responses:
         '200':
           description: OK
@@ -4125,7 +4125,7 @@ paths:
         - G. SAML
   /company_deductions:
     get:
-      summary: Get Company Deductions
+      summary: GET Company Deductions
       responses:
         '200':
           description: OK
@@ -4200,7 +4200,7 @@ paths:
         schema:
           type: integer
     get:
-      summary: Get Company Deduction Detail
+      summary: GET Company Deduction Detail
       tags:
         - D. 401k
       responses:
@@ -4287,7 +4287,7 @@ paths:
               $ref: '#/components/schemas/CompanyDeduction'
   /ats_candidates/push_candidate:
     post:
-      summary: Post New Candidates
+      summary: POST New Candidates
       operationId: post-ats_candidates-push_candidate
       responses:
         '200':
@@ -4310,7 +4310,7 @@ paths:
         - H. ATS
   /company_activity:
     get:
-      summary: Get Company Activity
+      summary: GET Company Activity
       tags:
         - A. Companies
       responses:
@@ -4417,7 +4417,7 @@ paths:
           description: 'Specifies the number of results to page (maximum: 1000) (default: 1000)'
   /tiered_match_401k:
     get:
-      summary: GET Tiered Match 401K
+      summary: GET Tiered Matches 401K
       tags:
         - D. 401k
       responses:
@@ -4501,7 +4501,7 @@ paths:
                       eePercentComp: '5.00'
         description: A TieredMatch401K object
     delete:
-      summary: DELETE Tiered Match 401K
+      summary: DELETE Tiered Matches 401K
       tags:
         - D. 401k
       operationId: delete-tiered_match_401k
