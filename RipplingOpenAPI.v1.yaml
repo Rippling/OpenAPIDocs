@@ -941,6 +941,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Employee'
+              examples: {}
       description: |
         Updates the field for a single employee. Please note, only the customFields, workLocationId, departmentId, level, teams, and manager can be updated.
 
@@ -2257,6 +2258,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PayrollRun'
+              examples: {}
       description: |-
         The runState and checkDate fields of payroll runs are able to be modified using a PATCH request to the URL of the individual payroll run.
 
@@ -4413,6 +4415,284 @@ paths:
           in: query
           name: limit
           description: 'Specifies the number of results to page (maximum: 1000) (default: 1000)'
+  /tiered_match_401k:
+    get:
+      summary: GET Tiered Match 401K
+      tags:
+        - D. 401k
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TieredMatch401K'
+              examples:
+                Sample:
+                  value:
+                    - id: 5e3c5dd30e3ac756badb06f5
+                      isDefault: true
+                      employees:
+                        - 5984bcc9d2a5f81ac23e477f
+                      matchingScheme401K: SAFE_HARBOR_BASIC
+                      employerMatch401K:
+                        - erMatchPercent: '100.00'
+                          tierNum: 1
+                          eePercentComp: '3.00'
+                        - erMatchPercent: '50.00'
+                          tierNum: 1
+                          eePercentComp: '2.00'
+      operationId: get-tiered_match_401k
+      description: Retrieves all 401K tiered match schemes for the company.
+      parameters: []
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+    post:
+      summary: POST Tiered Match 401K
+      tags:
+        - D. 401k
+      operationId: post-tiered_match_401k
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TieredMatch401K'
+              examples:
+                Sample:
+                  value:
+                    id: 5e3c5dd30e3ac756badb06f5
+                    isDefault: true
+                    employees:
+                      - 5984bcc9d2a5f81ac23e477f
+                    matchingScheme401K: CUSTOM
+                    employerMatch401K:
+                      - erMatchPercent: '100.00'
+                        tierNum: 1
+                        eePercentComp: '5.00'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+      description: Creates a new 401K tiered match scheme for the company.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TieredMatch401K'
+            examples:
+              Sample:
+                value:
+                  isDefault: true
+                  employees:
+                    - 5984bcc9d2a5f81ac23e477f
+                  matchingScheme401K: CUSTOM
+                  employerMatch401K:
+                    - erMatchPercent: '100.00'
+                      tierNum: 1
+                      eePercentComp: '5.00'
+        description: A TieredMatch401K object
+    delete:
+      summary: DELETE Tiered Match 401K
+      tags:
+        - D. 401k
+      operationId: delete-tiered_match_401k
+      responses:
+        '200':
+          description: OK
+      description: Deletes all 401K tiered match schemes for the company.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+  '/tiered_match_401k/{id}':
+    get:
+      summary: GET Tiered Match 401K
+      tags:
+        - D. 401k
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TieredMatch401K'
+              examples:
+                Sample:
+                  value:
+                    id: 5e3c5dd30e3ac756badb06f5
+                    isDefault: true
+                    employees:
+                      - 5984bcc9d2a5f81ac23e477f
+                    matchingScheme401K: SAFE_HARBOR_BASIC
+                    employerMatch401K:
+                      - erMatchPercent: '100.00'
+                        tierNum: 1
+                        eePercentComp: '3.00'
+                      - erMatchPercent: '50.00'
+                        tierNum: 2
+                        eePercentComp: '2.00'
+      operationId: get-tiered_match_401k-id
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+      description: Retrieves a particular 401K tiered match scheme.
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: PUT Tiered Match 401K
+      operationId: put-tiered_match_401k-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TieredMatch401K'
+              examples:
+                Sample:
+                  value:
+                    id: 5e3c5dd30e3ac756badb06f5
+                    isDefault: true
+                    employees:
+                      - 5984bcc9d2a5f81ac23e477f
+                    matchingScheme401K: SAFE_HARBOR_ENHANCED
+                    employerMatch401K:
+                      - erMatchPercent: '100.00'
+                        tierNum: 1
+                        eePercentComp: '4.00'
+      description: Updates a particular 401K tiered match scheme.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+      tags:
+        - D. 401k
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TieredMatch401K'
+            examples:
+              Sample:
+                value:
+                  isDefault: true
+                  employees:
+                    - 5984bcc9d2a5f81ac23e477f
+                  matchingScheme401K: SAFE_HARBOR_ENHANCED
+                  employerMatch401K:
+                    - erMatchPercent: '100.00'
+                      tierNum: 1
+                      eePercentComp: '4.00'
+        description: A TieredMatch401K object
+    patch:
+      summary: PATCH Tiered Match 401K
+      operationId: patch-tiered_match_401k-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TieredMatch401K'
+              examples:
+                Sample:
+                  value:
+                    id: 5e3c5dd30e3ac756badb06f5
+                    isDefault: true
+                    employees:
+                      - 5984bcc9d2a5f81ac23e477f
+                    matchingScheme401K: CUSTOM
+                    employerMatch401K:
+                      - erMatchPercent: '100.00'
+                        tierNum: 1
+                        eePercentComp: '5.00'
+      description: Partially updates a particular 401K tiered match scheme.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+      tags:
+        - D. 401k
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TieredMatch401K'
+            examples:
+              Sample:
+                value:
+                  matchingScheme401K: CUSTOM
+                  employerMatch401K:
+                    - erMatchPercent: '100.00'
+                      tierNum: 1
+                      eePercentComp: '5.00'
+        description: Fields to be updated of a TieredMatch401K object
+    delete:
+      summary: DELETE Tiered Match 401k
+      operationId: delete-tiered_match_401k-id
+      responses:
+        '200':
+          description: OK
+      description: Deletes a particular 401K tiered match scheme
+      tags:
+        - D. 401k
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'deduction:_401K'
+            - 'deduction:ROTH_401K'
+  '/leave_requests/{id}/process':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    post:
+      summary: POST Process Leave Request
+      operationId: process-leave_requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaveRequest'
+              examples: {}
+      tags:
+        - A. Companies
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'company:leave_requests'
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - approve
+              - decline
+          in: query
+          name: action
+          required: true
+      description: Approve or decline a leave request.
 components:
   parameters:
     limit:
@@ -6034,6 +6314,47 @@ components:
           description: 'Display name for the event, tied to the type of event.'
       x-tags:
         - Models
+    TieredMatch401K:
+      title: TieredMatch401K
+      type: object
+      x-tags:
+        - Models
+      description: |-
+        A 401K Tiered Match object.
+        Defines the employer match scheme for 401K contributions.
+      x-examples:
+        Sample:
+          id: 5ea8171bd7bd6b7ead742e9d
+          isDefault: true
+          employees:
+            - 5984bcc9d2a5f81ac23e477f
+          matchingScheme401K: CUSTOM
+          employerMatch401K:
+            - erMatchPercent: '100.00'
+              tierNum: 1
+              eePercentComp: '2.00'
+            - erMatchPercent: '50.00'
+              tierNum: 2
+              eePercentComp: '4.00'
+      properties:
+        id:
+          type: string
+        isDefault:
+          type: boolean
+        employees:
+          type: array
+          items:
+            type: string
+        matchingScheme401K:
+          type: string
+          enum:
+            - SAFE_HARBOR_BASIC
+            - SAFE_HARBOR_ENHANCED
+            - CUSTOM
+        employerMatch401K:
+          $ref: '#/components/schemas/employerMatch401k'
+      required:
+        - matchingScheme401K
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
