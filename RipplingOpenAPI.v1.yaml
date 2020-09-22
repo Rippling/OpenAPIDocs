@@ -4666,6 +4666,7 @@ paths:
         name: id
         in: path
         required: true
+        description: Unique identifier of the leave request being processed.
     post:
       summary: POST Process Leave Request
       operationId: process-leave_requests
@@ -4692,7 +4693,8 @@ paths:
           in: query
           name: action
           required: true
-      description: Approve or decline a leave request.
+          description: The action to be taken on the leave request. Can be either approved or declined.
+      description: Approve or decline a leave request. Only pending requests can be processed (approved / declined).
 components:
   parameters:
     limit:
