@@ -4218,7 +4218,7 @@ paths:
             - company
             - 'company:company_deductions'
     patch:
-      summary: Patch Company Deduction Update
+      summary: PATCH Company Deduction
       operationId: patch-company_deductions-deductionId
       responses:
         '200':
