@@ -3794,7 +3794,7 @@ paths:
                       processDate: '2020-09-15'
                       parentPayrollRun: null
       operationId: get-companies-payroll_Activity
-      description: An older endpoint that combines a company's payroll runs and employee payroll runs into a single endpoint.
+      description: Returns a company's payroll runs and employee payroll runs for a given start and end date.
       parameters:
         - schema:
             type: string
