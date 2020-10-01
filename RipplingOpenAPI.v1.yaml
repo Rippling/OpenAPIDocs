@@ -2967,7 +2967,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/PayrollActivity(Old)'
+                  $ref: '#/components/schemas/PayrollActivity'
               examples:
                 Success:
                   value:
@@ -5926,8 +5926,8 @@ components:
           format: date
         is_v3:
           type: boolean
-    PayrollActivity(Old):
-      title: PayrollActivity(Old)
+    PayrollActivity:
+      title: PayrollActivity
       type: object
       x-tags:
         - Models
