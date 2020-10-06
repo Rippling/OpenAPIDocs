@@ -4500,20 +4500,6 @@ paths:
                       tierNum: 1
                       eePercentComp: '5.00'
         description: A TieredMatch401K object
-    delete:
-      summary: DELETE Tiered Matches 401K
-      tags:
-        - D. 401k
-      operationId: delete-tiered_match_401k
-      responses:
-        '200':
-          description: OK
-      description: Deletes all 401K tiered match schemes for the company.
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode:
-            - 'deduction:_401K'
-            - 'deduction:ROTH_401K'
   '/tiered_match_401k/{id}':
     get:
       summary: GET Tiered Match 401K
