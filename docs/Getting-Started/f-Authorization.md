@@ -34,6 +34,11 @@ To retrieve the access token, your server will need to make a POST to the Auth U
 | code                  | OAuth code that was sent in the redirect                                     |
 | redirect_uri          | Your redirect URL. This must match the redirect URL you had provided to Rippling |
 
+> When the user is redirected from Rippling to your app, that user should then sign in to the app. This allows you to identify the account and associate the code with their account. The redirect URL that you receive from Rippling is where you should redirect the user back to following the user signing into the application.
+> <br>If the installation process begins from your application, you do not need to redirect the user back to Rippling, following the user getting sent to the app from Rippling. However, if the installation begins from Rippling, we ask the user is redirected back to Rippling.
+
+
+
 Here is an access token sample request:
 
 ```js

@@ -2239,7 +2239,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ein'
       tags:
-        - B. Employees
         - C. Payroll
   '/payroll_runs/{payrollRunId}':
     parameters:
