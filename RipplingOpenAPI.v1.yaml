@@ -596,6 +596,9 @@ paths:
       description: 'Retrieves the list of active employees. The fields retrieved depend on the employee scopes that you have access to for your access token or API key. The only guarenteeed fields include id, personalEmail, and roleState.'
       tags:
         - B. Employees
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
   /work_locations:
     get:
       summary: GET Work Locations
@@ -2696,6 +2699,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ein'
         - $ref: '#/components/parameters/role'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
       security:
         - Bearer ApiKey: []
         - authorizationCode:
