@@ -2082,7 +2082,6 @@ paths:
         - $ref: '#/components/parameters/companyDeductionType'
         - $ref: '#/components/parameters/role'
       tags:
-        - B. Employees
         - D. 401k
     parameters: []
   /payroll_runs:
