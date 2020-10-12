@@ -4684,6 +4684,128 @@ paths:
           required: true
           description: The action to be taken on the leave request. Can be either approved or declined.
       description: Approve or decline a leave request. Only pending requests can be processed (approved / declined).
+  /app_detail/app_handles:
+    get:
+      summary: GET /app_detail/app_handles
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-app_handles
+      description: |-
+        Returns all app handle names on Rippling. App handle is the human identifier of an app on rippling. E.g, OUTREACH. 
+
+        Note: Each key in the response correponds to an app handle where the value is the name of the app. 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app_handle_name:
+                  type: string
+            examples:
+              Success:
+                value:
+                  SPROUTSOCIAL: Sprout Social
+                  RINGCENTRAL: RingCentral
+                  HARDWARE: Devices
+                  WORKRAMP: Work Ramp
+                  CARTA: Carta
+                  SERVICENOW: ServiceNow
+                  BRIGHTFUNDS: Bright Funds
+                  HEAPANALYTICS: Heap
+                  BUILDKITE: Buildkite
+                  SNYK: Snyk
+                  CRASHPLAN: Crash Plan
+                  CHASE: Chase
+                  PIPEDRIVE: Pipedrive
+                  ALIGHT: Alight
+                  OUTREACH: Outreach
+                  OLARK: Olark
+                  ASANA: Asana
+                  GUIDELINE: Guideline
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+            examples: {}
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'app:read'
+      parameters: []
+    parameters: []
+  /app_detail/app_matching_users:
+    get:
+      summary: GET /app_detail/app_matching_users
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-app-app_matching_users
+      description: |
+        Returns matching users and their app IDs. 
+
+        Note:There could be multiple instances of the same app. In this case, the API will return all instances in the format app_handle_app_owner_id. 
+      parameters:
+        - schema:
+            type: boolean
+            default: 'False'
+          in: query
+          name: includeTerminated
+          description: |
+            To include terminated employees
+        - schema:
+            type: string
+          in: query
+          name: app_handles
+          description: |
+            CSV of app handles. See GET /app_detail/app_handles
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'app:read'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: |
+                Response
+              type: object
+              properties:
+                results:
+                  type:
+                    - string
+                    - array
+                  items:
+                    type: object
+                    properties:
+                      rippling_employee_id:
+                        type: string
+                      app_handle_id:
+                        type:
+                          - string
+                          - object
+                        properties:
+                          app_user_name:
+                            type: string
+            examples:
+              Success:
+                value:
+                  results:
+                    - rippling_employee_id: 5f29dedd2620acf6c8f2369e
+                      GMAIL_5f29dee52620acf6c8f23837:
+                        - mike.smith.1
+                      GMAIL_5f29dee42620acf6c8f23829:
+                        - mike.smith.2
+                    - rippling_employee_id: 5f29dedc2620acf6c8f23671
+                      slack_5f29dee62620acf6c8f23855:
+                        - james.width.1
+                      gmail_5f29dee52620acf6c8f23837:
+                        - james.width.1
+                      gmail_5f29dee42620acf6c8f23829:
+                        - james.width.2
 components:
   parameters:
     limit:
@@ -6424,6 +6546,7 @@ components:
             'company:*': This scope signifies that many company scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
+            'app:read': Permissions to read app data. Please review the scopes documentation to view the currently supported scopes.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
