@@ -4687,7 +4687,7 @@ paths:
       description: Approve or decline a leave request. Only pending requests can be processed (approved / declined).
   /app_detail/app_handles:
     get:
-      summary: GET /app_detail/app_handles
+      summary: GET Application Handles
       tags:
         - I. Application Management
       responses:
@@ -4702,7 +4702,7 @@ paths:
                     type: string
       operationId: get-app_handles
       description: |-
-        Returns all app handle names on Rippling. App handle is the human identifier of an app on rippling. E.g, OUTREACH. 
+        Returns all app handles currently available on Rippling. App handle is the human identifier of an app on Rippling. E.g, OUTREACH. 
 
         Note: Each key in the response correponds to an app handle where the value is the name of the app. 
       security:
@@ -4713,7 +4713,7 @@ paths:
     parameters: []
   /app_detail/app_matching_users:
     get:
-      summary: GET /app_detail/app_matching_users
+      summary: GET Matching App Users
       tags:
         - I. Application Management
       responses:
@@ -4754,7 +4754,7 @@ paths:
                           - james.width.2
       operationId: get-app-app_matching_users
       description: |
-        Returns matching users and their app IDs. 
+        Returns matching users and their app IDs based on the app handles.
 
         Note:There could be multiple instances of the same app. In this case, the API will return all instances in the format app_handle_app_owner_id. 
       parameters:
