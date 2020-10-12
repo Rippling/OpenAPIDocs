@@ -4684,6 +4684,54 @@ paths:
           required: true
           description: The action to be taken on the leave request. Can be either approved or declined.
       description: Approve or decline a leave request. Only pending requests can be processed (approved / declined).
+  /app_handles:
+    get:
+      summary: GET app_handles
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-app_handles
+      description: 'Returns all app handle names on Rippling. '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app_handle_name:
+                  type: string
+            examples:
+              Success:
+                value:
+                  SPROUTSOCIAL: Sprout Social
+                  RINGCENTRAL: RingCentral
+                  HARDWARE: Devices
+                  WORKRAMP: Work Ramp
+                  CARTA: Carta
+                  SERVICENOW: ServiceNow
+                  BRIGHTFUNDS: Bright Funds
+                  HEAPANALYTICS: Heap
+                  BUILDKITE: Buildkite
+                  SNYK: Snyk
+                  CRASHPLAN: Crash Plan
+                  CHASE: Chase
+                  PIPEDRIVE: Pipedrive
+                  ALIGHT: Alight
+                  OUTREACH: Outreach
+                  OLARK: Olark
+                  ASANA: Asana
+                  GUIDELINE: Guideline
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+            examples: {}
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'app:read'
+      parameters: []
 components:
   parameters:
     limit:
@@ -6424,6 +6472,7 @@ components:
             'company:*': This scope signifies that many company scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
+            'app:read': Permissions to read app data. Please review the scopes documentation to view the currently supported scopes.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
