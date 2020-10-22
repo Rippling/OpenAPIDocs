@@ -4,7 +4,7 @@ tags: [development package]
 
 # Partner Development Package
 
-Use this page to submit your Rippling development package. Once your information has been reviewed, our team will contact the email you provided with the Staging Account Package.
+Use this page to submit your Rippling development package to register for a Rippling developer account. Once your information has been reviewed, our team will contact the email you provided with the Staging Account Package.
 
 For more information on getiing started as a partner, or the development package, please see the [partners guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md).
 
