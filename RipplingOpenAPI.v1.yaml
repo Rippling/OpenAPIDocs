@@ -3938,8 +3938,8 @@ paths:
               Sample:
                 value:
                   caps:
-                    employee_401k_limit: '10000'
-                    total_401k_limit: '3500'
+                    employee_401k_limit: 10000
+                    total_401k_limit: 3500
                   traditional: '6'
                   traditional_is_percent: true
         description: The 401k deduction object with updated fields.
@@ -5642,20 +5642,25 @@ components:
               type: string
               nullable: true
               description: Employee Roth 401k Limit
+              deprecated: true
             er:
               type: string
               nullable: true
               description: Employer Roth 401k limit
-            employee_401k_limit:
-              type: string
-              description: The Roth 401k limit.
+              deprecated: true
         employee_401k_limit:
-          type: string
+          type: number
           nullable: true
           description: 'For all 401k accounts (Roth, and Traditional)'
+          example: 0
+          minimum: 0
+          format: float
         total_401k_limit:
-          type: string
+          type: number
           description: Total contribution limit from the employee and the employer.
+          example: 0
+          minimum: 0
+          format: float
     LeaveRequest:
       title: LeaveRequest
       type: object
