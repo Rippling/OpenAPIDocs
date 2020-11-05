@@ -5062,10 +5062,16 @@ components:
           type: integer
         holidayShift:
           type: string
+          enum:
+            - LEFT
+            - RIGHT
         arrearDays:
           type: string
         arrearDayUnit:
           type: string
+          enum:
+            - CALENDAR
+            - BUSINESS
         payrollDayOfWeek:
           type: string
           nullable: true
@@ -5075,6 +5081,13 @@ components:
           example: '2020-08-15'
         payFrequency:
           type: string
+          enum:
+            - WEEKLY
+            - BI_WEEKLY
+            - SEMI_MONTHLY
+            - MONTHLY
+            - QUARTERLY
+            - ANNUALLY
         name:
           type: string
         roles:
