@@ -974,8 +974,6 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - employee
-      tags:
-        - B. Employees
   /employees/include_terminated:
     get:
       summary: GET Employees (Including Terminated)
@@ -1564,8 +1562,6 @@ paths:
             schema:
               $ref: '#/components/schemas/EmployeeChange'
         description: 'Please note, certain fields require certain corresponding scopes in order to be updated:'
-      tags:
-        - B. Employees
   /me:
     get:
       summary: GET Current User
