@@ -49,6 +49,7 @@ tags:
   - name: E. Current User
   - name: H. ATS
   - name: I. Application Management
+  - name: J. Reports
 paths:
   /companies/current:
     get:
@@ -4776,6 +4777,23 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - 'app:read'
+  /reports/get_reports_data:
+    get:
+      summary: GET Report
+      tags:
+        - J. Reports
+      responses: {}
+      operationId: get-reports-get_reports_data
+      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a report ID. This report ID can then be used to access the specific report information. '
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode: []
+    post:
+      summary: POST Report
+      operationId: post-reports-get_reports_data
+      responses:
+        '200':
+          description: OK
 components:
   parameters:
     limit:
@@ -6535,6 +6553,13 @@ components:
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'app:read': Permissions to read app data. Please review the scopes documentation to view the currently supported scopes.
+            'reports:soc2': 'Permission to read the organization''s SOC2 information. Please note, this includes access to all available reports.'
+            'reports:AccessControlList': Permission to read the organization's access control list report.
+            'reports:BackgroundCheckCandidate': Permission to read the organization's background check candidate report.
+            'reports:BackgroundCheckReport': Permission to read the organization's background check report.
+            'reports:PerformanceManagementObjective': Permission to read the organization's performance management objective report.
+            'reports:PerformanceManagementPulse': Permission to read the organization's performance management pulse report.
+            'reports:PerformanceManagementReview': Permission to read the organization's performance management review report.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
