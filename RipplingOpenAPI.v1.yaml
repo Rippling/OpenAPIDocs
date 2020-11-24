@@ -4782,18 +4782,120 @@ paths:
       summary: GET Report
       tags:
         - J. Reports
-      responses: {}
-      operationId: get-reports-get_reports_data
-      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a report ID. This report ID can then be used to access the specific report information. '
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode: []
-    post:
-      summary: POST Report
-      operationId: post-reports-get_reports_data
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  RoleOwnerAccess:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoleOwnerAccessObject'
+              examples:
+                example-1:
+                  value:
+                    RoleOwnerAccess:
+                      - Work email: string
+                        Access start: string
+                        Invite email: null
+                        Application: string
+                        Job status: string
+                        Employee number: 0
+                        Location: string
+                        Department:
+                          - {}
+                        Employee: string
+                        Start date: string
+                        Access end: string
+                        Full name: string
+      operationId: get-reports-get_reports_data
+      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information. '
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'reports:soc2'
+            - 'reports:AccessControlList'
+            - 'reports:BackgroundCheckCandidate'
+            - 'reports:BackgroundCheckReport'
+            - 'reports:PerformanceManagementObjective'
+            - 'reports:PerformanceManagementPulse'
+            - 'reports:PerformanceManagementReview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                report_name:
+                  type: string
+                  description: The report type to be generated.
+                  enum:
+                    - soc2
+                    - AccessControlList
+                    - '''BackgroundCheckCandidate'''
+                    - BackgroundCheckReport
+                    - PerformanceManagementObjective
+                    - PerformanceManagementPulse
+                    - PerformanceManagementReview
+        description: The report type that is being requested.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: request_id
+          description: The request ID for a given report.
+          required: true
+    post:
+      summary: POST Report
+      operationId: post-reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+              examples:
+                Success:
+                  value:
+                    message: Triggered a job to create Report
+                    request_id: T2GVTPB8LJ9O20201124143325583fd881dbc86b409e8d93f9
+      tags:
+        - J. Reports
+      description: 'Initiates the process to create a report. This method will generate a new report, which can then be fetched via the report ID with GET.'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'reports:soc2'
+            - 'reports:AccessControlList'
+            - 'reports:BackgroundCheckCandidate'
+            - 'reports:PerformanceManagementObjective'
+            - 'reports:PerformanceManagementPulse'
+            - 'reports:PerformanceManagementReview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                report_name:
+                  type: string
+                  enum:
+                    - soc2
+                    - AccessControlList
+                    - '''BackgroundCheckCandidate'''
+                    - PerformanceManagementObjective
+                    - PerformanceManagementPulse
+                    - PerformanceManagementReview
+                  description: The report type to be generated.
+            examples:
+              SOC2:
+                value:
+                  report_name: soc2
+        description: The method expects a report type to be specified.
 components:
   parameters:
     limit:
@@ -6475,6 +6577,75 @@ components:
           $ref: '#/components/schemas/employerMatch401k'
       required:
         - matchingScheme401K
+    ReportResponse:
+      title: ReportResponse
+      type: object
+      description: The response object when creating a new report.
+      properties:
+        message:
+          type: string
+          description: The success or failure message for the generated report.
+        request_id:
+          type: string
+          description: The request ID for the generated report. This request ID will be used to retrieve the completed report.
+      x-examples:
+        Success:
+          message: Triggered a job to create Report
+          request_id: T2GVTPB8LJ9O20201124143325583fd881dbc86b409e8d93f9
+      x-tags:
+        - Models
+    RoleOwnerAccessObject:
+      description: The model for Rippling's Role Owner Access. This model defines the application's your employees have access to over their employee lifecycle.
+      type: object
+      properties:
+        Work email:
+          type: string
+          minLength: 1
+          description: The work email of the employee.
+        Access start:
+          type: string
+          minLength: 1
+          description: The start time of the employee's access.
+        Invite email: {}
+        Application:
+          type: string
+          minLength: 1
+        Job status:
+          type: string
+          minLength: 1
+        Employee number:
+          type: number
+        Location:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            type: object
+        Employee:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Access end:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Work email
+        - Access start
+        - Application
+        - Job status
+        - Employee number
+        - Location
+        - Department
+        - Employee
+        - Start date
+        - Access end
+        - Full name
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
