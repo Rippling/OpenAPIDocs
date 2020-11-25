@@ -4812,7 +4812,7 @@ paths:
                         Access end: string
                         Full name: string
       operationId: get-reports-get_reports_data
-      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information. '
+      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information.'
       security:
         - Bearer ApiKey: []
         - authorizationCode:
@@ -4823,24 +4823,6 @@ paths:
             - 'reports:PerformanceManagementObjective'
             - 'reports:PerformanceManagementPulse'
             - 'reports:PerformanceManagementReview'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                report_name:
-                  type: string
-                  description: The report type to be generated.
-                  enum:
-                    - soc2
-                    - AccessControlList
-                    - '''BackgroundCheckCandidate'''
-                    - BackgroundCheckReport
-                    - PerformanceManagementObjective
-                    - PerformanceManagementPulse
-                    - PerformanceManagementReview
-        description: The report type that is being requested.
       parameters:
         - schema:
             type: string
@@ -6646,6 +6628,22 @@ components:
         - Start date
         - Access end
         - Full name
+      x-examples:
+        example-1:
+          Work email: string
+          Access start: string
+          Invite email: null
+          Application: string
+          Job status: string
+          Employee number: 0
+          Location: string
+          Department:
+            - {}
+          Employee: string
+          Start date: string
+          Access end: string
+          Full name: string
+      title: RoleOwnerAccess
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
