@@ -5060,10 +5060,10 @@ components:
           nullable: true
         startDate:
           type: string
-          description: The employee's start date
+          description: The employee's account creation date on Rippling.
         w2StartDate:
           type: string
-          description: The employee's start date as a W2 employee
+          description: The employee's start date as a W2 employee.
         endDate:
           type: string
           nullable: true
