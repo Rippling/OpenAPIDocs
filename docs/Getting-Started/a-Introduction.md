@@ -4,7 +4,7 @@ tags: [Intro]
 
 # Rippling's API Platform
 
-The Rippling API Platform enables the access and processing of company and employee information.
+The Rippling API Platform enables partners and customers to access Rippling company and employee information when granted the appropriate permissions.
 
 The API will continue to evolve as more endpoints and capabilities are added. If there are specific endpoints or features that you would benefit from, please submit a [Developer Feedback Survey](https://developer.rippling.com/docs/rippling-api/docs/Submit/feedback-survey.md).
 

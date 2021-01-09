@@ -49,6 +49,7 @@ tags:
   - name: E. Current User
   - name: H. ATS
   - name: I. Application Management
+  - name: J. Reports
 paths:
   /companies/current:
     get:
@@ -948,6 +949,8 @@ paths:
                 $ref: '#/components/schemas/Employee'
               examples: {}
       description: |
+        *Note, this is a restricted endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
+
         Updates the field for a single employee. Please note, only the customFields, workLocationId, departmentId, level, teams, and manager can be updated.
 
         For instance, to update the workLocation, you need to use the PATCH request with the workLocationId set.
@@ -974,8 +977,6 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - employee
-      tags:
-        - B. Employees
   /employees/include_terminated:
     get:
       summary: GET Employees (Including Terminated)
@@ -1553,6 +1554,8 @@ paths:
         '201':
           description: Created
       description: |
+        *Note, this is a restricted endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
+
         Aside from custom fields, most employee changes are scheduled to occur on a certain effective date, so that payroll can be proate efectively.
       security:
         - Bearer ApiKey: []
@@ -1564,8 +1567,6 @@ paths:
             schema:
               $ref: '#/components/schemas/EmployeeChange'
         description: 'Please note, certain fields require certain corresponding scopes in order to be updated:'
-      tags:
-        - B. Employees
   /me:
     get:
       summary: GET Current User
@@ -4776,6 +4777,107 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - 'app:read'
+  /reports/get_reports_data:
+    get:
+      summary: GET Report
+      tags:
+        - J. Reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  RoleOwnerAccess:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoleOwnerAccessObject'
+              examples:
+                example-1:
+                  value:
+                    RoleOwnerAccess:
+                      - Work email: string
+                        Access start: string
+                        Invite email: null
+                        Application: string
+                        Job status: string
+                        Employee number: 0
+                        Location: string
+                        Department:
+                          - {}
+                        Employee: string
+                        Start date: string
+                        Access end: string
+                        Full name: string
+      operationId: get-reports-get_reports_data
+      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information.'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'reports:soc2'
+            - 'reports:AccessControlList'
+            - 'reports:BackgroundCheckCandidate'
+            - 'reports:BackgroundCheckReport'
+            - 'reports:PerformanceManagementObjective'
+            - 'reports:PerformanceManagementPulse'
+            - 'reports:PerformanceManagementReview'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: request_id
+          description: The request ID for a given report.
+          required: true
+    post:
+      summary: POST Report
+      operationId: post-reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+              examples:
+                Success:
+                  value:
+                    message: Triggered a job to create Report
+                    request_id: T2GVTPB8LJ9O20201124143325583fd881dbc86b409e8d93f9
+      tags:
+        - J. Reports
+      description: 'Initiates the process to create a report. This method will generate a new report, which can then be fetched via the report ID with GET.'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - 'reports:soc2'
+            - 'reports:AccessControlList'
+            - 'reports:BackgroundCheckCandidate'
+            - 'reports:PerformanceManagementObjective'
+            - 'reports:PerformanceManagementPulse'
+            - 'reports:PerformanceManagementReview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                report_name:
+                  type: string
+                  enum:
+                    - soc2
+                    - AccessControlList
+                    - '''BackgroundCheckCandidate'''
+                    - PerformanceManagementObjective
+                    - PerformanceManagementPulse
+                    - PerformanceManagementReview
+                  description: The report type to be generated.
+            examples:
+              SOC2:
+                value:
+                  report_name: soc2
+        description: The method expects a report type to be specified.
 components:
   parameters:
     limit:
@@ -4958,10 +5060,10 @@ components:
           nullable: true
         startDate:
           type: string
-          description: The employee's start date
+          description: The employee's account creation date on Rippling.
         w2StartDate:
           type: string
-          description: The employee's start date as a W2 employee
+          description: The employee's start date as a W2 employee.
         endDate:
           type: string
           nullable: true
@@ -5062,10 +5164,16 @@ components:
           type: integer
         holidayShift:
           type: string
+          enum:
+            - LEFT
+            - RIGHT
         arrearDays:
           type: string
         arrearDayUnit:
           type: string
+          enum:
+            - CALENDAR
+            - BUSINESS
         payrollDayOfWeek:
           type: string
           nullable: true
@@ -5075,6 +5183,13 @@ components:
           example: '2020-08-15'
         payFrequency:
           type: string
+          enum:
+            - WEEKLY
+            - BI_WEEKLY
+            - SEMI_MONTHLY
+            - MONTHLY
+            - QUARTERLY
+            - ANNUALLY
         name:
           type: string
         roles:
@@ -6444,6 +6559,91 @@ components:
           $ref: '#/components/schemas/employerMatch401k'
       required:
         - matchingScheme401K
+    ReportResponse:
+      title: ReportResponse
+      type: object
+      description: The response object when creating a new report.
+      properties:
+        message:
+          type: string
+          description: The success or failure message for the generated report.
+        request_id:
+          type: string
+          description: The request ID for the generated report. This request ID will be used to retrieve the completed report.
+      x-examples:
+        Success:
+          message: Triggered a job to create Report
+          request_id: T2GVTPB8LJ9O20201124143325583fd881dbc86b409e8d93f9
+      x-tags:
+        - Models
+    RoleOwnerAccessObject:
+      description: The model for Rippling's Role Owner Access. This model defines the application's your employees have access to over their employee lifecycle.
+      type: object
+      properties:
+        Work email:
+          type: string
+          minLength: 1
+          description: The work email of the employee.
+        Access start:
+          type: string
+          minLength: 1
+          description: The start time of the employee's access.
+        Invite email: {}
+        Application:
+          type: string
+          minLength: 1
+        Job status:
+          type: string
+          minLength: 1
+        Employee number:
+          type: number
+        Location:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            type: object
+        Employee:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Access end:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Work email
+        - Access start
+        - Application
+        - Job status
+        - Employee number
+        - Location
+        - Department
+        - Employee
+        - Start date
+        - Access end
+        - Full name
+      x-examples:
+        example-1:
+          Work email: string
+          Access start: string
+          Invite email: null
+          Application: string
+          Job status: string
+          Employee number: 0
+          Location: string
+          Department:
+            - {}
+          Employee: string
+          Start date: string
+          Access end: string
+          Full name: string
+      title: RoleOwnerAccess
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
@@ -6522,6 +6722,13 @@ components:
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'app:read': Permissions to read app data. Please review the scopes documentation to view the currently supported scopes.
+            'reports:soc2': 'Permission to read the organization''s SOC2 information. Please note, this includes access to all available reports.'
+            'reports:AccessControlList': Permission to read the organization's access control list report.
+            'reports:BackgroundCheckCandidate': Permission to read the organization's background check candidate report.
+            'reports:BackgroundCheckReport': Permission to read the organization's background check report.
+            'reports:PerformanceManagementObjective': Permission to read the organization's performance management objective report.
+            'reports:PerformanceManagementPulse': Permission to read the organization's performance management pulse report.
+            'reports:PerformanceManagementReview': Permission to read the organization's performance management review report.
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
