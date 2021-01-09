@@ -4763,7 +4763,7 @@ paths:
             type: boolean
             default: 'False'
           in: query
-          name: includeTerminated
+          name: include_terminated
           description: |
             To include terminated employees
         - schema:
