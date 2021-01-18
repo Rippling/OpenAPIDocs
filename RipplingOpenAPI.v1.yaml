@@ -5229,7 +5229,8 @@ paths:
         description: The report template. This can be retrieved from GET /report_templates.
     get:
       summary: GET Report Template Information
-      tags: []
+      tags:
+        - J. Reports
       responses:
         '200':
           description: OK
@@ -5254,6 +5255,7 @@ paths:
                         Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
                         Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
                         Employee: |2-
+
 
 
 
@@ -5309,6 +5311,7 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
 
 
 
@@ -7073,6 +7076,7 @@ components:
             Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
             Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
             Employee: |2-
+
 
 
 
