@@ -4761,13 +4761,6 @@ paths:
         Note:There could be multiple instances of the same app. In this case, the API will return all instances in the format app_handle_app_owner_id.
       parameters:
         - schema:
-            type: boolean
-            default: 'False'
-          in: query
-          name: include_terminated
-          description: |
-            To include terminated employees
-        - schema:
             type: string
           in: query
           name: app_handles
@@ -5229,7 +5222,8 @@ paths:
         description: The report template. This can be retrieved from GET /report_templates.
     get:
       summary: GET Report Template Information
-      tags: []
+      tags:
+        - J. Reports
       responses:
         '200':
           description: OK
@@ -5310,7 +5304,6 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
-
 
 
 
@@ -7075,11 +7068,6 @@ components:
             Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
             Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
             Employee: |2-
-
-
-
-
-
 
 
 
