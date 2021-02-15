@@ -37,7 +37,7 @@ info:
 servers:
   - url: 'https://api.rippling.com/platform/api'
     description: Production
-  - url: 'https://stage.rippling.com/api/platform/api'
+  - url: 'https://stage-api.rippling.com/api/platform/api'
     description: Staging
 tags:
   - name: A. Companies
@@ -4704,9 +4704,9 @@ paths:
                     type: string
       operationId: get-app_handles
       description: |-
-        Returns all app handles currently available on Rippling. App handle is the human identifier of an app on Rippling. E.g, OUTREACH. 
+        Returns all app handles currently available on Rippling. App handle is the human identifier of an app on Rippling. E.g, OUTREACH.
 
-        Note: Each key in the response correponds to an app handle where the value is the name of the app. 
+        Note: Each key in the response correponds to an app handle where the value is the name of the app.
       security:
         - Bearer ApiKey: []
         - authorizationCode:
@@ -4758,15 +4758,8 @@ paths:
       description: |
         Returns matching users and their app IDs based on the app handles.
 
-        Note:There could be multiple instances of the same app. In this case, the API will return all instances in the format app_handle_app_owner_id. 
+        Note:There could be multiple instances of the same app. In this case, the API will return all instances in the format app_handle_app_owner_id.
       parameters:
-        - schema:
-            type: boolean
-            default: 'False'
-          in: query
-          name: include_terminated
-          description: |
-            To include terminated employees
         - schema:
             type: string
           in: query
@@ -4777,9 +4770,9 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - 'app:read'
-  /reports/get_reports_data:
+  /reports/reports_data:
     get:
-      summary: GET Report
+      summary: GET Report Data
       tags:
         - J. Reports
       responses:
@@ -4790,39 +4783,334 @@ paths:
               schema:
                 type: object
                 properties:
-                  RoleOwnerAccess:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/RoleOwnerAccessObject'
+                  Report_Template:
+                    type: object
+                    description: 'An object representing a report. A report may contain multiple nested subreports. For example for SOC2, you can expect nested objects within the report for Access Control and Provisioning History. Use the report_template info to identify the structure of each report.'
               examples:
-                example-1:
+                Sample:
                   value:
-                    RoleOwnerAccess:
-                      - Work email: string
-                        Access start: string
-                        Invite email: null
-                        Application: string
-                        Job status: string
-                        Employee number: 0
-                        Location: string
+                    Access Control Report:
+                      - Full Admin: 'Yes'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
                         Department:
-                          - {}
-                        Employee: string
-                        Start date: string
-                        Access end: string
-                        Full name: string
+                          - qyu&juhus
+                        Location: San Francisco
+                        Date of birth: '2017-06-08'
+                        Employee: 5d6e6ba9fa9c4e5b156a8b06
+                        Employee ZIP: null
+                        Start date: '2019-09-03'
+                        Super Admin: 'Yes'
+                        Full name: James Smith
+                        Can approve payroll run access: All employees
+                      - Full Admin: 'No'
+                        Hiring and Termination access: All employees
+                        App access: Some apps for some/all employees
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Date of birth: '2006-08-21'
+                        Employee: 5fa0213a41455b00285532dd
+                        Employee ZIP: '86549'
+                        Start date: null
+                        Super Admin: 'No'
+                        Full name: Shavonne Bartoletti
+                        Can approve payroll run access: No Permission
+                      - Full Admin: 'No'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
+                        Department:
+                          - Engineering
+                        Location: San Francisco
+                        Date of birth: '2018-03-28'
+                        Employee: 5fa0213241455b0028552f03
+                        Employee ZIP: '58180'
+                        Start date: '2020-10-21'
+                        Super Admin: 'No'
+                        Full name: Annika McDermott
+                        Can approve payroll run access: No Permission
+                      - Full Admin: 'Yes'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
+                        Department:
+                          - Engineering
+                        Location: San Francisco
+                        Date of birth: '2017-06-24'
+                        Employee: 5d6e6babfa9c4e5b156a8bcb
+                        Employee ZIP: '94110'
+                        Start date: '2019-09-03'
+                        Super Admin: 'Yes'
+                        Full name: Michael Smith
+                        Can approve payroll run access: All employees
+                      - Full Admin: 'No'
+                        Hiring and Termination access: Few employees
+                        App access: Some apps for some/all employees
+                        Department:
+                          - When fetching the User from the rippling API  department property of few users is returned empty This is the case when the department has long names
+                        Location: India
+                        Date of birth: '2017-06-15'
+                        Employee: 5d6e6bacfa9c4e5b156a8c1f
+                        Employee ZIP: null
+                        Start date: '2019-09-03'
+                        Super Admin: 'No'
+                        Full name: Maria Garcia
+                        Can approve payroll run access: No Permission
+                      - Full Admin: 'No'
+                        Hiring and Termination access: No Permission
+                        App access: Some apps for some/all employees
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Date of birth: '1981-11-21'
+                        Employee: 5fa0213141455b0028552e77
+                        Employee ZIP: '26343'
+                        Start date: null
+                        Super Admin: 'No'
+                        Full name: Jahiem Bernhard
+                        Can approve payroll run access: No Permission
+                      - Full Admin: 'No'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Date of birth: '1989-12-01'
+                        Employee: 5fa0211f41455b0028552636
+                        Employee ZIP: '58036'
+                        Start date: null
+                        Super Admin: 'No'
+                        Full name: Doshia Breitenberg
+                        Can approve payroll run access: No Permission
+                      - Full Admin: 'Yes'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Date of birth: '1974-04-26'
+                        Employee: 5fa0213441455b002855301d
+                        Employee ZIP: '73018'
+                        Start date: null
+                        Super Admin: 'No'
+                        Full name: Ahmad Bartoletti
+                        Can approve payroll run access: All employees
+                      - Full Admin: 'Yes'
+                        Hiring and Termination access: All employees
+                        App access: All apps for all employees
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Date of birth: '2009-04-17'
+                        Employee: 5fa0213341455b0028552f90
+                        Employee ZIP: '59150'
+                        Start date: null
+                        Super Admin: 'Yes'
+                        Full name: Freeman Cartwright
+                        Can approve payroll run access: All employees
+                      - Date of birth: '1980-03-27'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213e41455b0028553484
+                        Employee ZIP: '87213'
+                        Start date: null
+                        Full name: Tyreek Zboncak
+                      - Date of birth: '1997-09-20'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213841455b00285531c3
+                        Employee ZIP: '53965'
+                        Start date: null
+                        Full name: Ora Kris
+                      - Date of birth: '1993-01-31'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212341455b0028552868
+                        Employee ZIP: '76453'
+                        Start date: null
+                        Full name: Nolia Wolff
+                      - Date of birth: '1986-10-28'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213c41455b00285533f7
+                        Employee ZIP: '22256'
+                        Start date: null
+                        Full name: Latifah Haley
+                      - Date of birth: '1994-01-09'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212641455b0028552982
+                        Employee ZIP: '36544'
+                        Start date: null
+                        Full name: Meg Spencer
+                      - Date of birth: '1990-04-20'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213641455b0028553136
+                        Employee ZIP: '63073'
+                        Start date: null
+                        Full name: Hayes Lueilwitz
+                      - Date of birth: '1995-03-28'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213941455b0028553250
+                        Employee ZIP: '47745'
+                        Start date: null
+                        Full name: Ines Haag
+                      - Date of birth: '2010-11-10'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212941455b0028552b28
+                        Employee ZIP: '80384'
+                        Start date: null
+                        Full name: Giselle Watsica
+                      - Date of birth: '1989-05-26'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0213b41455b002855336a
+                        Employee ZIP: '47932'
+                        Start date: null
+                        Full name: Elfreda Kirlin
+                      - Date of birth: '1973-02-17'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212a41455b0028552bb5
+                        Employee ZIP: '61356'
+                        Start date: null
+                        Full name: Kevan Swaniawski
+                      - Date of birth: null
+                        Department:
+                          - Sales
+                          - SMB
+                        Location: India
+                        Employee: 5f6b760383f62a089470d11b
+                        Employee ZIP: null
+                        Start date: '2020-09-23'
+                        Full name: Owel Dsf
+                      - Date of birth: '1981-07-01'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212241455b00285527dc
+                        Employee ZIP: '38648'
+                        Start date: null
+                        Full name: Nyah Schuster
+                      - Date of birth: '2017-06-16'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212b41455b0028552c42
+                        Employee ZIP: '59316'
+                        Start date: null
+                        Full name: Lou Ryan
+                      - Date of birth: '2003-10-15'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212e41455b0028552d5b
+                        Employee ZIP: '94897'
+                        Start date: null
+                        Full name: Durell Haag
+                      - Date of birth: '1990-10-21'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212841455b0028552a9b
+                        Employee ZIP: '32990'
+                        Start date: null
+                        Full name: Aili Prosacco
+                      - Date of birth: '2006-03-13'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212141455b0028552750
+                        Employee ZIP: '88631'
+                        Start date: null
+                        Full name: Gidget Stoltenberg
+                      - Date of birth: '1976-05-07'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212741455b0028552a0e
+                        Employee ZIP: '20956'
+                        Start date: null
+                        Full name: Phyliss Hegmann
+                      - Date of birth: '1981-01-03'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0211d41455b00285525aa
+                        Employee ZIP: '12982'
+                        Start date: null
+                        Full name: Devante Bernhard
+                      - Date of birth: '1996-05-02'
+                        Department:
+                          - Engineering
+                        Location: San Francisco
+                        Employee: 5fa0213541455b00285530a9
+                        Employee ZIP: '63893'
+                        Start date: '2020-11-01'
+                        Full name: Jacki Marquardt
+                      - Date of birth: '2017-07-11'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212041455b00285526c3
+                        Employee ZIP: '94033'
+                        Start date: null
+                        Full name: Kelis Oberbrunner
+                      - Date of birth: '2009-02-07'
+                        Department:
+                          - Engineering
+                        Location: San Francisco
+                        Employee: 5fa0211c41455b002855251b
+                        Employee ZIP: '82174'
+                        Start date: '2020-11-01'
+                        Full name: Marianne Bahringer
+                      - Date of birth: '1970-03-19'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212d41455b0028552ccf
+                        Employee ZIP: '55166'
+                        Start date: null
+                        Full name: Jeri Hauck
+                      - Date of birth: '1981-11-10'
+                        Department:
+                          - No Department
+                        Location: San Francisco
+                        Employee: 5fa0212f41455b0028552de8
+                        Employee ZIP: '12334'
+                        Start date: null
+                        Full name: Terence Hand
+                      - Date of birth: '1973-07-02'
+                        Department:
+                          - Engineering
+                          - Infra
+                        Location: San Francisco
+                        Employee: 5fa0212541455b00285528f5
+                        Employee ZIP: '72422'
+                        Start date: '2020-10-21'
+                        Full name: Edgardo Casper
       operationId: get-reports-get_reports_data
-      description: 'Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information.'
+      description: |-
+        Retrieves the report information for a generated report. Reports should be generated using POST, which will return a request ID. This request ID can then be used to access the specific report information.
+
+        Please note, Rippling reports templates should be identified through the report_templates endpoint. A customer may choose to setup a custom report, so the report objects are not statically defined.
       security:
         - Bearer ApiKey: []
         - authorizationCode:
-            - 'reports:soc2'
-            - 'reports:AccessControlList'
-            - 'reports:BackgroundCheckCandidate'
-            - 'reports:BackgroundCheckReport'
-            - 'reports:PerformanceManagementObjective'
-            - 'reports:PerformanceManagementPulse'
-            - 'reports:PerformanceManagementReview'
+            - soc2
+            - insurance
       parameters:
         - schema:
             type: string
@@ -4850,13 +5138,7 @@ paths:
       description: 'Initiates the process to create a report. This method will generate a new report, which can then be fetched via the report ID with GET.'
       security:
         - Bearer ApiKey: []
-        - authorizationCode:
-            - 'reports:soc2'
-            - 'reports:AccessControlList'
-            - 'reports:BackgroundCheckCandidate'
-            - 'reports:PerformanceManagementObjective'
-            - 'reports:PerformanceManagementPulse'
-            - 'reports:PerformanceManagementReview'
+        - authorizationCode: []
       requestBody:
         content:
           application/json:
@@ -4878,6 +5160,188 @@ paths:
                 value:
                   report_name: soc2
         description: The method expects a report type to be specified.
+    parameters: []
+  /reports/report_templates:
+    get:
+      summary: GET Available Report Templates
+      tags:
+        - J. Reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: ''
+                minItems: 1
+                uniqueItems: true
+                items:
+                  $ref: '#/components/schemas/ReportTemplates'
+              examples:
+                Available Templates:
+                  value:
+                    - templateName: access_control_report
+                      templateID: access_control_report
+                    - templateName: authentication_settings_report
+                      templateID: authentication_settings_report
+                    - templateName: application_status_report
+                      templateID: application_status_report
+                    - templateName: app_access
+                      templateID: app_access
+                    - templateName: performance_management_objective_report
+                      templateID: performance_management_objective_report
+                    - templateName: performance_management_pulse_report
+                      templateID: performance_management_pulse_report
+                    - templateName: performance_management_review_report
+                      templateID: performance_management_review_report
+                    - templateName: soc2
+                      templateID: soc2
+                    - templateName: fsa_enrollment
+                      templateID: fsa_enrollment
+                    - templateName: hsa_enrollment
+                      templateID: hsa_enrollment
+                    - templateName: insurance_enrollment
+                      templateID: insurance_enrollment
+                    - templateName: commuter_enrollment
+                      templateID: commuter_enrollment
+      operationId: get-reports-report_templates
+      description: 'Retrieves a list of report template names that should be used in conjunction with GET /reports/{report_template}/report_template_info.'
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - soc2
+            - insurance
+  '/reports/{report_template}/report_template_info':
+    parameters:
+      - schema:
+          type: string
+        name: report_template
+        in: path
+        required: true
+        description: The report template. This can be retrieved from GET /report_templates.
+    get:
+      summary: GET Report Template Information
+      tags:
+        - J. Reports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportTemplateInfo'
+              examples:
+                Report Template Information:
+                  value:
+                    - templateDisplayName: Access Control Report
+                      fieldDescriptionMap:
+                        Full Admin: Is the role a full admin
+                        Hiring and Termination access: Access to Hiring and Termination
+                        App access: Access to Apps
+                        Department: |-
+                          The employee's department. CSV exports will show only the employee's terminal department, 
+                                                          however reports in Rippling will show the full department tree 
+                                                          (e.g., Sales > Account Executives > Enterprise Sales)
+                        Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
+                        Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
+                        Employee: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                              The employee's full name. Employees with multiple "jobs" with your company 
+                                              (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
+                        Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
+                        Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
+                        Super Admin: Is the role a super admin
+                        Full name: 'The employee''s full name, e.g. "John Doe"'
+                        Can approve payroll run access: Access to Payroll information
+                      templateName: access_control_report
+                    - templateDisplayName: Authentication Settings Report
+                      fieldDescriptionMap:
+                        2FA required: Is two factor authentication required for the company
+                        Name: Name of the rule
+                        Password minimum length: The minimum length of characters of password for login
+                        Session timeout(seconds): 'How long before employees are logged out of Rippling, regardless of activity in seconds'
+                        2FA timeout(seconds): How long before employees are prompted to re-enter 2FA authorization
+                        2FA Method: The method for enforcing 2FA
+                        Session Inactivity timeout(seconds): How long an employee can be inactive before being logged out of Rippling in seconds
+                        Password minimum complex characters: The minimum length of complex characters password for login
+                        Description: Description about the settings
+                      templateName: authentication_settings_report
+                    - templateDisplayName: Application Status Report
+                      fieldDescriptionMap:
+                        API Installation status: Api integration status for the app
+                        App admins: Admins of the app
+                        Application Status: 'indicates whether the app is installed(completely, incompletely) or not installed'
+                        Installed app name: Name of the installed app
+                        SAML Installation status: SAML integration status for the app.
+                      templateName: application_status_report
+                    - templateDisplayName: Application provisioning history report
+                      fieldDescriptionMap:
+                        Employee: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                              The employee's full name. Employees with multiple "jobs" with your company 
+                                              (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
+                        Application: Application name
+                        Access end: The date and time the employee's access to the application was revoked
+                        Full name: 'The employee''s full name, e.g. "John Doe"'
+                        Access start: The date and time the employee was granted access to the application
+                      templateName: app_access
+      operationId: get-reports-report_template-report_template_info
+      description: Retrieves the template information of the given report template.
+      security:
+        - Bearer ApiKey: []
+        - authorizationCode:
+            - insurance
+            - soc2
 components:
   parameters:
     limit:
@@ -6576,74 +7040,85 @@ components:
           request_id: T2GVTPB8LJ9O20201124143325583fd881dbc86b409e8d93f9
       x-tags:
         - Models
-    RoleOwnerAccessObject:
-      description: The model for Rippling's Role Owner Access. This model defines the application's your employees have access to over their employee lifecycle.
+    ReportTemplateInfo:
+      title: ReportTemplate
       type: object
+      description: A generic report template.
       properties:
-        Work email:
+        templateDisplayName:
           type: string
-          minLength: 1
-          description: The work email of the employee.
-        Access start:
+          description: The display name of the report within Rippling.
+        fieldDescriptionMap:
+          type: object
+          description: The available report fields. This will vary based on each report type.
+        templateName:
           type: string
-          minLength: 1
-          description: The start time of the employee's access.
-        Invite email: {}
-        Application:
-          type: string
-          minLength: 1
-        Job status:
-          type: string
-          minLength: 1
-        Employee number:
-          type: number
-        Location:
-          type: string
-          minLength: 1
-        Department:
-          type: array
-          items:
-            type: object
-        Employee:
-          type: string
-          minLength: 1
-        Start date:
-          type: string
-          minLength: 1
-        Access end:
-          type: string
-          minLength: 1
-        Full name:
-          type: string
-          minLength: 1
-      required:
-        - Work email
-        - Access start
-        - Application
-        - Job status
-        - Employee number
-        - Location
-        - Department
-        - Employee
-        - Start date
-        - Access end
-        - Full name
+          description: The internal name of the report to be used to programmatically access the report contents.
       x-examples:
-        example-1:
-          Work email: string
-          Access start: string
-          Invite email: null
-          Application: string
-          Job status: string
-          Employee number: 0
-          Location: string
-          Department:
-            - {}
-          Employee: string
-          Start date: string
-          Access end: string
-          Full name: string
-      title: RoleOwnerAccess
+        Access Control Report Template:
+          templateDisplayName: Access Control Report
+          fieldDescriptionMap:
+            Full Admin: Is the role a full admin
+            Hiring and Termination access: Access to Hiring and Termination
+            App access: Access to Apps
+            Department: |-
+              The employee's department. CSV exports will show only the employee's terminal department, 
+                                              however reports in Rippling will show the full department tree 
+                                              (e.g., Sales > Account Executives > Enterprise Sales)
+            Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
+            Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
+            Employee: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  The employee's full name. Employees with multiple "jobs" with your company 
+                                  (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
+            Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
+            Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
+            Super Admin: Is the role a super admin
+            Full name: 'The employee''s full name, e.g. "John Doe"'
+            Can approve payroll run access: Access to Payroll information
+          templateName: access_control_report
+    ReportTemplates:
+      title: ReportTemplates
+      type: object
+      description: An object describing a report template name and id.
+      properties:
+        templateName:
+          type: string
+        templateID:
+          type: string
+      required:
+        - templateName
+        - templateID
+      x-examples:
+        Access Control Report:
+          templateName: access_control_report
+          templateID: access_control_report
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
@@ -6728,7 +7203,8 @@ components:
             'reports:BackgroundCheckReport': Permission to read the organization's background check report.
             'reports:PerformanceManagementObjective': Permission to read the organization's performance management objective report.
             'reports:PerformanceManagementPulse': Permission to read the organization's performance management pulse report.
-            'reports:PerformanceManagementReview': Permission to read the organization's performance management review report.
+            soc2: 'Permission to read and create a SOC2 report for the organization. Please note, this includes access to all available reports.'
+            insurance: 'Permission to read and create an insurance report for the organization. Please note, this includes access to all available reports.'
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
