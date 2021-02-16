@@ -8,7 +8,7 @@ The Rippling API Platform enables partners and customers to access Rippling comp
 
 The API will continue to evolve as more endpoints and capabilities are added. If there are specific endpoints or features that you would benefit from, please submit a [Developer Feedback Survey](https://developer.rippling.com/docs/rippling-api/docs/Submit/feedback-survey.md).
 
-Please note, it is in violation of Rippling's Terms of Service to use an API key on behalf of another organization in order to access the Rippling API Platform.
+Please note, it is in violation of Rippling's Terms of Service to use an API key on behalf of another organization in order to access the Rippling API Platform. All Rippling partners must use OAuth to integrate with Rippling's API, as detailed in our [authorization guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md).
 
 ## Customers
 
@@ -20,7 +20,7 @@ If you're a Rippling customer, please see the [Customer Guide](https://developer
 
 Rippling requires that all application partners build integrations within [Rippling's App Shop](https://rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information. 
 
-If you are interested in building an application with Rippling, please see the [Partner Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md).
+If you are interested in building an application with Rippling, please see the [Partner Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md). Note, Rippling partners are required to use OAuth in order to integrate with Rippling and to your integration in the App Shop.
 
 You will be required to submit a [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) in order to configure your integration and provide your marketing assets.
 
