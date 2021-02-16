@@ -50,6 +50,7 @@ tags:
   - name: H. ATS
   - name: I. Application Management
   - name: J. Reports
+  - name: Deprecated
 paths:
   /companies/current:
     get:
@@ -949,7 +950,7 @@ paths:
                 $ref: '#/components/schemas/Employee'
               examples: {}
       description: |
-        *Note, this is a restricted endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
+        *Note, this is a deprecated endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
 
         Updates the field for a single employee. Please note, only the customFields, workLocationId, departmentId, level, teams, and manager can be updated.
 
@@ -977,6 +978,8 @@ paths:
         - Bearer ApiKey: []
         - authorizationCode:
             - employee
+      tags:
+        - Deprecated
   /employees/include_terminated:
     get:
       summary: GET Employees (Including Terminated)
@@ -1567,6 +1570,8 @@ paths:
             schema:
               $ref: '#/components/schemas/EmployeeChange'
         description: 'Please note, certain fields require certain corresponding scopes in order to be updated:'
+      tags:
+        - Deprecated
   /me:
     get:
       summary: GET Current User
@@ -5109,8 +5114,8 @@ paths:
       security:
         - Bearer ApiKey: []
         - authorizationCode:
-            - 'reports:insurance'
-            - 'reports:soc2'
+            - soc2
+            - insurance
       parameters:
         - schema:
             type: string
@@ -5138,9 +5143,7 @@ paths:
       description: 'Initiates the process to create a report. This method will generate a new report, which can then be fetched via the report ID with GET.'
       security:
         - Bearer ApiKey: []
-        - authorizationCode:
-            - 'reports:soc2'
-            - 'reports:insurance'
+        - authorizationCode: []
       requestBody:
         content:
           application/json:
@@ -5212,8 +5215,8 @@ paths:
       security:
         - Bearer ApiKey: []
         - authorizationCode:
-            - 'reports:insurance'
-            - 'reports:soc2'
+            - soc2
+            - insurance
   '/reports/{report_template}/report_template_info':
     parameters:
       - schema:
@@ -5263,29 +5266,6 @@ paths:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5322,36 +5302,6 @@ paths:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Application: Application name
@@ -5364,8 +5314,8 @@ paths:
       security:
         - Bearer ApiKey: []
         - authorizationCode:
-            - 'reports:soc2'
-            - 'reports:insurance'
+            - insurance
+            - soc2
 components:
   parameters:
     limit:
@@ -6181,33 +6131,43 @@ components:
       properties:
         traditional:
           type: string
+          description: Either a flat dollar or % contribution amount. This should be used in conjunction with traditional_is_percent.
         traditional_is_percent:
           type: boolean
+          description: Whether the traditional contribution amount provided is a percentage of the gross wages or a flat dollar contribution amount.
         roth:
           type: string
+          description: Either a flat dollar or % contribution amount. This should be used in conjunction with roth_is_percent.
         roth_is_percent:
           type: boolean
+          description: Whether the ROTH contribution amount provided is a percentage of the gross wages or a flat dollar contribution amount.
         employer:
           type: string
+          description: 'Either a flat dollar or % employer traditional contribution amount. This should be used in conjunction with employer_is_percent. Note, this field should not be set if the employer is using a tiered match. This value will be overridden by the calculated match using the tiered match.'
         roth_employer:
           type: string
+          description: 'Either a flat dollar or % employer ROTH contribution amount. This should be used in conjunction with employer_roth_is_percent. Note, this field should not be set if the employer is using a tiered match. This value will be overridden by the calculated match using the tiered match.'
         loan:
           type: string
+          description: Either a flat dollar or % loan contribution amount. This should be used in conjunction with loan_is_percent.
         loan_is_percent:
           type: boolean
+          description: Whether the loan contribution amount provided is a percentage of the gross wages or a flat dollar contribution amount.
         caps:
           $ref: '#/components/schemas/401kCap'
         employer_traditional_is_percent:
           type: boolean
+          description: 'Whether the employer traditional contribution amount provided is a percentage of the gross wages or a flat dollar contribution amount. Note, this field should not be set if the employer is using a tiered match.'
         employer_roth_is_percent:
           type: boolean
+          description: 'Whether the employer ROTH contribution amount provided is a percentage of the gross wages or a flat dollar contribution amount. Note, this field should not be set if the employer is using a tiered match.'
     401kCap:
       title: 401kCap
       type: object
       nullable: true
       x-tags:
         - Models
-      description: The 401k Limit Object.
+      description: The 401k Limit Object. This object represents the caps set on both employee and employer contribution amounts for traditional and ROTH 401ks.
       properties:
         traditional:
           type: object
@@ -7122,14 +7082,6 @@ components:
 
 
 
-
-
-
-
-
-
-
-
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7138,6 +7090,8 @@ components:
             Full name: 'The employee''s full name, e.g. "John Doe"'
             Can approve payroll run access: Access to Payroll information
           templateName: access_control_report
+      x-tags:
+        - Models
     ReportTemplates:
       title: ReportTemplates
       type: object
@@ -7154,6 +7108,8 @@ components:
         Access Control Report:
           templateName: access_control_report
           templateID: access_control_report
+      x-tags:
+        - Models
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
@@ -7232,13 +7188,14 @@ components:
             'employee:*': This scope signifies that many employee scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'deduction:*': This scope signifies that many deduction scopes are applicable to this endpoint. Please review the scopes documentation to view the currently supported scopes.
             'app:read': Permissions to read app data. Please review the scopes documentation to view the currently supported scopes.
-            'reports:soc2': 'Permission to read and create a SOC2 report for the organization. Please note, this includes access to all available reports.'
+            'reports:soc2': 'Permission to read the organization''s SOC2 information. Please note, this includes access to all available reports.'
             'reports:AccessControlList': Permission to read the organization's access control list report.
             'reports:BackgroundCheckCandidate': Permission to read the organization's background check candidate report.
             'reports:BackgroundCheckReport': Permission to read the organization's background check report.
             'reports:PerformanceManagementObjective': Permission to read the organization's performance management objective report.
             'reports:PerformanceManagementPulse': Permission to read the organization's performance management pulse report.
-            'reports:insurance': 'Permission to read and create an insurance report for the organization. Please note, this includes access to all available reports.'
+            soc2: 'Permission to read and create a SOC2 report for the organization. Please note, this includes access to all available reports.'
+            insurance: 'Permission to read and create an insurance report for the organization. Please note, this includes access to all available reports.'
           authorizationUrl: 'https://app.rippling/apps/PLATFORM/{AppName}'
           refreshUrl: 'https://app.rippling.com/api/o/token/'
       description: 'If you''ve deployed an application on Rippling (or wish to deploy an official application) for customers to use, you will need to use OAuth2.0 to retrieve access tokens for companies that install and authorize your application to access data on their behalf.'
