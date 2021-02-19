@@ -80,3 +80,4 @@ _Additionally, you may notice that certain fields are not marked as required the
 | app:read                               | Permission to read the list of the company's installed applications, as well as information on the user account mapping within those applications.         |
 | reports:soc2                           | Permission to read the organization's SOC2 information. Please note, this includes access to all available reports.                                        |
 | reports:insurance              | Permission to read the organization's insurance report information.                                                                                          |
+| reports:hardware              | Permission to read the organization's insurance report information.                                                                                          |
