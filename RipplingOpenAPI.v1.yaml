@@ -5159,7 +5159,7 @@ paths:
                     - PerformanceManagementObjective
                     - PerformanceManagementPulse
                     - PerformanceManagementReview
-                  description: The report type to be generated.
+                  description: 'The report type to be generated. For examples, use soc2, inventory, or insurance.'
             examples:
               SOC2:
                 value:
@@ -5351,6 +5351,11 @@ paths:
 
 
 
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5382,6 +5387,11 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
+
+
+
 
 
 
@@ -7337,6 +7347,11 @@ components:
 
 
 
+
+
+
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7693,7 +7708,7 @@ components:
           SAML Installation status: Incomplete
       x-tags:
         - Models
-    HardwareReport:
+    InventoryReport:
       description: A hardware inventory report.
       type: object
       properties:
@@ -7750,7 +7765,7 @@ components:
       required:
         - Computer inventory report
       x-examples:
-        example-1:
+        Sample:
           Computer inventory report:
             - SKU: 2020 MacBook Pro 16.0"
               Last ping: '2020-11-23T07:37:33.166Z'
