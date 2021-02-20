@@ -5269,6 +5269,88 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5300,6 +5382,88 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7091,6 +7255,88 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7117,6 +7363,509 @@ components:
         Access Control Report:
           templateName: access_control_report
           templateID: access_control_report
+      x-tags:
+        - Models
+    SOC2Report:
+      title: SOC2Report
+      type: object
+      x-examples:
+        example-1:
+          Access Control Report:
+            - null
+          Authentication Settings Report:
+            - null
+          Backg: string
+      description: 'SOC2 Reports may contain Access Control Reports, Authentication Settings Reports, Background Check Candidate Reports, Background Check Status Reports, Application Status Reports, Application Provisioning Hisotry Reports, Performance Management Objective Reports,Performance Management Pulse Reports, and Performance Management Review Reports. Certain reports, such as background check reports and performance management reports will only be shown if the relevant data is present within Rippling. If a company does not have background check or performance solutions connected to Rippling, then those reports will not be available.'
+      properties:
+        Access Control Report:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessControlReportDetail'
+        Authentication Settings Report:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationSettingsReportDetail'
+        Background Check Status Report:
+          type: array
+          items:
+            $ref: '#/components/schemas/BackgroundCheckStatusDetail'
+        Background Check Candidate Report:
+          type: array
+          items:
+            $ref: '#/components/schemas/BackgroundCheckCandidateReportDetail'
+        Application provisioning history report:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationProvisioningHistoryReportDetail'
+        Application Status Report:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationStatusReportDetail'
+    AccessControlReportDetail:
+      description: An Access Control Report object.
+      type: object
+      properties:
+        Full Admin:
+          type: string
+          minLength: 1
+        Hiring and Termination access:
+          type: string
+          minLength: 1
+        App access:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Date of birth:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Super Admin:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+        Can approve payroll run access:
+          type: string
+          minLength: 1
+      required:
+        - Full Admin
+        - Hiring and Termination access
+        - App access
+        - Department
+        - Location
+        - Date of birth
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Super Admin
+        - Full name
+        - Can approve payroll run access
+      x-tags:
+        - Models
+      x-examples:
+        Sample:
+          Full Admin: 'No'
+          Hiring and Termination access: Few employees
+          App access: Some apps for some/all employees
+          Department:
+            - Finance
+          Location: San Francisco
+          Date of birth: '1977-06-01'
+          Employee: 583fd8c3dbc86b409e8da052
+          Employee ZIP: '94110'
+          Start date: '2016-08-31'
+          Super Admin: 'No'
+          Full name: Eliga Breitenberg
+          Can approve payroll run access: No Permission
+    AuthenticationSettingsReportDetail:
+      description: An Authentication Settings Report object.
+      type: object
+      properties:
+        2FA required:
+          type: boolean
+        Name:
+          type: string
+          minLength: 1
+        Password minimum length:
+          type: number
+        Session timeout(seconds):
+          type: number
+        2FA timeout(seconds):
+          type: number
+        2FA Method:
+          type: string
+          minLength: 1
+        Session Inactivity timeout(seconds):
+          type: number
+        Password minimum complex characters: {}
+        Description: {}
+      required:
+        - 2FA required
+        - Name
+        - Password minimum length
+        - Session timeout(seconds)
+        - 2FA timeout(seconds)
+        - 2FA Method
+        - Session Inactivity timeout(seconds)
+      x-examples:
+        Sample:
+          2FA required: false
+          Name: Default Authentication Rule
+          Password minimum length: 8
+          Session timeout(seconds): 2592000
+          2FA timeout(seconds): 2592000
+          2FA Method: AUTHENTICATOR
+          Session Inactivity timeout(seconds): 2592000
+          Password minimum complex characters: null
+          Description: null
+      x-tags:
+        - Models
+      title: ''
+    BackgroundCheckStatusDetail:
+      description: A Background Check Status Report object.
+      type: object
+      properties:
+        Date of birth:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Date of birth
+        - Department
+        - Location
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Full name
+      x-tags:
+        - Models
+      title: BackgroundCheckStatusReportDetail
+      x-examples:
+        Sample:
+          Date of birth: '1987-02-05'
+          Department:
+            - Customer Support
+          Location: San Francisco
+          Employee: 583fd8addbc86b409e8d9c5c
+          Employee ZIP: '94110'
+          Start date: '2017-05-11'
+          Full name: Cassidy Marquardt
+    BackgroundCheckCandidateReportDetail:
+      description: A Background Check Candidate Report object.
+      type: object
+      properties:
+        Date of birth:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Date of birth
+        - Department
+        - Location
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Full name
+      x-tags:
+        - Models
+      x-examples:
+        Sample:
+          Date of birth: '1987-02-05'
+          Department:
+            - Customer Support
+          Location: San Francisco
+          Employee: 583fd8addbc86b409e8d9c5c
+          Employee ZIP: '94110'
+          Start date: '2017-05-11'
+          Full name: Cassidy Marquardt
+      title: BackgroundCheckCandidateReportDetail
+    ApplicationProvisioningHistoryReportDetail:
+      description: An Application Provisioning History Report object.
+      type: object
+      properties:
+        Access start:
+          type: string
+          minLength: 1
+        Application:
+          type: string
+          minLength: 1
+        Location:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Employee:
+          type: string
+          minLength: 1
+        Access end:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Access start
+        - Application
+        - Location
+        - Department
+        - Employee
+        - Access end
+        - Full name
+      x-tags:
+        - Models
+      x-examples:
+        Sample:
+          Access start: '02:22 PM on 06/23/2020'
+          Application: 58097b25f20db561b81dd5f8
+          Location: San Francisco
+          Department:
+            - Customer Support
+          Employee: 583fd8addbc86b409e8d9c5c
+          Access end: '11:49 AM on 09/10/2020'
+          Full name: Cassidy Marquardt
+    ApplicationStatusReportDetail:
+      description: An Application Status Report object.
+      type: object
+      properties:
+        API Installation status:
+          type: string
+          minLength: 1
+        App admins:
+          type: string
+        Installed app name:
+          type: string
+          minLength: 1
+        Application Status:
+          type: string
+          minLength: 1
+        SAML Installation status:
+          type: string
+          minLength: 1
+      required:
+        - API Installation status
+        - App admins
+        - Installed app name
+        - Application Status
+        - SAML Installation status
+      x-examples:
+        Sample:
+          API Installation status: Incomplete
+          App admins: ''
+          Installed app name: Culture Amp (connected on 02/16/21)
+          Application Status: Complete
+          SAML Installation status: Incomplete
+      x-tags:
+        - Models
+    HardwareReport:
+      description: A hardware inventory report.
+      type: object
+      properties:
+        Computer inventory report:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - SKU
+              - Last ping
+              - Full name
+              - Acquired through Rippling
+              - Serial number
+              - Location
+              - Employee
+              - Is leased
+              - Hardware type
+              - Manufacturer
+            properties:
+              SKU:
+                type: string
+                minLength: 1
+              Last ping:
+                type: string
+                minLength: 1
+              Full name:
+                type: string
+                minLength: 1
+              Acquired through Rippling:
+                type: boolean
+              Department:
+                type: array
+                items:
+                  required: []
+                  properties: {}
+              Serial number:
+                type: string
+                minLength: 1
+              Location:
+                type: string
+                minLength: 1
+              Employee:
+                type: string
+                minLength: 1
+              Is leased:
+                type: boolean
+              Hardware type:
+                type: string
+                minLength: 1
+              Manufacturer:
+                type: string
+                minLength: 1
+      required:
+        - Computer inventory report
+      x-examples:
+        example-1:
+          Computer inventory report:
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.166Z'
+              Full name: Marianne Bahringer
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DU0R5LPMO3A6
+              Location: San Francisco
+              Employee: 5fa0211c41455b002855251b
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.317Z'
+              Full name: Annika McDermott
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DQPVBKVBIB8O
+              Location: San Francisco
+              Employee: 5fa0213241455b0028552f03
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.488Z'
+              Full name: Michael Smith
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DI6V1A3SA0C9
+              Location: San Francisco
+              Employee: 5d6e6babfa9c4e5b156a8bcb
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.464Z'
+              Full name: Jacki Marquardt
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DQIAMNV4F7AI
+              Location: San Francisco
+              Employee: 5fa0213541455b00285530a9
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+      title: Inventory Report
+      x-tags:
+        - Models
+    InventoryReportDetail:
+      description: An inventory report object.
+      type: object
+      properties:
+        SKU:
+          type: string
+          minLength: 1
+        Last ping:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+        Acquired through Rippling:
+          type: boolean
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Serial number:
+          type: string
+          minLength: 1
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Is leased:
+          type: boolean
+        Hardware type:
+          type: string
+          minLength: 1
+        Manufacturer:
+          type: string
+          minLength: 1
+      required:
+        - SKU
+        - Last ping
+        - Full name
+        - Acquired through Rippling
+        - Department
+        - Serial number
+        - Location
+        - Employee
+        - Is leased
+        - Hardware type
+        - Manufacturer
+      x-examples:
+        example-1:
+          SKU: 2020 MacBook Pro 16.0"
+          Last ping: '2020-11-23T07:37:33.166Z'
+          Full name: Marianne Bahringer
+          Acquired through Rippling: false
+          Department:
+            - Engineering
+          Serial number: DU0R5LPMO3A6
+          Location: San Francisco
+          Employee: 5fa0211c41455b002855251b
+          Is leased: false
+          Hardware type: LAPTOP
+          Manufacturer: Apple
       x-tags:
         - Models
   securitySchemes:
