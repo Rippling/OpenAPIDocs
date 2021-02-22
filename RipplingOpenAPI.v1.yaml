@@ -7390,6 +7390,8 @@ components:
           Authentication Settings Report:
             - null
           Backg: string
+      x-tags:
+        - Models
       description: 'SOC2 Reports may contain Access Control Reports, Authentication Settings Reports, Background Check Candidate Reports, Background Check Status Reports, Application Status Reports, Application Provisioning Hisotry Reports, Performance Management Objective Reports,Performance Management Pulse Reports, and Performance Management Review Reports. Certain reports, such as background check reports and performance management reports will only be shown if the relevant data is present within Rippling. If a company does not have background check or performance solutions connected to Rippling, then those reports will not be available.'
       properties:
         Access Control Report:
