@@ -5357,6 +5357,14 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5484,6 +5492,14 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Application: Application name
@@ -5498,6 +5514,31 @@ paths:
         - authorizationCode:
             - insurance
             - soc2
+  /mark_app_installed:
+    post:
+      summary: Mark App Installed
+      operationId: post-mark_app_installed
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                required:
+                  - ok
+      description: |-
+        This endpoint can be hit with an access token in order to mark you app as installed, if you aren't hitting Rippling's other endpoints on installation. The endpoint does not require any scopes.
+
+        Please note, hitting any other endpoint should mark your app as installed as well.
+      security:
+        - authorizationCode: []
+      tags:
+        - I. Application Management
 components:
   parameters:
     limit:
@@ -7355,6 +7396,14 @@ components:
 
 
 
+
+
+
+
+
+
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7437,7 +7486,6 @@ components:
         Department:
           type: array
           items:
-            required: []
             properties: {}
         Location:
           type: string
@@ -7547,7 +7595,6 @@ components:
         Department:
           type: array
           items:
-            required: []
             properties: {}
         Location:
           type: string
@@ -7595,7 +7642,6 @@ components:
         Department:
           type: array
           items:
-            required: []
             properties: {}
         Location:
           type: string
@@ -7649,7 +7695,6 @@ components:
         Department:
           type: array
           items:
-            required: []
             properties: {}
         Employee:
           type: string
@@ -7748,7 +7793,6 @@ components:
               Department:
                 type: array
                 items:
-                  required: []
                   properties: {}
               Serial number:
                 type: string
@@ -7841,7 +7885,6 @@ components:
         Department:
           type: array
           items:
-            required: []
             properties: {}
         Serial number:
           type: string
