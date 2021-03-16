@@ -4,6 +4,8 @@ tags: [webhook, webhooks]
 
 # Webhooks
 
+Please note, Rippling webhooks are restricted for App Shop integrations.
+
 Rippling Partner Applications have the option to provide a Webhook URL for their application to receive event triggered notifications.
 
 > **Currently, Rippling only supports webhooks in the production environment.**
