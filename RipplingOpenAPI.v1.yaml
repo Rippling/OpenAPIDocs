@@ -938,48 +938,6 @@ paths:
             - employee
       tags:
         - B. Employees
-    patch:
-      summary: PATCH Employee
-      operationId: patch-employees-employeeId
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Employee'
-              examples: {}
-      description: |
-        *Note, this is a deprecated endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
-
-        Updates the field for a single employee. Please note, only the customFields, workLocationId, departmentId, level, teams, and manager can be updated.
-
-        For instance, to update the workLocation, you need to use the PATCH request with the workLocationId set.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Employee'
-            examples:
-              example-1:
-                value:
-                  departmentId: 5ec5595ffa9c4e1728118d77
-                  level: 5ee6c649bc3bc72cfcb9d3b8
-                  title: 5ee6c649bc3bc72cfcb9d3b8
-                  workLocationId: 5ec5595cfa9c4e1728118ce9
-                  customFields:
-                    Actual Favorites: newstufff
-                  teams:
-                    - 5ee6c69bbc3bc7293a217ff2
-                    - 5ee6c6a2fa9c4e3d71cc32d7
-                  manager: 5ec55967fa9c4e1728118e75
-        description: An employee object with updated values for the fields that are to be set.
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode:
-            - employee
-      tags:
-        - Deprecated
   /employees/include_terminated:
     get:
       summary: GET Employees (Including Terminated)
@@ -1550,28 +1508,6 @@ paths:
   '/employees/{employeeId}/scheduled_changes':
     parameters:
       - $ref: '#/components/parameters/employeeId'
-    post:
-      summary: POST Employee Scheduled Changes
-      operationId: post-employees-employeeId-scheduled_changes
-      responses:
-        '201':
-          description: Created
-      description: |
-        *Note, this is a restricted endpoint. Please email apps.partnerships@rippling.com if you need access to modifying an employee's record.
-
-        Aside from custom fields, most employee changes are scheduled to occur on a certain effective date, so that payroll can be proate efectively.
-      security:
-        - Bearer ApiKey: []
-        - authorizationCode:
-            - employee
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EmployeeChange'
-        description: 'Please note, certain fields require certain corresponding scopes in order to be updated:'
-      tags:
-        - Deprecated
   /me:
     get:
       summary: GET Current User
@@ -5365,6 +5301,8 @@ paths:
 
 
 
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5396,6 +5334,8 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
 
 
 
@@ -7275,6 +7215,8 @@ components:
             Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
             Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
             Employee: |2-
+
+
 
 
 
