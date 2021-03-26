@@ -48,6 +48,7 @@ _Additionally, you may notice that certain fields are not marked as required the
 | employee:workEmail                     | Permission to access the company's employees' work emails.                                                                                                 |
 | employee:title                         | Permission to access the company's employees' titles.                                                                                                      |
 | employee:startDate                     | Permission to access the company's employees' start dates.                                                                                                 |
+| employee:w2StartDate                     | Permission to access the company's employees' w2 start dates.                                                                                             |
 | employee:endDate                       | Permission to access the company's employees' end dates.                                                                                                   |
 | employee:roleState                     | Permission to access the company's employees' role states.                                                                                                 |
 | employee:compensation                  | Permission to access the company's employees' compensations.                                                                                               |
