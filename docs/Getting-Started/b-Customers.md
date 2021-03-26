@@ -8,6 +8,8 @@ Rippling customers access the Rippling API to retrieve and update information on
 
 If you are a Rippling customer, you will need to create an API key with defined scopes in order to access the Rippling API. Please note, it is against Rippling's Terms of Service to provide your API Key to anyone outside of your organization.
 
+Note, the API key will only be able to access data that you specifically enable it to during the API Key creation process. You will need to explicitly grant the API key access to data fields on behalf of your organization.
+
 ## Creating your API Key
 
 To generate your Rippling API key, please follow these steps.
