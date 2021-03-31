@@ -65,6 +65,8 @@ _Additionally, you may notice that certain fields are not marked as required the
 | employee:hasCompatiblePlanStatus       | Permission to access fields relating to whether the company's employees' have compatible plan statuses.                                                    |
 | employee:gender                        | Permission to read the company's employees' gender information.                                                                                            |
 | employee:identifiedGender              | Permission to read the company's employees' identified gender information.                                                                                 |
+| employee:photo              | Permission to access the company's employees' photo.                                                                                                        |
+| employee:smallPhoto              | Permission to access the company's employees' photo                                                                                              |
 | groups:read                            | Permission to read the company's group information.                                                                                                        |
 | groups:write                           | Permission to write to the company's group information.                                                                                                    |
 | group_members:read                     | Permission to read the company's group membership information.                                                                                             |
