@@ -5312,6 +5312,16 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5343,6 +5353,16 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7375,6 +7395,16 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7902,6 +7932,286 @@ components:
           Manufacturer: Apple
       x-tags:
         - Models
+    InsuranceEnrollmentReportDetail:
+      description: An Insurance Enrollment Report object.
+      type: object
+      properties:
+        Vision plan name:
+          type: string
+          minLength: 1
+        Employee cost for Life: {}
+        Employee cost for Accident Insurance: {}
+        Number of dependents enrolled in Critical Illness:
+          type: number
+        Cancer Coverage effective date:
+          type: string
+          minLength: 1
+        Employee cost for Long Term Disability: {}
+        Life insurance beneficiaries:
+          type: string
+          minLength: 1
+        Is enrolled in Short Term Disability:
+          type: string
+          minLength: 1
+        Names of dependents enrolled in Vision:
+          type: string
+          minLength: 1
+        Dependent DOB:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+        Dental effective date:
+          type: string
+          minLength: 1
+        Is Vision plan a COBRA plan:
+          type: string
+          minLength: 1
+        Company cost for Critical Illness: {}
+        Names of dependents enrolled in Critical Illness:
+          type: string
+          minLength: 1
+        Number of dependents enrolled in Vision:
+          type: number
+        Company cost for Dental:
+          type: number
+        Names of dependents enrolled in Life:
+          type: string
+          minLength: 1
+        Company cost for Medical:
+          type: number
+        Is enrolled in Accident Insurance:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Hospital Insurance effective date:
+          type: string
+          minLength: 1
+        Names of dependents enrolled in Long Term Disability:
+          type: string
+          minLength: 1
+        Company cost for Hospital Insurance: {}
+        Annual compensation:
+          type: object
+          properties:
+            currency:
+              type: string
+              minLength: 1
+            value:
+              type: number
+          required:
+            - currency
+            - value
+        Is enrolled in Long Term Disability:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            required: []
+            properties: {}
+        Company cost for Accident Insurance: {}
+        Names of dependents enrolled in Cancer Coverage:
+          type: string
+          minLength: 1
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Short Term Disability plan name: {}
+        Medical plan name:
+          type: string
+          minLength: 1
+        Is enrolled in Cancer Coverage:
+          type: string
+          minLength: 1
+        Names of dependents enrolled in Medical:
+          type: string
+          minLength: 1
+        Long Term Disability plan name: {}
+        Medical effective date:
+          type: string
+          minLength: 1
+        Critical Illness effective date:
+          type: string
+          minLength: 1
+        Names of dependents enrolled in Accident Insurance:
+          type: string
+          minLength: 1
+        Long Term Disability effective date:
+          type: string
+          minLength: 1
+        Dependent type:
+          type: string
+          minLength: 1
+        Is Dental plan a COBRA plan:
+          type: string
+          minLength: 1
+        Employee cost for Hospital Insurance: {}
+        Is enrolled in Hospital Insurance:
+          type: string
+          minLength: 1
+        Names of dependents enrolled in Dental:
+          type: string
+          minLength: 1
+        Employee cost for Cancer Coverage: {}
+        Life effective date:
+          type: string
+          minLength: 1
+        Short Term Disability effective date:
+          type: string
+          minLength: 1
+        Is enrolled in Medical:
+          type: string
+          minLength: 1
+        Compensation currency:
+          type: string
+          minLength: 1
+        Is Medical plan a COBRA plan:
+          type: string
+          minLength: 1
+        Cancer Coverage plan name: {}
+        Hospital Insurance plan name: {}
+        Number of dependents enrolled in Long Term Disability:
+          type: number
+        Life plan name: {}
+        Number of dependents enrolled in Short Term Disability:
+          type: number
+        Employee cost for Short Term Disability: {}
+        Accident Insurance effective date:
+          type: string
+          minLength: 1
+        Is enrolled in Vision:
+          type: string
+          minLength: 1
+        Dental plan name:
+          type: string
+          minLength: 1
+        Number of dependents enrolled in Medical:
+          type: number
+        Number of dependents enrolled in Accident Insurance:
+          type: number
+        Company cost for Vision:
+          type: number
+        Company cost for Long Term Disability: {}
+        Number of dependents enrolled in Dental:
+          type: number
+        Is enrolled in Critical Illness:
+          type: string
+          minLength: 1
+        Vision effective date:
+          type: string
+          minLength: 1
+        Is enrolled in Life:
+          type: string
+          minLength: 1
+        Dependent name:
+          type: string
+          minLength: 1
+        Employee cost for Dental:
+          type: number
+        Number of dependents enrolled in Life:
+          type: number
+        Number of dependents enrolled in Hospital Insurance:
+          type: number
+        Critical Illness plan name: {}
+        Names of dependents enrolled in Short Term Disability:
+          type: string
+          minLength: 1
+        Company cost for Life: {}
+        Names of dependents enrolled in Hospital Insurance:
+          type: string
+          minLength: 1
+        Employee cost for Medical:
+          type: number
+        Number of dependents enrolled in Cancer Coverage:
+          type: number
+        Accident Insurance plan name: {}
+        Company cost for Cancer Coverage: {}
+        Company cost for Short Term Disability: {}
+        Dependent SSN:
+          type: string
+          minLength: 1
+        Employee cost for Vision:
+          type: number
+        Employee cost for Critical Illness: {}
+        Is enrolled in Dental:
+          type: string
+          minLength: 1
+      required:
+        - Vision plan name
+        - Number of dependents enrolled in Critical Illness
+        - Cancer Coverage effective date
+        - Life insurance beneficiaries
+        - Is enrolled in Short Term Disability
+        - Names of dependents enrolled in Vision
+        - Dependent DOB
+        - Full name
+        - Dental effective date
+        - Is Vision plan a COBRA plan
+        - Names of dependents enrolled in Critical Illness
+        - Number of dependents enrolled in Vision
+        - Company cost for Dental
+        - Names of dependents enrolled in Life
+        - Company cost for Medical
+        - Is enrolled in Accident Insurance
+        - Employee ZIP
+        - Hospital Insurance effective date
+        - Names of dependents enrolled in Long Term Disability
+        - Annual compensation
+        - Is enrolled in Long Term Disability
+        - Department
+        - Names of dependents enrolled in Cancer Coverage
+        - Location
+        - Employee
+        - Start date
+        - Medical plan name
+        - Is enrolled in Cancer Coverage
+        - Names of dependents enrolled in Medical
+        - Medical effective date
+        - Critical Illness effective date
+        - Names of dependents enrolled in Accident Insurance
+        - Long Term Disability effective date
+        - Dependent type
+        - Is Dental plan a COBRA plan
+        - Is enrolled in Hospital Insurance
+        - Names of dependents enrolled in Dental
+        - Life effective date
+        - Short Term Disability effective date
+        - Is enrolled in Medical
+        - Compensation currency
+        - Is Medical plan a COBRA plan
+        - Number of dependents enrolled in Long Term Disability
+        - Number of dependents enrolled in Short Term Disability
+        - Accident Insurance effective date
+        - Is enrolled in Vision
+        - Dental plan name
+        - Number of dependents enrolled in Medical
+        - Number of dependents enrolled in Accident Insurance
+        - Company cost for Vision
+        - Number of dependents enrolled in Dental
+        - Is enrolled in Critical Illness
+        - Vision effective date
+        - Is enrolled in Life
+        - Dependent name
+        - Employee cost for Dental
+        - Number of dependents enrolled in Life
+        - Number of dependents enrolled in Hospital Insurance
+        - Names of dependents enrolled in Short Term Disability
+        - Names of dependents enrolled in Hospital Insurance
+        - Employee cost for Medical
+        - Number of dependents enrolled in Cancer Coverage
+        - Dependent SSN
+        - Employee cost for Vision
+        - Is enrolled in Dental
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
