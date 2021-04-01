@@ -7941,6 +7941,8 @@ components:
     InsuranceEnrollmentReportDetail:
       description: An Insurance Enrollment Report object.
       type: object
+      x-tags:
+        - Models
       properties:
         Vision plan name:
           type: string
