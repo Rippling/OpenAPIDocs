@@ -5322,6 +5322,8 @@ paths:
 
 
 
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5353,6 +5355,8 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
 
 
 
@@ -7405,6 +7409,8 @@ components:
 
 
 
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -8212,6 +8218,97 @@ components:
         - Dependent SSN
         - Employee cost for Vision
         - Is enrolled in Dental
+      x-examples:
+        Sample:
+          Vision plan name: string
+          Employee cost for Life: null
+          Employee cost for Accident Insurance: null
+          Number of dependents enrolled in Critical Illness: 0
+          Cancer Coverage effective date: string
+          Employee cost for Long Term Disability: null
+          Life insurance beneficiaries: string
+          Is enrolled in Short Term Disability: string
+          Names of dependents enrolled in Vision: string
+          Dependent DOB: string
+          Full name: string
+          Dental effective date: string
+          Is Vision plan a COBRA plan: string
+          Company cost for Critical Illness: null
+          Names of dependents enrolled in Critical Illness: string
+          Number of dependents enrolled in Vision: 0
+          Company cost for Dental: 0
+          Names of dependents enrolled in Life: string
+          Company cost for Medical: 0
+          Is enrolled in Accident Insurance: string
+          Employee ZIP: string
+          Hospital Insurance effective date: string
+          Names of dependents enrolled in Long Term Disability: string
+          Company cost for Hospital Insurance: null
+          Annual compensation:
+            currency: string
+            value: 0
+          Is enrolled in Long Term Disability: string
+          Department:
+            - {}
+          Company cost for Accident Insurance: null
+          Names of dependents enrolled in Cancer Coverage: string
+          Location: string
+          Employee: string
+          Start date: string
+          Short Term Disability plan name: null
+          Medical plan name: string
+          Is enrolled in Cancer Coverage: string
+          Names of dependents enrolled in Medical: string
+          Long Term Disability plan name: null
+          Medical effective date: string
+          Critical Illness effective date: string
+          Names of dependents enrolled in Accident Insurance: string
+          Long Term Disability effective date: string
+          Dependent type: string
+          Is Dental plan a COBRA plan: string
+          Employee cost for Hospital Insurance: null
+          Is enrolled in Hospital Insurance: string
+          Names of dependents enrolled in Dental: string
+          Employee cost for Cancer Coverage: null
+          Life effective date: string
+          Short Term Disability effective date: string
+          Is enrolled in Medical: string
+          Compensation currency: string
+          Is Medical plan a COBRA plan: string
+          Cancer Coverage plan name: null
+          Hospital Insurance plan name: null
+          Number of dependents enrolled in Long Term Disability: 0
+          Life plan name: null
+          Number of dependents enrolled in Short Term Disability: 0
+          Employee cost for Short Term Disability: null
+          Accident Insurance effective date: string
+          Is enrolled in Vision: string
+          Dental plan name: string
+          Number of dependents enrolled in Medical: 0
+          Number of dependents enrolled in Accident Insurance: 0
+          Company cost for Vision: 0
+          Company cost for Long Term Disability: null
+          Number of dependents enrolled in Dental: 0
+          Is enrolled in Critical Illness: string
+          Vision effective date: string
+          Is enrolled in Life: string
+          Dependent name: string
+          Employee cost for Dental: 0
+          Number of dependents enrolled in Life: 0
+          Number of dependents enrolled in Hospital Insurance: 0
+          Critical Illness plan name: null
+          Names of dependents enrolled in Short Term Disability: string
+          Company cost for Life: null
+          Names of dependents enrolled in Hospital Insurance: string
+          Employee cost for Medical: 0
+          Number of dependents enrolled in Cancer Coverage: 0
+          Accident Insurance plan name: null
+          Company cost for Cancer Coverage: null
+          Company cost for Short Term Disability: null
+          Dependent SSN: string
+          Employee cost for Vision: 0
+          Employee cost for Critical Illness: null
+          Is enrolled in Dental: string
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
