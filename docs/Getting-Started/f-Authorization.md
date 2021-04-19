@@ -8,9 +8,9 @@ Rippling integrations rely on OAuth 2.0, in which Rippling is the server and you
 
 ## The Installation Flow
 
-The following flow walks you through the installation of an application on Rippling's Staging Environment. The process is the same on the Rippling Production Environment, but you will replace `stage.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
+The following flow walks you through the installation of an application on Rippling's Sandbox Environment. The process is the same on the Rippling Production Environment, but you will replace `sandbox.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
 
-To begin, go to `​https://stage.rippling.com/login` to login with your Rippling-provided staging account credentials. Once logged in, you should proceed directly to the URL of your application. `​https://stage.rippling.com/apps/PLATFORM/<appName>`​, as it will not yet be discoverable.
+To begin, go to `​https://sandbox.rippling.com/login` to login with your Rippling-provided sandbox account credentials. Once logged in, you should proceed directly to the URL of your application. `​https://sandbox.rippling.com/apps/PLATFORM/<appName>`​, as it will not yet be discoverable.
 
 ### Initial Redirect
 
@@ -26,7 +26,7 @@ Using the code value, your server will be able to get an access token from Rippl
 
 ### Retrieving an Access Token
 
-To retrieve the access token, your server will need to make a POST to the Auth URL. On staging this URL is `https://stage.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
+To retrieve the access token, your server will need to make a POST to the Auth URL. In sandbox this URL is `https://sandbox.rippling.com/api/o/token/​`. The POST should include a basic auth header with base64 encoded `<clientid>:<clientsecret>`, along with the following parameters.
 
 | Auth Query Parameters | Description                                                                  |
 | --------------------- | ---------------------------------------------------------------------------- |
@@ -42,7 +42,7 @@ To retrieve the access token, your server will need to make a POST to the Auth U
 Here is an access token sample request:
 
 ```js
-curl -X POST -H "Authorization: Basic REDACTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://stage.rippling.com/api/o/token/"
+curl -X POST -H "Authorization: Basic REDACTED" -F "grant_type=authorization_code" -F "code=qcpSVhN584QxCm6tEITWk4Bxaz5Zci" -F "redirect_uri=http://mysite.com/my_redirect_uri" "https://sandbox.rippling.com/api/o/token/"
 ```
 
 Here is an access token sample response:
@@ -59,7 +59,7 @@ Here is an access token sample response:
 
 ### Refresh Tokens
 
-To retrieve a Refresh Token, send a POST request to the same URL `https://stage.rippling.com/api/o/token/` with basic auth and the following form parameters.
+To retrieve a Refresh Token, send a POST request to the same URL `https://sandbox.rippling.com/api/o/token/` with basic auth and the following form parameters.
 
 | Refresh Query Parameters | Description                          |
 | ------------------------ | ------------------------------------ |
