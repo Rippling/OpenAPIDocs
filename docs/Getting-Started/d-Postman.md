@@ -25,7 +25,7 @@ Partners will need to generate a Rippling access token in order to access the AP
 | Client ID               | The client ID you were provided by Rippling.                                                                     |
 | Client Secret           | The client secret you were provided by Rippling.                                                                 |
 
-Please note, you likely will want to generate an access token for both the Staging and Production environments. See the steps below for generating an access token on Postman.
+Please note, you likely will want to generate an access token for both the Sandbox and Production environments. See the steps below for generating an access token on Postman.
 
 <br />
 
