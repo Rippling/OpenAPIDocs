@@ -56,9 +56,9 @@ For an example of a Rippling Application listing, please see [here](https://www.
 
 | Property      | Description                                                                                                                                                                               |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Redirect URLs | _Required_ Two redirect URLs: a Staging Redirect URL and a Production Redirect URL.                                                                                                       |
-| SSO URLs      | _Optional_ Two SSO URLs: a Staging SSO URL and a Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in.                                            |
-| Webhook URL   | _Optional_ One Webhook URL: a Production Webhook URL. _Note, Rippling does not support Webhooks on our staging environment._                                                              |
+| Redirect URLs | _Required_ Two redirect URLs: a Sandbox Redirect URL and a Production Redirect URL.                                                                                                       |
+| SSO URLs      | _Optional_ Two SSO URLs: a Sandbox SSO URL and a Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in.                                            |
+| Webhook URL   | _Optional_ Two Webhook URL: a Sandbox Webhook URL and a Production Webhook URL.                                                                                                     |
 | Scopes        | _Required_ The permission scopes that your application will require. Customers installing your application will need to authorize the application to access these scopes on their behalf. |
 
 As noted, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application. Each required scope should be explicitly listed in the following format.
@@ -73,10 +73,10 @@ For more information on Rippling scopes, please see [here](https://developer.rip
 
 Once your [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
 
-- Staging Client ID
-- Staging Client Secret
+- Sandbox Client ID
+- Sandbox Client Secret
 - Application Name
-- Staging Account Credentials for testing
+- Sandbox Account Credentials for testing
 
 Please note, if your integration requires access to [Webhooks](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
