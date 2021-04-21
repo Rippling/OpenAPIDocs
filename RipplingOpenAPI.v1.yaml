@@ -5351,6 +5351,40 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5382,6 +5416,40 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7492,6 +7560,40 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7554,7 +7656,7 @@ components:
               Employee: 583fd94e614a4acf551c6fd2
               Location: San Francisco Office
               Department:
-                - Engineering
+                - Engineering: null
               Legal entity: string
               Employee ZIP: '94123'
               Start date: '2016-03-19'
@@ -8435,7 +8537,7 @@ components:
     ReportTemplates:
       description: ''
       x-tags:
-        - Models      
+        - Models
       type: object
       properties:
         templateName:
@@ -8452,6 +8554,126 @@ components:
           templateName: access_control_report
           templateID: access_control_report
       title: ReportTemplates
+    PerformanceManagementPulseReportDetail:
+      description: ''
+      x-tags:
+        - Models
+      type: object
+      properties:
+        Performance Management Pulse Report:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - Date of birth
+              - Employee
+              - Location
+              - Legal entity
+              - Employee ZIP
+              - Start date
+              - Full name
+            properties:
+              Date of birth:
+                type: string
+                minLength: 1
+              Employee:
+                type: string
+                minLength: 1
+              Location:
+                type: string
+                minLength: 1
+              Department:
+                type: array
+                items:
+                  required: []
+                  properties: {}
+              Legal entity:
+                type: string
+                minLength: 1
+              Employee ZIP:
+                type: string
+                minLength: 1
+              Start date:
+                type: string
+                minLength: 1
+              Full name:
+                type: string
+                minLength: 1
+      required:
+        - Performance Management Pulse Report
+      x-examples:
+        Sample:
+          Performance Management Pulse Report:
+            - Date of birth: '1991-04-15'
+              Employee: 583fd8f0614a4acf551c4fc7
+              Location: San Francisco office
+              Department:
+                - Engineering: null
+              Legal entity: '123456791'
+              Employee ZIP: '94110'
+              Start date: '2015-04-01'
+              Full name: Neva Hills
+      title: PerformanceManagementPulseReport
+    PerformanceManagementReviewReportDetail:
+      description: ''
+      type: object
+      properties:
+        Performance Management Review Report:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - Date of birth
+              - Employee
+              - Location
+              - Legal entity
+              - Employee ZIP
+              - Start date
+              - Full name
+            properties:
+              Date of birth:
+                type: string
+                minLength: 1
+              Employee:
+                type: string
+                minLength: 1
+              Location:
+                type: string
+                minLength: 1
+              Department:
+                type: array
+                items:
+                  required: []
+                  properties: {}
+              Legal entity:
+                type: string
+                minLength: 1
+              Employee ZIP:
+                type: string
+                minLength: 1
+              Start date:
+                type: string
+                minLength: 1
+              Full name:
+                type: string
+                minLength: 1
+      required:
+        - Performance Management Review Report
+      title: PerformanceManagementReviewReportDetail
+      x-examples:
+        Sample:
+          Performance Management Review Report:
+            - Date of birth: '1991-04-15'
+              Employee: 583fd8f0614a4acf551c4fc7
+              Location: San Francisco office
+              Department:
+                - Engineering: null
+              Legal entity: '123456791'
+              Employee ZIP: '94110'
+              Start date: '2016-09-30'
+              Full name: Lavenia Goyette
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
