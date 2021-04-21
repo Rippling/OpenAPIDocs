@@ -5350,6 +5350,7 @@ paths:
 
 
 
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5381,6 +5382,7 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
 
 
 
@@ -7489,6 +7491,7 @@ components:
 
 
 
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -8431,6 +8434,8 @@ components:
           Is enrolled in Dental: string
     ReportTemplates:
       description: ''
+      x-tags:
+        - Models      
       type: object
       properties:
         templateName:
@@ -8446,7 +8451,7 @@ components:
         Sample:
           templateName: access_control_report
           templateID: access_control_report
-      title: ''
+      title: ReportTemplates
   securitySchemes:
     Bearer ApiKey:
       type: apiKey
