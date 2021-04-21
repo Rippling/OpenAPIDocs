@@ -5338,6 +5338,7 @@ paths:
 
 
 
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5369,6 +5370,7 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
 
 
 
@@ -7453,6 +7455,7 @@ components:
 
 
 
+
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7465,7 +7468,7 @@ components:
         - Models
     ReportTemplates:
       x-tags:
-        - Models      
+        - Models
       description: A performance management objective report object.
       type: object
       properties:
@@ -7519,7 +7522,7 @@ components:
               Legal entity: string
               Employee ZIP: '94123'
               Start date: '2016-03-19'
-              Full name: arryle Schamberger
+              Full name: Darryle Schamberger
       title: Performance Management Objective Report Detail
     SOC2Report:
       title: SOC2Report
