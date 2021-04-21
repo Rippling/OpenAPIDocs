@@ -3,6 +3,8 @@ type: object
 properties:
   Performance Management Objective Report:
     type: array
+    x-tags:
+      - Models
     uniqueItems: true
     minItems: 1
     items:
