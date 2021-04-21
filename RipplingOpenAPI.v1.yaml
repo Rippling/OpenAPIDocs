@@ -7469,7 +7469,7 @@ components:
           templateName: access_control_report
       x-tags:
         - Models
-    ReportTemplates:
+    PerformanceManagementObjectiveReportDetail:
       x-tags:
         - Models
       description: A performance management objective report object.
