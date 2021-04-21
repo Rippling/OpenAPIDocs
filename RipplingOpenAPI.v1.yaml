@@ -8618,6 +8618,8 @@ components:
     PerformanceManagementReviewReportDetail:
       description: ''
       type: object
+      x-tags:
+        - Models
       properties:
         Performance Management Review Report:
           type: array
