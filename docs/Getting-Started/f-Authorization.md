@@ -8,7 +8,7 @@ Rippling integrations rely on OAuth 2.0, in which Rippling is the server and you
 
 ## The Installation Flow
 
-The following flow walks you through the installation of an application on Rippling's Sandbox Environment. The process is the same on the Rippling Production Environment, but you will replace `sandbox.rippling.com` with `api.rippling.com` in your API calls. To login on production, you will access `app.rippling.com`.
+The following flow walks you through the installation of an application on Rippling's Sandbox Environment. The process is the same on the Rippling Production Environment, but you will replace `sandbox.rippling.com/api/platform/api` with `api.rippling.com/platform/api` in your API calls. To login on production, you will access `app.rippling.com`.
 
 To begin, go to `​https://sandbox.rippling.com/login` to login with your Rippling-provided sandbox account credentials. Once logged in, you should proceed directly to the URL of your application. `​https://sandbox.rippling.com/apps/PLATFORM/<appName>`​, as it will not yet be discoverable.
 
