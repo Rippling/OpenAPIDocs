@@ -1,17 +1,19 @@
 ---
-tags: [partners, Intro, development package]
+tags: [development package, Intro, partners]
 ---
 
-# Partner Applications
+# Partner Requirements
+
 
 To develop an integrated application on Rippling, you will follow the development process listed below. Please note Rippling partners must use OAuth as outlined in our [Authorization guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md).
+
 
 <!-- theme: success -->
 
 > 1. [Submit your Development Package](#submit-your-development-package)
-> 2. [Build the Integration Against Rippling's Test Environment](#build-the-integration)
-> 3. [Receive Approval from the Rippling Development Team](#receive-approval-from-rippling)
-> 4. [Launch the Integration in Rippling's Production Environment](#launch-the-integration)
+> 2. [Build the Integration Against Rippling's Sandbox Environment](#build-the-integration)
+> 3. [Build the Integration Against Rippling's Production Environment](#receive-approval-from-rippling)
+> 4. [Launch Integration](#launch-the-integration)
 
 This process ensures that all Rippling integrated applications are lauched properly and provide the best possible user experience to our shared customers.
 
@@ -19,78 +21,70 @@ This process ensures that all Rippling integrated applications are lauched prope
 
 > 💡 Check out the [Rippling App Shop](https://rippling.com/app-shop), where all of Rippling's partner applications are listed!
 
-We've provided a video of the Rippling App Shop and the partner application installation flow. Please note, customer subdomains are not a requirement.
 
-<br />
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/734f18e6225c46229cb74d4cacfcad45" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-### Submit your Development Package
+### 1. Submit your Development Package
 
 To get started with building an integration on Rippling you will need to submit a [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
 
-The Rippling [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) should consist of the items listed below.
+Refer to [this page](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) for more information on what is included in the development package. We generally try to respond to all requests within two weeks, but the exact timing may vary depending on the total number of inbound requests received.
 
-- **Application Listing Assets**
-- **Configuration Properties**
 
-#### Application Listing Assets
+### 2. Build the Integration against Rippling's Sandbox environment
 
-For an example of a Rippling Application listing, please see [here](https://www.rippling.com/app-shop/app/slack).
-
-| Asset                   | Description                                                                                                                                                                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Application Overview    | _Required_ A brief overview of your company's application. This description has a character limit of 180 characters. Note, this can be changed later on, but will be required to register your application.                                                                                               |
-| Product Description     | _Required_ An in-depth description of your company's application and its product features. Note, this can be changed later on, but will be required to register your application.                                                                                                                         |
-| Integration Description | _Required_ An in-depth description of how your application will integrate with Rippling. Note, this can be changed later on, but will be required to register your application.                                                                                                                           |
-| Logo Package            | _Required_ A monotone logo badge to accompany your application listing. While we understand the needs of a logo vary on a case by case basis, we generally ask that you follow our logo requirements listed below. Note, this can be changed later on, but will be required to register your application. |
-| App Category            | _Required_ The App Shop category that you would like your application listed in. See the [Rippling App Shop](https://rippling.com/app-shop) for the current categories.                                                                                                                                                |
-| G2 Crowd URL            | _Optional_ If your application has a G2 Crowd listing, please provide the URL to your listing. The Rippling App Shop relies on G2 Crowd to pull in reviews.                                                                                                                                                |
-
-**Logo Requirements**
-
-- An SVG file of your logo, highly preferred to be in a monotone representation of your logo. 
-- A HEX color that will be used for the background of your SVG logo file.
-
-#### Configuration Properties
-
-| Property      | Description                                                                                                                                                                               |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Redirect URLs | _Required_ Two redirect URLs: a Sandbox Redirect URL and a Production Redirect URL.                                                                                                       |
-| SSO URLs      | _Optional_ Two SSO URLs: a Sandbox SSO URL and a Production SSO URL. These rely on Rippling's authentication tokens to allow users to sign-in.                                            |
-| Webhook URL   | _Optional_ Two Webhook URL: a Sandbox Webhook URL and a Production Webhook URL.                                                                                                     |
-| Scopes        | _Required_ The permission scopes that your application will require. Customers installing your application will need to authorize the application to access these scopes on their behalf. |
-
-As noted, you will need to provide Rippling with your application scopes. These scopes are transparently displayed to Rippling customer's that choose to install the application. Each required scope should be explicitly listed in the following format.
-
-- employee
-- employee:workEmail
-- employee:title
-
-For more information on Rippling scopes, please see [here](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/e-Scopes.md).
-
-### Build the Integration
-
-Once your [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) has been reviewed, you will receieve your Rippling App Testing Package to test and build the integration. The Rippling App Testing Package consists of the following information.
+Once your [development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) has been reviewed and approved, you will receive your Rippling App Testing Package to test and build the integration in Sandbox. The Rippling App Testing Package consists of the following information:
 
 - Sandbox Client ID
 - Sandbox Client Secret
 - Application Name
 - Sandbox Account Credentials for testing
 
-Please note, if your integration requires access to [Webhooks](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/h-Webhooks.md), you will build the integration against Rippling's Production Environment. If this is required, please mention that you need Webhooks in the submission of your [Rippling Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md).
+There are two ways that customers can install a partner app once launched:
 
-### Receive Approval from Rippling
+- **Required installation flow:** 
+Customers can start from your dedicated App shop landing page which we will provide to you (https://app.rippling.com/app-shop/app/{APPNAME}). This flow is required for all partner apps and we've provided a video to demonstrate the end user experience of installing a partner application from the Rippling App Shop. Please note, customer subdomains are not a requirement. We also recommend that partners implement the return flow (https://app.rippling.com/apps/PLATFORM/{APPNAME}/redirect) after users have been redirected to the third party application and is authenticated. This provides a more consistent user flow.
+<br />
 
-Once you have built and tested the integration, the Rippling team may ask for a demo (either live or as a video) of your integration before approval. Once your integration has been approved, Rippling will provide you with the Rippling App Production Package.
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/734f18e6225c46229cb74d4cacfcad45" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-- Production Client ID
-- Production Client Secret
-- Application Name
-- Test Account Credentials for testing the application in production
+- **Optional installation flow:** Customers can also start the integration process from the partner app. This flow is optional and does not have to be implemented. 
 
-You will then release a production version of your integration that is ready for launch.
 
-### Launch the Integration
+Once the integration has been built against Rippling’s sandbox environment, use this [Airtable Submission Form](https://airtable.com/shrQa3q3bkeuK6lTQ) to upload videos that demonstrate the end-to-end implementation of all installation flows in Sandbox. 
 
-To launch the application, the Rippling team will ask for a live or recorded demo of your application in order to approve the listing to go live in the [Rippling App Shop](https://www.rippling.com/app-shop). Once the team has approved the integration, the application will be made publicly visible and searchable.
+Make sure to select ‘Sandbox’ in the Airtable form when submitting the demo videos for the Sandbox integration.
+
+
+### 3. Build the Integration against Rippling's Production environment
+
+Once the Sandbox integration has been approved by the Rippling, we will send you a new App Testing Package that consists of all the information required to test and build against our Production environment.
+
+When you have completed the implementation for Production, use this same [Airtable Submission Form](https://airtable.com/shrQa3q3bkeuK6lTQ) and this time, select ‘Production’. 
+
+Below outlines a summary of all required items when submitting the production form:
+- **Demo videos:** Please upload videos that demonstrate the end-to-end implementation of all installation flows in Production.
+- **Referral Battlecard:** The partner must fill out the [Rippling Partner Battlecard](https://airtable.com/shr4YXl8kPCS1PDgg) ahead of the production release of the integration. The Battlecard will help our Sales team push leads to your team once the integration is live.
+- **Production test account:** The partner must provide Rippling with a production test account for the partner app ahead of the production release of the integration.
+- **Details regarding integration:** We require you to answer a series of questions that will help provide more context on the integration. This may be shared with potential customers, so please ensure to answer the questions as accurately as possible.
+- **Timing for going live:** partners have the option to go live as soon as the app is approved, or at a later specified date.
+
+Only when Rippling has approved this production video can partners have customers install the integration on production. Partners should not use Rippling's logo or name before receiving approval of the production video.
+
+
+### 4. Launch the Integration
+
+Once steps 1 - 3 are completed and the production video receives approval from the Rippling team, the application will be made publicly visible and searchable in the Rippling App Shop.
+
+
+### Frequently Asked Questions
+
+#### Why is there a beta tag attached to my application in the Rippling app shop?
+
+![APIKey](../../assets/images/Beta_Tag.png)
+
+Please note that there will be a beta tag attached to all applications when initially launched. The beta tag will be removed if either of the following conditions is met:
+- The app receives 5 or more installs
+- The app has been live for a month or longer
+
+#### How do I change my listing assets?
+Partners are welcome to update your listing assets at any point. To do so, please email us at developer.support@rippling.com and include the relevant changes that should be made. For more details on best practices for Rippling Application listing, please see [here](https://go.rippling.com/rs/345-FHM-674/images/Rippling_Partner_App_Listing.pdf).
+
