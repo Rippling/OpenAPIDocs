@@ -3,8 +3,6 @@
 Rippling's Reports API enables the ability for Rippling App Partners and Rippling admins to pull from Rippling's inbuilt reports which includes 3 main master reports: SOC2, Insurance, and Hardware.
 
 
-> Please note, integrations using the Reports API require a formalized partnership with Rippling prior to deployment. To begin the partnership process, please submit a [Development Package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md) indicating your application will provide 401(k) services within the integration description. Additionally, you may reach out to apps.partnerships@rippling.com with any questions.
-
 ## Setting up the Integration
 
 ### Getting Started
