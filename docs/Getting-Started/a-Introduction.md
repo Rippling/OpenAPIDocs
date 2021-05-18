@@ -4,8 +4,6 @@ tags: [Intro]
 
 # Rippling's API Platform
 
-> Please note that we are currently in the process of transitioning to a new Sandbox environment. As part of this change, Rippling will be deprecating stage.rippling.com which will take place on **May 7th, 2021**. Please make sure that you've made all the appropriate changes on your side in advance of this change.
-
 The Rippling API Platform enables partners and customers to access Rippling company and employee information when granted the appropriate permissions.
 
 The API will continue to evolve as more endpoints and capabilities are added. If there are specific endpoints or features that you would benefit from, please submit a [Developer Feedback Survey](https://developer.rippling.com/docs/rippling-api/docs/Submit/feedback-survey.md).
