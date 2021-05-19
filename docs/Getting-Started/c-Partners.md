@@ -10,10 +10,10 @@ To develop an integrated application on Rippling, you will follow the developmen
 
 <!-- theme: success -->
 
-> 1. [Submit your Development Package](#submit-your-development-package)
-> 2. [Build the Integration Against Rippling's Sandbox Environment](#build-the-integration)
-> 3. [Build the Integration Against Rippling's Production Environment](#receive-approval-from-rippling)
-> 4. [Launch Integration](#launch-the-integration)
+> 1. [Submit your Development Package](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md#1-submit-your-development-package)
+> 2. [Build the Integration Against Rippling's Sandbox Environment](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md#2-build-the-integration-against-ripplings-sandbox-environment)
+> 3. [Build the Integration Against Rippling's Production Environment](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md#3-build-the-integration-against-ripplings-production-environment)
+> 4. [Launch Integration](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md#4-launch-the-integration)
 
 This process ensures that all Rippling integrated applications are lauched properly and provide the best possible user experience to our shared customers.
 
@@ -51,7 +51,9 @@ Customers can start from your dedicated App shop landing page which we will prov
 
 Once the integration has been built against Rippling’s sandbox environment, use this [Airtable Submission Form](https://airtable.com/shrQa3q3bkeuK6lTQ) to upload videos that demonstrate the end-to-end implementation of all installation flows in Sandbox. 
 
-Make sure to select ‘Sandbox’ in the Airtable form when submitting the demo videos for the Sandbox integration.
+Make sure to select ‘Sandbox’ in the Airtable form when submitting the demo videos for the Sandbox integration. On a high level, you will have to include details regarding the following items when submitting the form for Sandbox:
+- **Demo videos:** Please upload videos that demonstrate the end-to-end implementation of all installation flows in Sandbox.
+- **Details regarding integration:** We require you to answer a series of questions that will help provide more context on the integration. This may be shared with potential customers, so please ensure to answer the questions as accurately as possible.
 
 
 ### 3. Build the Integration against Rippling's Production environment
@@ -64,7 +66,6 @@ Below outlines a summary of all required items when submitting the production fo
 - **Demo videos:** Please upload videos that demonstrate the end-to-end implementation of all installation flows in Production.
 - **Referral Battlecard:** The partner must fill out the [Rippling Partner Battlecard](https://airtable.com/shr4YXl8kPCS1PDgg) ahead of the production release of the integration. The Battlecard will help our Sales team push leads to your team once the integration is live.
 - **Production test account:** The partner must provide Rippling with a production test account for the partner app ahead of the production release of the integration.
-- **Details regarding integration:** We require you to answer a series of questions that will help provide more context on the integration. This may be shared with potential customers, so please ensure to answer the questions as accurately as possible.
 - **Timing for going live:** partners have the option to go live as soon as the app is approved, or at a later specified date.
 
 Only when Rippling has approved this production video can partners have customers install the integration on production. Partners should not use Rippling's logo or name before receiving approval of the production video.
