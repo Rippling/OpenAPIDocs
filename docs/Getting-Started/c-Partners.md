@@ -89,3 +89,5 @@ Please note that there will be a beta tag attached to all applications when init
 #### How do I change my listing assets?
 Partners are welcome to update your listing assets at any point. To do so, please email us at developer.support@rippling.com and include the relevant changes that should be made. For more details on best practices for Rippling Application listing, please see [here](https://go.rippling.com/rs/345-FHM-674/images/Rippling_Partner_App_Listing.pdf).
 
+#### Are there any costs or fees associated with building an API integration with Rippling?
+The usage of the Rippling API is completely free to partners as of now.
