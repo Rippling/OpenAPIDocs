@@ -55,3 +55,34 @@ title: Response
 }
 ```
 <!-- type: tab-end -->
+
+
+## OpenID Connect Guide
+
+OIDC is one of two forms of SSO supported by Rippling. OpenID Connect (OIDC) is an identity layer built on top of OAuth 2.0 framework. The only difference between the two being:
+1. During the initial redirect, a specific scope of `openid` is used. Please make sure to select `openid` as a required scope when submitting your
+[development package](https://developer.rippling.com/docs/rippling-api/docs/Submit/development-package.md). (Also, request for scopes `profile`, `email`. `address`, `phone` as required)
+2. After making a POST to the Auth URL and providing the OAuth code, client ID, and client secret, you will also receive an ID token (JSON web token/JWT) in addition to the access token. The JWT contains user's claims which represent user-related data.
+
+Other than the aforementioned points, please refer to [Authorization](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md) guide for more information on how to implement Rippling's OAuth flow.
+
+### Retrieving an Access & ID Token
+
+As mentioned, the access token response will also include an `id_token` and will include `openid` in the 'Scope' section.
+
+Here is a sample response:
+
+```json
+{
+  "access_token": "REDACTED",
+  "token_type": "Bearer",
+  "id_token": "REDACTED",
+  "expires_in": 129600,
+  "refresh_token": "REDACTED",
+  "scope": "employee:workEmail employee:name openid"
+}
+```
+
+The ID token is a JSON web token (JWT) where partners can decode in order to extract data of the user. Once decoded:
+- the `aud` field should match with the client ID we provide you with
+- the `sub` field corresponds to the role ID of the user attempting to log in.
