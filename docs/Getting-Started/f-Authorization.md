@@ -49,9 +49,9 @@ Here is an access token sample response:
 
 ```json
 {
-  "access_token": "REDACTED", 
+  "access_token": "REDACTED",
   "token_type": "Bearer",
-  "expires_in": 129600, 
+  "expires_in": 129600,
   "refresh_token": "REDACTED",
   "scope": "employee:workEmail employee:name"
 }
@@ -145,7 +145,7 @@ title: Response
                     "locationCode": "41-047-0004491020"
                 }
             }
-        }   
+        }
     ],
     "subscription": null,
     "primaryEmail": "aamir+prod@rippling.com",

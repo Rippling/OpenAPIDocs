@@ -37,8 +37,8 @@ info:
 servers:
   - url: 'https://api.rippling.com/platform/api'
     description: Production
-  - url: 'https://sandbox.rippling.com/api/platform/api'
-    description: Sandbox
+  - url: 'https://stage-api.rippling.com/api/platform/api'
+    description: Staging
 tags:
   - name: A. Companies
   - name: B. Employees
@@ -592,8 +592,6 @@ paths:
                       workEmail: supportnew@testrippling.com
                       offerAcceptedDate: '2019-07-23'
                       manager: 595f75ffd2a5f80ae22ce894
-        '201':
-          description: Created
       operationId: get-employees
       security:
         - Bearer ApiKey: []
@@ -5305,124 +5303,6 @@ paths:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5454,124 +5334,6 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -5930,12 +5692,6 @@ components:
         isPeoEmployee:
           type: boolean
           description: Boolean for whether the employee is under a PEO
-        photo:
-          type: string
-          description: Employee Photo
-        smallPhoto:
-          type: string
-          description: Employee Small Photo
     HSACompatiblePlanStatus:
       title: HSACompatiblePlanStatus
       nullable: true
@@ -7432,7 +7188,7 @@ components:
       x-tags:
         - Models
     ReportTemplateInfo:
-      title: ReportTemplateInformation
+      title: ReportTemplate
       type: object
       description: A generic report template.
       properties:
@@ -7590,124 +7346,6 @@ components:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                   The employee's full name. Employees with multiple "jobs" with your company 
                                   (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
             Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -7718,95 +7356,24 @@ components:
           templateName: access_control_report
       x-tags:
         - Models
-    PerformanceManagementObjectiveReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Objective status:
-                type: string
-                minLength: 1
-              Objective completion percentage:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-            required:
-              - Objective status
-              - Objective completion percentage
-              - Department
-              - Location
-              - Date of birth
-              - Employee
-              - Employee ZIP
-              - Start date
-              - Full name
-          templateName:
-            type: string
-            minLength: 1
+    ReportTemplates:
+      title: ReportTemplates
+      type: object
+      description: An object describing a report template name and id.
+      properties:
+        templateName:
+          type: string
+        templateID:
+          type: string
+      required:
+        - templateName
+        - templateID
       x-examples:
-        example-1:
-          - templateDisplayName: Performance Management Objective Report
-            fieldDescriptionMap:
-              Objective status: Objective status
-              Objective completion percentage: Objective completion percentage
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-            templateName: performance_management_objective_report
+        Access Control Report:
+          templateName: access_control_report
+          templateID: access_control_report
+      x-tags:
+        - Models
     SOC2Report:
       title: SOC2Report
       type: object
@@ -7846,484 +7413,313 @@ components:
           items:
             $ref: '#/components/schemas/ApplicationStatusReportDetail'
     AccessControlReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Full Admin:
-                type: string
-                minLength: 1
-              Hiring and Termination access:
-                type: string
-                minLength: 1
-              App access:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Super Admin:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-              Can approve payroll run access:
-                type: string
-                minLength: 1
-            required:
-              - Full Admin
-              - Hiring and Termination access
-              - App access
-              - Department
-              - Location
-              - Date of birth
-              - Employee
-              - Employee ZIP
-              - Start date
-              - Super Admin
-              - Full name
-              - Can approve payroll run access
-          templateName:
-            type: string
-            minLength: 1
+      description: An Access Control Report object.
+      type: object
+      properties:
+        Full Admin:
+          type: string
+          minLength: 1
+        Hiring and Termination access:
+          type: string
+          minLength: 1
+        App access:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Date of birth:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Super Admin:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+        Can approve payroll run access:
+          type: string
+          minLength: 1
+      required:
+        - Full Admin
+        - Hiring and Termination access
+        - App access
+        - Department
+        - Location
+        - Date of birth
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Super Admin
+        - Full name
+        - Can approve payroll run access
+      x-tags:
+        - Models
       x-examples:
         Sample:
-          value:
-            - templateDisplayName: Access Control Report
-              fieldDescriptionMap:
-                Full Admin: 'No'
-                Hiring and Termination access: No Permission
-                App access: No Permission
-                Department: Customer Suppor
-                Location: San Francisco office
-                Date of birth: '2018-07-03'
-                Employee: 583fd8a2614a4acf551c318a
-                Employee ZIP: '94110'
-                Start date: '2017-05-11'
-                Super Admin: 'No'
-                Full name: Laura Hane
-                Can approve payroll run access: No Permission
-              templateName: Access Control Report
+          Full Admin: 'No'
+          Hiring and Termination access: Few employees
+          App access: Some apps for some/all employees
+          Department:
+            - Finance
+          Location: San Francisco
+          Date of birth: '1977-06-01'
+          Employee: 583fd8c3dbc86b409e8da052
+          Employee ZIP: '94110'
+          Start date: '2016-08-31'
+          Super Admin: 'No'
+          Full name: Eliga Breitenberg
+          Can approve payroll run access: No Permission
     AuthenticationSettingsReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateName
-          - templateDisplayName
-          - fieldDescriptionMap
-        properties:
-          templateName:
-            type: string
-            minLength: 1
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Name:
-                type: string
-                minLength: 1
-              Description:
-                type: string
-                minLength: 1
-              Password minimum length:
-                type: string
-                minLength: 1
-              Password minimum complex characters:
-                type: string
-                minLength: 1
-              2FA required:
-                type: string
-                minLength: 1
-              Session timeout(seconds):
-                type: string
-                minLength: 1
-              Session Inactivity timeout(seconds):
-                type: string
-                minLength: 1
-              2FA Method:
-                type: string
-                minLength: 1
-              2FA timeout(seconds):
-                type: string
-                minLength: 1
-            required:
-              - Name
-              - Description
-              - Password minimum length
-              - Password minimum complex characters
-              - 2FA required
-              - Session timeout(seconds)
-              - Session Inactivity timeout(seconds)
-              - 2FA Method
-              - 2FA timeout(seconds)
+      description: An Authentication Settings Report object.
+      type: object
+      properties:
+        2FA required:
+          type: boolean
+        Name:
+          type: string
+          minLength: 1
+        Password minimum length:
+          type: number
+        Session timeout(seconds):
+          type: number
+        2FA timeout(seconds):
+          type: number
+        2FA Method:
+          type: string
+          minLength: 1
+        Session Inactivity timeout(seconds):
+          type: number
+        Password minimum complex characters: {}
+        Description: {}
+      required:
+        - 2FA required
+        - Name
+        - Password minimum length
+        - Session timeout(seconds)
+        - 2FA timeout(seconds)
+        - 2FA Method
+        - Session Inactivity timeout(seconds)
       x-examples:
-        example-1:
-          - templateName: authentication_settings_report
-            templateDisplayName: Authentication Settings Report
-            fieldDescriptionMap:
-              Name: Name of the rule
-              Description: Description about the settings
-              Password minimum length: The minimum length of characters of password for login
-              Password minimum complex characters: The minimum length of complex characters password for login
-              2FA required: Is two factor authentication required for the company
-              Session timeout(seconds): 'How long before employees are logged out of Rippling, regardless of activity in seconds'
-              Session Inactivity timeout(seconds): How long an employee can be inactive before being logged out of Rippling in seconds
-              2FA Method: The method for enforcing 2FA
-              2FA timeout(seconds): How long before employees are prompted to re-enter 2FA authorization
+        Sample:
+          2FA required: false
+          Name: Default Authentication Rule
+          Password minimum length: 8
+          Session timeout(seconds): 2592000
+          2FA timeout(seconds): 2592000
+          2FA Method: AUTHENTICATOR
+          Session Inactivity timeout(seconds): 2592000
+          Password minimum complex characters: null
+          Description: null
+      x-tags:
+        - Models
+      title: ''
     BackgroundCheckStatusDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateName
-          - templateDisplayName
-          - fieldDescriptionMap
-        properties:
-          templateName:
-            type: string
-            minLength: 1
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Full name:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Background check status:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-            required:
-              - Full name
-              - Employee
-              - Background check status
-              - Start date
-              - Department
-              - Location
-              - Employee ZIP
-              - Date of birth
-      x-examples:
-        example-1:
-          - templateName: background_check_status_report
-            templateDisplayName: Background Check Status Report
-            fieldDescriptionMap:
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Background check status: Background check status
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
+      description: A Background Check Status Report object.
+      type: object
+      properties:
+        Date of birth:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Date of birth
+        - Department
+        - Location
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Full name
+      x-tags:
+        - Models
       title: BackgroundCheckStatusReportDetail
+      x-examples:
+        Sample:
+          Date of birth: '1987-02-05'
+          Department:
+            - Customer Support
+          Location: San Francisco
+          Employee: 583fd8addbc86b409e8d9c5c
+          Employee ZIP: '94110'
+          Start date: '2017-05-11'
+          Full name: Cassidy Marquardt
     BackgroundCheckCandidateReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Start date:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Background check name:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Background check email:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-            required:
-              - Start date
-              - Date of birth
-              - Background check name
-              - Location
-              - Department
-              - Employee
-              - Employee ZIP
-              - Background check email
-              - Full name
-          templateName:
-            type: string
-            minLength: 1
+      description: A Background Check Candidate Report object.
+      type: object
+      properties:
+        Date of birth:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            properties: {}
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Employee ZIP:
+          type: string
+          minLength: 1
+        Start date:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Date of birth
+        - Department
+        - Location
+        - Employee
+        - Employee ZIP
+        - Start date
+        - Full name
+      x-tags:
+        - Models
       x-examples:
-        example-1:
-          - templateDisplayName: Background Check Candidate Report
-            fieldDescriptionMap:
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Background check name: Background check name
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Background check email: Background check email
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-            templateName: background_check_candidate_report
+        Sample:
+          Date of birth: '1987-02-05'
+          Department:
+            - Customer Support
+          Location: San Francisco
+          Employee: 583fd8addbc86b409e8d9c5c
+          Employee ZIP: '94110'
+          Start date: '2017-05-11'
+          Full name: Cassidy Marquardt
+      title: BackgroundCheckCandidateReportDetail
     ApplicationProvisioningHistoryReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Employee:
-                type: string
-                minLength: 1
-              Application:
-                type: string
-                minLength: 1
-              Access end:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-              Access start:
-                type: string
-                minLength: 1
-            required:
-              - Employee
-              - Application
-              - Access end
-              - Full name
-              - Access start
-          templateName:
-            type: string
-            minLength: 1
+      description: An Application Provisioning History Report object.
+      type: object
+      properties:
+        Access start:
+          type: string
+          minLength: 1
+        Application:
+          type: string
+          minLength: 1
+        Location:
+          type: string
+          minLength: 1
+        Department:
+          type: array
+          items:
+            properties: {}
+        Employee:
+          type: string
+          minLength: 1
+        Access end:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+      required:
+        - Access start
+        - Application
+        - Location
+        - Department
+        - Employee
+        - Access end
+        - Full name
+      x-tags:
+        - Models
       x-examples:
-        example-1:
-          - templateDisplayName: Application provisioning history report
-            fieldDescriptionMap:
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Application: Application name
-              Access end: The date and time the employee's access to the application was revoked
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Access start: The date and time the employee was granted access to the application
-            templateName: app_access
+        Sample:
+          Access start: '02:22 PM on 06/23/2020'
+          Application: 58097b25f20db561b81dd5f8
+          Location: San Francisco
+          Department:
+            - Customer Support
+          Employee: 583fd8addbc86b409e8d9c5c
+          Access end: '11:49 AM on 09/10/2020'
+          Full name: Cassidy Marquardt
     ApplicationStatusReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              API Installation status:
-                type: string
-                minLength: 1
-              App admins:
-                type: string
-                minLength: 1
-              Application Status:
-                type: string
-                minLength: 1
-              Installed app name:
-                type: string
-                minLength: 1
-              SAML Installation status:
-                type: string
-                minLength: 1
-            required:
-              - API Installation status
-              - App admins
-              - Application Status
-              - Installed app name
-              - SAML Installation status
-          templateName:
-            type: string
-            minLength: 1
+      description: An Application Status Report object.
+      type: object
+      properties:
+        API Installation status:
+          type: string
+          minLength: 1
+        App admins:
+          type: string
+        Installed app name:
+          type: string
+          minLength: 1
+        Application Status:
+          type: string
+          minLength: 1
+        SAML Installation status:
+          type: string
+          minLength: 1
+      required:
+        - API Installation status
+        - App admins
+        - Installed app name
+        - Application Status
+        - SAML Installation status
       x-examples:
-        example-1:
-          - templateDisplayName: Application Status Report
-            fieldDescriptionMap:
-              API Installation status: Api integration status for the app
-              App admins: Admins of the app
-              Application Status: 'indicates whether the app is installed(completely, incompletely) or not installed'
-              Installed app name: Name of the installed app
-              SAML Installation status: SAML integration status for the app.
-            templateName: application_status_report
-    InventoryReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
+        Sample:
+          API Installation status: Incomplete
+          App admins: ''
+          Installed app name: Culture Amp (connected on 02/16/21)
+          Application Status: Complete
+          SAML Installation status: Incomplete
+      x-tags:
+        - Models
+    InventoryReport:
+      description: A hardware inventory report.
+      type: object
+      properties:
+        Computer inventory report:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - SKU
+              - Last ping
+              - Full name
+              - Acquired through Rippling
+              - Serial number
+              - Location
+              - Employee
+              - Is leased
+              - Hardware type
+              - Manufacturer
             properties:
               SKU:
                 type: string
@@ -8335,779 +7731,148 @@ components:
                 type: string
                 minLength: 1
               Acquired through Rippling:
+                type: boolean
+              Department:
+                type: array
+                items:
+                  properties: {}
+              Serial number:
                 type: string
                 minLength: 1
-              Serial number:
+              Location:
                 type: string
                 minLength: 1
               Employee:
                 type: string
                 minLength: 1
               Is leased:
-                type: string
-                minLength: 1
+                type: boolean
               Hardware type:
                 type: string
                 minLength: 1
               Manufacturer:
                 type: string
                 minLength: 1
-            required:
-              - SKU
-              - Last ping
-              - Full name
-              - Acquired through Rippling
-              - Serial number
-              - Employee
-              - Is leased
-              - Hardware type
-              - Manufacturer
-          templateName:
-            type: string
-            minLength: 1
+      required:
+        - Computer inventory report
       x-examples:
-        example-1:
-          - templateDisplayName: Computer inventory report
-            fieldDescriptionMap:
-              SKU: A manufacturer-provided name or code which uniquely identifies the model and configuration of an employee's computer.
-              Last ping: The date and time that the employee's computer was last able to connect to Rippling's servers.
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Acquired through Rippling: '''Finished'' if the employee has completed onboarding in Rippling, ''Not Finished'' if they have not.'
-              Serial number: 'A unique identifier for an employee''s computer, set by the manufacturer'
-              Employee: |2-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Is leased: True or False based on whether the employee's computer is leased through Rippling.
-              Hardware type: 'The type of hardware, e.g. ''Laptop'''
-              Manufacturer: 'The hardware manufacturer, e.g. ''Apple'''
-            templateName: inventory
-    InsuranceEnrollmentReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Dependent type:
-                type: string
-                minLength: 1
-              Annual compensation:
-                type: string
-                minLength: 1
-              Life insurance beneficiaries:
-                type: string
-                minLength: 1
-              Dependent name:
-                type: string
-                minLength: 1
-              Dependent SSN:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
+        Sample:
+          Computer inventory report:
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.166Z'
+              Full name: Marianne Bahringer
+              Acquired through Rippling: false
               Department:
-                type: string
-                minLength: 1
-              Dependent DOB:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-            required:
-              - Dependent type
-              - Annual compensation
-              - Life insurance beneficiaries
-              - Dependent name
-              - Dependent SSN
-              - Location
-              - Department
-              - Dependent DOB
-              - Employee
-              - Employee ZIP
-              - Start date
-              - Full name
-          templateName:
-            type: string
-            minLength: 1
-      x-examples:
-        example-1:
-          - templateDisplayName: Insurance enrollment report
-            fieldDescriptionMap:
-              Dependent type: 'How the insurance dependent relates to the insurance subscriber. E.g. ''Self, Spouse, Child'''
-              Annual compensation: 'The employees''s annual compensation, e.g. "$60,000". Compensation is calculated assuming a 40-hour work-week for all employees with an hourly wage.'
-              Life insurance beneficiaries: 'Semicolon-separated list of Life Insurance beneficiaries, if applicable'
-              Dependent name: 'Name of the dependent covered by insurance. E.g. ''John Smith, Jane Smith'''
-              Dependent SSN: Social Security Number of the Insurance Dependent. E.g. '123-45-678'
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Dependent DOB: 'Date of Birth of the Insurance Dependent. E.g. ''Jan 01, 2000'''
-              Employee: |2-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-            templateName: insurance_enrollment
-    ReportTemplates:
-      description: ''
+                - Engineering
+              Serial number: DU0R5LPMO3A6
+              Location: San Francisco
+              Employee: 5fa0211c41455b002855251b
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.317Z'
+              Full name: Annika McDermott
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DQPVBKVBIB8O
+              Location: San Francisco
+              Employee: 5fa0213241455b0028552f03
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.488Z'
+              Full name: Michael Smith
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DI6V1A3SA0C9
+              Location: San Francisco
+              Employee: 5d6e6babfa9c4e5b156a8bcb
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+            - SKU: 2020 MacBook Pro 16.0"
+              Last ping: '2020-11-23T07:37:33.464Z'
+              Full name: Jacki Marquardt
+              Acquired through Rippling: false
+              Department:
+                - Engineering
+              Serial number: DQIAMNV4F7AI
+              Location: San Francisco
+              Employee: 5fa0213541455b00285530a9
+              Is leased: false
+              Hardware type: LAPTOP
+              Manufacturer: Apple
+      title: Inventory Report
       x-tags:
         - Models
+    InventoryReportDetail:
+      description: An inventory report object.
       type: object
       properties:
-        templateName:
+        SKU:
           type: string
           minLength: 1
-        templateID:
+        Last ping:
+          type: string
+          minLength: 1
+        Full name:
+          type: string
+          minLength: 1
+        Acquired through Rippling:
+          type: boolean
+        Department:
+          type: array
+          items:
+            properties: {}
+        Serial number:
+          type: string
+          minLength: 1
+        Location:
+          type: string
+          minLength: 1
+        Employee:
+          type: string
+          minLength: 1
+        Is leased:
+          type: boolean
+        Hardware type:
+          type: string
+          minLength: 1
+        Manufacturer:
           type: string
           minLength: 1
       required:
-        - templateName
-        - templateID
-      x-examples:
-        Sample:
-          templateName: access_control_report
-          templateID: access_control_report
-      title: ReportTemplates
-    PerformanceManagementPulseReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Pulse rating:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Pulse created at:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-            required:
-              - Pulse rating
-              - Date of birth
-              - Pulse created at
-              - Department
-              - Location
-              - Employee
-              - Employee ZIP
-              - Start date
-              - Full name
-          templateName:
-            type: string
-            minLength: 1
+        - SKU
+        - Last ping
+        - Full name
+        - Acquired through Rippling
+        - Department
+        - Serial number
+        - Location
+        - Employee
+        - Is leased
+        - Hardware type
+        - Manufacturer
       x-examples:
         example-1:
-          - templateDisplayName: Performance Management Pulse Report
-            fieldDescriptionMap:
-              Pulse rating: Performance Pulse rating
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Pulse created at: Performance Pulse created at
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-            templateName: performance_management_pulse_report
-    PerformanceManagementReviewReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateName
-          - templateDisplayName
-          - fieldDescriptionMap
-        properties:
-          templateName:
-            type: string
-            minLength: 1
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Full name:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Review status:
-                type: string
-                minLength: 1
-              Review start date:
-                type: string
-                minLength: 1
-              Review end date:
-                type: string
-                minLength: 1
-              Review description:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-            required:
-              - Full name
-              - Employee
-              - Review status
-              - Review start date
-              - Review end date
-              - Review description
-              - Start date
-              - Department
-              - Location
-              - Employee ZIP
-              - Date of birth
-      x-examples:
-        example-1:
-          - templateName: performance_management_review_report
-            templateDisplayName: Performance Management Review Report
-            fieldDescriptionMap:
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Employee: |2-
-
-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Review status: Performance Review status
-              Review start date: Performance Review start date
-              Review end date: Performance Review end date
-              Review description: Short description about the Performance review.
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-    FSAEnrollmentDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              YTD company DCFSA contribution:
-                type: string
-                minLength: 1
-              Health FSA plan type:
-                type: string
-                minLength: 1
-              FSA enrollment date:
-                type: string
-                minLength: 1
-              Annual compensation:
-                type: string
-                minLength: 1
-              YTD employee DCFSA contribution:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Employee FSA contribution (annual):
-                type: string
-                minLength: 1
-              DCA balance:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-              DCFSA enrollment date:
-                type: string
-                minLength: 1
-              Enrolled in FSA?:
-                type: string
-                minLength: 1
-              FSA plan year:
-                type: string
-                minLength: 1
-              Enrolled in DCFSA?:
-                type: string
-                minLength: 1
-              YTD employee FSA contribution:
-                type: string
-                minLength: 1
-              FSA balance:
-                type: string
-                minLength: 1
-              SSN:
-                type: string
-                minLength: 1
-              Employee DCFSA contribution (annual):
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              YTD employer FSA contribution:
-                type: string
-                minLength: 1
-            required:
-              - YTD company DCFSA contribution
-              - Health FSA plan type
-              - FSA enrollment date
-              - Annual compensation
-              - YTD employee DCFSA contribution
-              - Employee
-              - Location
-              - Department
-              - Start date
-              - Employee FSA contribution (annual)
-              - DCA balance
-              - Date of birth
-              - Full name
-              - DCFSA enrollment date
-              - Enrolled in FSA?
-              - FSA plan year
-              - Enrolled in DCFSA?
-              - YTD employee FSA contribution
-              - FSA balance
-              - SSN
-              - Employee DCFSA contribution (annual)
-              - Employee ZIP
-              - YTD employer FSA contribution
-          templateName:
-            type: string
-            minLength: 1
-      x-examples:
-        example-1:
-          - templateDisplayName: Flexible Spending Account enrollment report
-            fieldDescriptionMap:
-              YTD company DCFSA contribution: Year-to-date dca contribution by employer as of requested date.
-              Health FSA plan type: FSA plan type the employee is enrolled in as of requested date.
-              FSA enrollment date: FSA enrollment date of the employee in the FSA plan as of requested date.
-              Annual compensation: 'The employees''s annual compensation, e.g. "$60,000". Compensation is calculated assuming a 40-hour work-week for all employees with an hourly wage.'
-              YTD employee DCFSA contribution: Year-to-date dca contribution by employee as of requested date.
-              Employee: |2-
-
-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Employee FSA contribution (annual): Annual FSA contribution elected by employee as of requested date.
-              DCA balance: Closing DCA balance as of requested date.
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              DCFSA enrollment date: DCA enrollment date of the employee in the DCA plan as of requested date.
-              Enrolled in FSA?: Whether this employee is enrolled in FSA on requested date. E.g. 'True'
-              FSA plan year: FSA plan year the employee is enrolled in as of requested date.
-              Enrolled in DCFSA?: Whether this employee is enrolled in DCA on requested date. E.g. 'True'
-              YTD employee FSA contribution: Year-to-date fsa contribution by employee as of requested date.
-              FSA balance: Closing FSA balance as of requested date.
-              SSN: The employee's Social Security Number
-              Employee DCFSA contribution (annual): Annual DCA contribution elected by employee as of requested date.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              YTD employer FSA contribution: Year-to-date fsa contribution by employer as of requested date.
-            templateName: fsa_enrollment
-    HSAEnrollmentDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Employee HSA contribution (monthly):
-                type: string
-                minLength: 1
-              Available HSA balance:
-                type: string
-                minLength: 1
-              HSA eligible:
-                type: string
-                minLength: 1
-              YTD employee HSA contribution:
-                type: string
-                minLength: 1
-              Annual compensation:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Latest HSA change:
-                type: string
-                minLength: 1
-              Enrolled in HSA?:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Comp HSA contribution (monthly):
-                type: string
-                minLength: 1
-              SSN:
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              YTD comp HSA contribution:
-                type: string
-                minLength: 1
-            required:
-              - Employee HSA contribution (monthly)
-              - Available HSA balance
-              - HSA eligible
-              - YTD employee HSA contribution
-              - Annual compensation
-              - Date of birth
-              - Latest HSA change
-              - Enrolled in HSA?
-              - Full name
-              - Department
-              - Comp HSA contribution (monthly)
-              - SSN
-              - Location
-              - Employee
-              - Employee ZIP
-              - Start date
-              - YTD comp HSA contribution
-          templateName:
-            type: string
-            minLength: 1
-      x-examples:
-        example-1:
-          - templateDisplayName: Health Savings Account enrollment report
-            fieldDescriptionMap:
-              Employee HSA contribution (monthly): Monthly HSA contribution by employee as of requested date.
-              Available HSA balance: Closing HSA balance as of requested date.
-              HSA eligible: Whether this employee is eligible for HSA on requested date. E.g. 'True'
-              YTD employee HSA contribution: Year-to-date hsa contribution by employee as of requested date.
-              Annual compensation: 'The employees''s annual compensation, e.g. "$60,000". Compensation is calculated assuming a 40-hour work-week for all employees with an hourly wage.'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Latest HSA change: Last contribution change date for employee before requested date.
-              Enrolled in HSA?: Whether this employee is enrolled in HSA on requested date. E.g. 'True'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Comp HSA contribution (monthly): Monthly HSA contribution by employer as of requested date.
-              SSN: The employee's Social Security Number
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-              Employee: |2-
-
-
-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              YTD comp HSA contribution: Year-to-date hsa contribution by employer as of requested date.
-            templateName: hsa_enrollment
-    CommuterEnrollmentReportDetail:
-      type: array
-      description: ''
-      minItems: 1
-      uniqueItems: true
-      items:
-        type: object
-        required:
-          - templateDisplayName
-          - fieldDescriptionMap
-          - templateName
-        properties:
-          templateDisplayName:
-            type: string
-            minLength: 1
-          fieldDescriptionMap:
-            type: object
-            properties:
-              Post-tax transit deduction (monthly):
-                type: string
-                minLength: 1
-              Annual compensation:
-                type: string
-                minLength: 1
-              Date of birth:
-                type: string
-                minLength: 1
-              Employee:
-                type: string
-                minLength: 1
-              Available transit balance:
-                type: string
-                minLength: 1
-              Department:
-                type: string
-                minLength: 1
-              Start date:
-                type: string
-                minLength: 1
-              Last parking change:
-                type: string
-                minLength: 1
-              Available parking balance:
-                type: string
-                minLength: 1
-              Post-tax parking deduction (monthly):
-                type: string
-                minLength: 1
-              Pre-tax transit deduction (monthly):
-                type: string
-                minLength: 1
-              Transit contribution (monthly):
-                type: string
-                minLength: 1
-              Enrolled in commuter?:
-                type: string
-                minLength: 1
-              Full name:
-                type: string
-                minLength: 1
-              Last transit change:
-                type: string
-                minLength: 1
-              Pre-tax parking deduction (monthly):
-                type: string
-                minLength: 1
-              SSN:
-                type: string
-                minLength: 1
-              Comp contribution (monthly):
-                type: string
-                minLength: 1
-              Commuter eligible:
-                type: string
-                minLength: 1
-              Employee ZIP:
-                type: string
-                minLength: 1
-              Parking contribution (monthly):
-                type: string
-                minLength: 1
-              Location:
-                type: string
-                minLength: 1
-            required:
-              - Post-tax transit deduction (monthly)
-              - Annual compensation
-              - Date of birth
-              - Employee
-              - Available transit balance
-              - Department
-              - Start date
-              - Last parking change
-              - Available parking balance
-              - Post-tax parking deduction (monthly)
-              - Pre-tax transit deduction (monthly)
-              - Transit contribution (monthly)
-              - Enrolled in commuter?
-              - Full name
-              - Last transit change
-              - Pre-tax parking deduction (monthly)
-              - SSN
-              - Comp contribution (monthly)
-              - Commuter eligible
-              - Employee ZIP
-              - Parking contribution (monthly)
-              - Location
-          templateName:
-            type: string
-            minLength: 1
-      x-examples:
-        example-1:
-          - templateDisplayName: Commuter benefits enrollment report
-            fieldDescriptionMap:
-              Post-tax transit deduction (monthly): Monthly post tax transit deduction amount for employee as of requested date.
-              Annual compensation: 'The employees''s annual compensation, e.g. "$60,000". Compensation is calculated assuming a 40-hour work-week for all employees with an hourly wage.'
-              Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
-              Employee: |2-
-
-
-
-                                    The employee's full name. Employees with multiple "jobs" with your company 
-                                    (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
-              Available transit balance: Closing transit balance as of requested date.
-              Department: |-
-                The employee's department. CSV exports will show only the employee's terminal department, 
-                                                however reports in Rippling will show the full department tree 
-                                                (e.g., Sales > Account Executives > Enterprise Sales)
-              Start date: 'The employee''s first day of employment, e.g. "01/23/2017"'
-              Last parking change: Last parking contribution change date for employee before requested date.
-              Available parking balance: Closing parking balance as of requested date.
-              Post-tax parking deduction (monthly): Monthly post tax parking deduction amount for employee as of requested date.
-              Pre-tax transit deduction (monthly): Monthly pre tax transit deduction amount for employee as of requested date.
-              Transit contribution (monthly): The monthly contribution towards transit account as of requested date.
-              Enrolled in commuter?: Whether this employee is enrolled in commuter benefits on requested date. E.g. 'True'
-              Full name: 'The employee''s full name, e.g. "John Doe"'
-              Last transit change: Last transit contribution change date for employee before requested date.
-              Pre-tax parking deduction (monthly): Monthly pre tax parking deduction amount for employee as of requested date.
-              SSN: The employee's Social Security Number
-              Comp contribution (monthly): The monthly contribution by employer as of requested date.
-              Commuter eligible: Whether this employee is eligible for commuter benefits on requested date. E.g. 'True'
-              Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
-              Parking contribution (monthly): The monthly contribution towards parking account as of requested date.
-              Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
-            templateName: commuter_enrollment
+          SKU: 2020 MacBook Pro 16.0"
+          Last ping: '2020-11-23T07:37:33.166Z'
+          Full name: Marianne Bahringer
+          Acquired through Rippling: false
+          Department:
+            - Engineering
+          Serial number: DU0R5LPMO3A6
+          Location: San Francisco
+          Employee: 5fa0211c41455b002855251b
+          Is leased: false
+          Hardware type: LAPTOP
+          Manufacturer: Apple
+      x-tags:
+        - Models
   securitySchemes:
     Bearer ApiKey:
       type: apiKey

@@ -8,7 +8,7 @@ Rippling's Reports API enables the ability for Rippling App Partners and Ripplin
 ### Getting Started
 
 #### For App Partners:
-Before you begin, you'll need to enable Rippling's token authorization. Please the [authorization documentation](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md) for more details on how you will use access tokens to retrieve authorized client information. 
+Before you begin, you'll need to enable Rippling's token authorization. Please the [authorization documentation](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md) for more details on how you will use access tokens to retrieve authorized client information.
 
 #### For Rippling Admins:
 Rippling admins will be able to access reports through leveraging API keys with correctly defined scopes (Reports Permissions: SOC2 Report). Please note that API keys are for internal usage only and it is against Rippling's Terms of Service to provide your API Key to anyone outside of your organization.

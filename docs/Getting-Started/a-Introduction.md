@@ -18,7 +18,7 @@ If you're a Rippling customer, please see the [Customer Guide](https://developer
 
 ## Partners
 
-Rippling requires that all application partners build integrations within [Rippling's App Shop](https://rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information. 
+Rippling requires that all application partners build integrations within [Rippling's App Shop](https://rippling.com/app-shop). The Rippling App Shop provides a opportunity to showcase your application to Rippling's clients, as well as securely and transparently acquire the proper permissions to access customer information.
 
 If you are interested in building an application with Rippling, please see the [Partner Guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/c-Partners.md). Note, Rippling partners are required to use OAuth in order to integrate with Rippling and to your integration in the App Shop.
 
@@ -33,4 +33,3 @@ The Rippling App Shop is used by a wide span of roles, ranging from HR & IT dire
 <br />
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5d86d735ef8244559790dcca2db7e462" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
