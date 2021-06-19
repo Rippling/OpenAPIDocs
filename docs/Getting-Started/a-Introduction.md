@@ -10,6 +10,8 @@ The API will continue to evolve as more endpoints and capabilities are added. If
 
 Please note, it is in violation of Rippling's Terms of Service to use an API key on behalf of another organization in order to access the Rippling API Platform. All Rippling partners must use OAuth to integrate with Rippling's API, as detailed in our [authorization guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md).
 
+**Please note, until further notice there should be expected delay times with developer applications due to unprecedented requests. We will do our best to get back to you as our resources permit.**
+
 ## Customers
 
 Rippling customers use their API keys in order to access the Rippling API Platform.

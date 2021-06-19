@@ -7,6 +7,8 @@ tags: [development package, Intro, partners]
 
 To develop an integrated application on Rippling, you will follow the development process listed below. Please note Rippling partners must use OAuth as outlined in our [Authorization guide](https://developer.rippling.com/docs/rippling-api/docs/Getting-Started/f-Authorization.md).
 
+**Please note, until further notice there should be expected delay times with developer applications due to unprecedented requests. We will do our best to get back to you as our resources permit.**
+
 
 <!-- theme: success -->
 
