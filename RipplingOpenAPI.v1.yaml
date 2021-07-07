@@ -5320,6 +5320,7 @@ paths:
 
 
 
+
                                               The employee's full name. Employees with multiple "jobs" with your company 
                                               (for example, as both 1099 and W2, or who were terminated and then re-hired) will have separate records for each job.
                         Employee ZIP: 'The US postal zip code or the pin code for the employee''s address, e.g. "94114"'
@@ -5351,6 +5352,7 @@ paths:
                     - templateDisplayName: Application provisioning history report
                       fieldDescriptionMap:
                         Employee: |2-
+
 
 
 
@@ -5628,19 +5630,19 @@ components:
           nullable: true
         phone:
           type: string
-          nullable: true
           description: Phone Number
+          nullable: true
         personalEmail:
           type: string
           description: Personal Email
         filingStatus:
           type: string
-          nullable: true
           enum:
             - SINGLE
             - MARRIED
             - MARRIED_USER_SINGLE_RATE
           description: An ENUM of Filing Status
+          nullable: true
         title:
           type: string
           description: The employee's work title
@@ -5685,14 +5687,14 @@ components:
           nullable: true
         startDate:
           type: string
-          description: The employee's account creation date on Rippling.
+          description: The employee's start date on Rippling.
         w2StartDate:
           type: string
           description: The employee's start date as a W2 employee.
         endDate:
           type: string
-          nullable: true
           description: The employee's end date
+          nullable: true
         roleState:
           type: string
           enum:
@@ -5704,8 +5706,8 @@ components:
           description: 'The employee''s role status, e.g. ACTIVE'
         workEmail:
           type: string
-          nullable: true
           description: The employee's work email
+          nullable: true
         manager:
           type: string
           description: The unique identifier of the employee's manager. This value can be null.
@@ -7239,6 +7241,7 @@ components:
             Location: 'The employee''s work location name, e.g. "San Fran - HQ"'
             Date of birth: 'The employee''s Date of Birth in MM/DD/YYYY format, e.g. "01/23/2017"'
             Employee: |2-
+
 
 
 
